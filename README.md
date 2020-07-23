@@ -1,6 +1,6 @@
-# the_movie_wiki
+# The Movie Wiki
 
-The Movie Wiki
+[![Codemagic build status](https://api.codemagic.io/apps/5f19568b81646a1a6cd20b2e/5f19568b81646a1a6cd20b2d/status_badge.svg)](https://codemagic.io/apps/5f19568b81646a1a6cd20b2e/5f19568b81646a1a6cd20b2d/latest_build)
 
 ## Getting Started
 
