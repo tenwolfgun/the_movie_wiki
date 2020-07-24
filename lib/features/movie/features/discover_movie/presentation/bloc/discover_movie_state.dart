@@ -5,5 +5,15 @@ part of 'discover_movie_bloc.dart';
 
 @freezed
 abstract class DiscoverMovieState with _$DiscoverMovieState {
-  const factory DiscoverMovieState.initial() = Initial;
+  factory DiscoverMovieState.initial() = Initial;
+  factory DiscoverMovieState.loading() = Loading;
+  factory DiscoverMovieState.loaded({
+    List<Results> results,
+    bool isEndOfResult,
+    bool isLoading,
+    bool isError,
+    String errorMessage,
+    bool isLoadData,
+  }) = Loaded;
+  factory DiscoverMovieState.error(String errorMessage) = Error;
 }

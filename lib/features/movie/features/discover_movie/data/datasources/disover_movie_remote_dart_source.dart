@@ -28,7 +28,7 @@ class DiscoverMovieRemoteDataSourceImpl
       final response = await dio.get(
         '$type?api_key=$API_KEY&page=$page',
       );
-      return DiscoverMovieModel.fromJson(json.decode(response.data));
+      return DiscoverMovieModel.fromJson(response.data);
     } on DioError catch (e) {
       if (e.response.statusCode != 200) {
         throw ServerException();

@@ -350,7 +350,37 @@ class _$DiscoverMovieStateTearOff {
 
 // ignore: unused_element
   Initial initial() {
-    return const Initial();
+    return Initial();
+  }
+
+// ignore: unused_element
+  Loading loading() {
+    return Loading();
+  }
+
+// ignore: unused_element
+  Loaded loaded(
+      {List<Results> results,
+      bool isEndOfResult,
+      bool isLoading,
+      bool isError,
+      String errorMessage,
+      bool isLoadData}) {
+    return Loaded(
+      results: results,
+      isEndOfResult: isEndOfResult,
+      isLoading: isLoading,
+      isError: isError,
+      errorMessage: errorMessage,
+      isLoadData: isLoadData,
+    );
+  }
+
+// ignore: unused_element
+  Error error(String errorMessage) {
+    return Error(
+      errorMessage,
+    );
   }
 }
 
@@ -361,19 +391,34 @@ mixin _$DiscoverMovieState {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result loading(),
+    @required
+        Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+            bool isError, String errorMessage, bool isLoadData),
+    @required Result error(String errorMessage),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result loading(),
+    Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+        bool isError, String errorMessage, bool isLoadData),
+    Result error(String errorMessage),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(Initial value),
+    @required Result loading(Loading value),
+    @required Result loaded(Loaded value),
+    @required Result error(Error value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(Initial value),
+    Result loading(Loading value),
+    Result loaded(Loaded value),
+    Result error(Error value),
     @required Result orElse(),
   });
 }
@@ -408,7 +453,7 @@ class _$InitialCopyWithImpl<$Res> extends _$DiscoverMovieStateCopyWithImpl<$Res>
 }
 
 class _$Initial implements Initial {
-  const _$Initial();
+  _$Initial();
 
   @override
   String toString() {
@@ -427,8 +472,16 @@ class _$Initial implements Initial {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result loading(),
+    @required
+        Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+            bool isError, String errorMessage, bool isLoadData),
+    @required Result error(String errorMessage),
   }) {
     assert(initial != null);
+    assert(loading != null);
+    assert(loaded != null);
+    assert(error != null);
     return initial();
   }
 
@@ -436,6 +489,10 @@ class _$Initial implements Initial {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result loading(),
+    Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+        bool isError, String errorMessage, bool isLoadData),
+    Result error(String errorMessage),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -449,8 +506,14 @@ class _$Initial implements Initial {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(Initial value),
+    @required Result loading(Loading value),
+    @required Result loaded(Loaded value),
+    @required Result error(Error value),
   }) {
     assert(initial != null);
+    assert(loading != null);
+    assert(loaded != null);
+    assert(error != null);
     return initial(this);
   }
 
@@ -458,6 +521,9 @@ class _$Initial implements Initial {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(Initial value),
+    Result loading(Loading value),
+    Result loaded(Loaded value),
+    Result error(Error value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -469,5 +535,426 @@ class _$Initial implements Initial {
 }
 
 abstract class Initial implements DiscoverMovieState {
-  const factory Initial() = _$Initial;
+  factory Initial() = _$Initial;
+}
+
+abstract class $LoadingCopyWith<$Res> {
+  factory $LoadingCopyWith(Loading value, $Res Function(Loading) then) =
+      _$LoadingCopyWithImpl<$Res>;
+}
+
+class _$LoadingCopyWithImpl<$Res> extends _$DiscoverMovieStateCopyWithImpl<$Res>
+    implements $LoadingCopyWith<$Res> {
+  _$LoadingCopyWithImpl(Loading _value, $Res Function(Loading) _then)
+      : super(_value, (v) => _then(v as Loading));
+
+  @override
+  Loading get _value => super._value as Loading;
+}
+
+class _$Loading implements Loading {
+  _$Loading();
+
+  @override
+  String toString() {
+    return 'DiscoverMovieState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is Loading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loading(),
+    @required
+        Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+            bool isError, String errorMessage, bool isLoadData),
+    @required Result error(String errorMessage),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loaded != null);
+    assert(error != null);
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loading(),
+    Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+        bool isError, String errorMessage, bool isLoadData),
+    Result error(String errorMessage),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(Initial value),
+    @required Result loading(Loading value),
+    @required Result loaded(Loaded value),
+    @required Result error(Error value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loaded != null);
+    assert(error != null);
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(Initial value),
+    Result loading(Loading value),
+    Result loaded(Loaded value),
+    Result error(Error value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Loading implements DiscoverMovieState {
+  factory Loading() = _$Loading;
+}
+
+abstract class $LoadedCopyWith<$Res> {
+  factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) then) =
+      _$LoadedCopyWithImpl<$Res>;
+  $Res call(
+      {List<Results> results,
+      bool isEndOfResult,
+      bool isLoading,
+      bool isError,
+      String errorMessage,
+      bool isLoadData});
+}
+
+class _$LoadedCopyWithImpl<$Res> extends _$DiscoverMovieStateCopyWithImpl<$Res>
+    implements $LoadedCopyWith<$Res> {
+  _$LoadedCopyWithImpl(Loaded _value, $Res Function(Loaded) _then)
+      : super(_value, (v) => _then(v as Loaded));
+
+  @override
+  Loaded get _value => super._value as Loaded;
+
+  @override
+  $Res call({
+    Object results = freezed,
+    Object isEndOfResult = freezed,
+    Object isLoading = freezed,
+    Object isError = freezed,
+    Object errorMessage = freezed,
+    Object isLoadData = freezed,
+  }) {
+    return _then(Loaded(
+      results: results == freezed ? _value.results : results as List<Results>,
+      isEndOfResult: isEndOfResult == freezed
+          ? _value.isEndOfResult
+          : isEndOfResult as bool,
+      isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
+      isError: isError == freezed ? _value.isError : isError as bool,
+      errorMessage: errorMessage == freezed
+          ? _value.errorMessage
+          : errorMessage as String,
+      isLoadData:
+          isLoadData == freezed ? _value.isLoadData : isLoadData as bool,
+    ));
+  }
+}
+
+class _$Loaded implements Loaded {
+  _$Loaded(
+      {this.results,
+      this.isEndOfResult,
+      this.isLoading,
+      this.isError,
+      this.errorMessage,
+      this.isLoadData});
+
+  @override
+  final List<Results> results;
+  @override
+  final bool isEndOfResult;
+  @override
+  final bool isLoading;
+  @override
+  final bool isError;
+  @override
+  final String errorMessage;
+  @override
+  final bool isLoadData;
+
+  @override
+  String toString() {
+    return 'DiscoverMovieState.loaded(results: $results, isEndOfResult: $isEndOfResult, isLoading: $isLoading, isError: $isError, errorMessage: $errorMessage, isLoadData: $isLoadData)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is Loaded &&
+            (identical(other.results, results) ||
+                const DeepCollectionEquality()
+                    .equals(other.results, results)) &&
+            (identical(other.isEndOfResult, isEndOfResult) ||
+                const DeepCollectionEquality()
+                    .equals(other.isEndOfResult, isEndOfResult)) &&
+            (identical(other.isLoading, isLoading) ||
+                const DeepCollectionEquality()
+                    .equals(other.isLoading, isLoading)) &&
+            (identical(other.isError, isError) ||
+                const DeepCollectionEquality()
+                    .equals(other.isError, isError)) &&
+            (identical(other.errorMessage, errorMessage) ||
+                const DeepCollectionEquality()
+                    .equals(other.errorMessage, errorMessage)) &&
+            (identical(other.isLoadData, isLoadData) ||
+                const DeepCollectionEquality()
+                    .equals(other.isLoadData, isLoadData)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(results) ^
+      const DeepCollectionEquality().hash(isEndOfResult) ^
+      const DeepCollectionEquality().hash(isLoading) ^
+      const DeepCollectionEquality().hash(isError) ^
+      const DeepCollectionEquality().hash(errorMessage) ^
+      const DeepCollectionEquality().hash(isLoadData);
+
+  @override
+  $LoadedCopyWith<Loaded> get copyWith =>
+      _$LoadedCopyWithImpl<Loaded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loading(),
+    @required
+        Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+            bool isError, String errorMessage, bool isLoadData),
+    @required Result error(String errorMessage),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loaded != null);
+    assert(error != null);
+    return loaded(
+        results, isEndOfResult, isLoading, isError, errorMessage, isLoadData);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loading(),
+    Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+        bool isError, String errorMessage, bool isLoadData),
+    Result error(String errorMessage),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loaded != null) {
+      return loaded(
+          results, isEndOfResult, isLoading, isError, errorMessage, isLoadData);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(Initial value),
+    @required Result loading(Loading value),
+    @required Result loaded(Loaded value),
+    @required Result error(Error value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loaded != null);
+    assert(error != null);
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(Initial value),
+    Result loading(Loading value),
+    Result loaded(Loaded value),
+    Result error(Error value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Loaded implements DiscoverMovieState {
+  factory Loaded(
+      {List<Results> results,
+      bool isEndOfResult,
+      bool isLoading,
+      bool isError,
+      String errorMessage,
+      bool isLoadData}) = _$Loaded;
+
+  List<Results> get results;
+  bool get isEndOfResult;
+  bool get isLoading;
+  bool get isError;
+  String get errorMessage;
+  bool get isLoadData;
+  $LoadedCopyWith<Loaded> get copyWith;
+}
+
+abstract class $ErrorCopyWith<$Res> {
+  factory $ErrorCopyWith(Error value, $Res Function(Error) then) =
+      _$ErrorCopyWithImpl<$Res>;
+  $Res call({String errorMessage});
+}
+
+class _$ErrorCopyWithImpl<$Res> extends _$DiscoverMovieStateCopyWithImpl<$Res>
+    implements $ErrorCopyWith<$Res> {
+  _$ErrorCopyWithImpl(Error _value, $Res Function(Error) _then)
+      : super(_value, (v) => _then(v as Error));
+
+  @override
+  Error get _value => super._value as Error;
+
+  @override
+  $Res call({
+    Object errorMessage = freezed,
+  }) {
+    return _then(Error(
+      errorMessage == freezed ? _value.errorMessage : errorMessage as String,
+    ));
+  }
+}
+
+class _$Error implements Error {
+  _$Error(this.errorMessage) : assert(errorMessage != null);
+
+  @override
+  final String errorMessage;
+
+  @override
+  String toString() {
+    return 'DiscoverMovieState.error(errorMessage: $errorMessage)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is Error &&
+            (identical(other.errorMessage, errorMessage) ||
+                const DeepCollectionEquality()
+                    .equals(other.errorMessage, errorMessage)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorMessage);
+
+  @override
+  $ErrorCopyWith<Error> get copyWith =>
+      _$ErrorCopyWithImpl<Error>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loading(),
+    @required
+        Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+            bool isError, String errorMessage, bool isLoadData),
+    @required Result error(String errorMessage),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loaded != null);
+    assert(error != null);
+    return error(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loading(),
+    Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+        bool isError, String errorMessage, bool isLoadData),
+    Result error(String errorMessage),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(errorMessage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(Initial value),
+    @required Result loading(Loading value),
+    @required Result loaded(Loaded value),
+    @required Result error(Error value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loaded != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(Initial value),
+    Result loading(Loading value),
+    Result loaded(Loaded value),
+    Result error(Error value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Error implements DiscoverMovieState {
+  factory Error(String errorMessage) = _$Error;
+
+  String get errorMessage;
+  $ErrorCopyWith<Error> get copyWith;
 }

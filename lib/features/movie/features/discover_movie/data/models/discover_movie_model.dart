@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:the_movie_wiki/features/movie/features/discover_movie/domain/entities/discover_movie.dart';
+
+import '../../domain/entities/discover_movie.dart';
+import '../../domain/entities/results.dart';
 
 part 'discover_movie_model.freezed.dart';
 part 'discover_movie_model.g.dart';
@@ -46,8 +48,8 @@ abstract class ResultModel with _$ResultModel {
 }
 
 extension ResultModelX on ResultModel {
-  Result toDomain() {
-    return Result(
+  Results toDomain() {
+    return Results(
       popularity: popularity,
       voteCount: voteCount,
       posterPath: posterPath,

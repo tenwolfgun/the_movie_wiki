@@ -1,6 +1,6 @@
 # The Movie Wiki
 
-[![Codemagic build status](https://api.codemagic.io/apps/5f19568b81646a1a6cd20b2e/5f19568b81646a1a6cd20b2d/status_badge.svg)](https://codemagic.io/apps/5f19568b81646a1a6cd20b2e/5f19568b81646a1a6cd20b2d/latest_build)
+[![Codemagic build status](https://api.codemagic.io/apps/5f19568b81646a1a6cd20b2e/5f19568b81646a1a6cd20b2d/status_badge.svg)](https://codemagic.io/apps/5f19568b81646a1a6cd20b2e/5f19568b81646a1a6cd20b2d/latest_build) [![Build Status](https://travis-ci.org/w0rm1995/the_movie_wiki.svg?branch=1.2)](https://travis-ci.org/w0rm1995/the_movie_wiki)
 
 ## Getting Started
 
