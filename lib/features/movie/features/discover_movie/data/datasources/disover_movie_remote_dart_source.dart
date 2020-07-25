@@ -29,12 +29,8 @@ class DiscoverMovieRemoteDataSourceImpl
         '$type?api_key=$API_KEY&page=$page',
       );
       return DiscoverMovieModel.fromJson(response.data);
-    } on DioError catch (e) {
-      if (e.response.statusCode != 200) {
-        throw ServerException();
-      } else {
-        throw UnexpectedException();
-      }
+    } on DioError {
+      throw ServerException();
     }
   }
 }

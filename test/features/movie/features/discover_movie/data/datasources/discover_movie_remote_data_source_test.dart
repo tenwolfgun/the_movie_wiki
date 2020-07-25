@@ -5,10 +5,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:the_movie_wiki/core/api_key.dart';
 import 'package:the_movie_wiki/core/error/exception.dart';
+import 'package:the_movie_wiki/core/error/failure.dart';
 import 'package:the_movie_wiki/features/movie/features/discover_movie/data/datasources/disover_movie_remote_dart_source.dart';
 import 'package:the_movie_wiki/features/movie/features/discover_movie/data/models/discover_movie_model.dart';
-
-import '../../../../../../fixtures/fixture_reader.dart';
 
 class MockDio extends Mock implements Dio {}
 
@@ -73,8 +72,8 @@ void main() {
     );
   }
 
-  void setUpMockDioFailure() {
-    when(mockDio.get(any)).thenThrow(ServerException());
+  void setUpMockDioFailure(Exception e) {
+    when(mockDio.get(any)).thenThrow(e);
   }
 
   group(
@@ -120,9 +119,9 @@ void main() {
       );
 
       test(
-        'should return ServerException',
+        'ServerException',
         () async {
-          setUpMockDioFailure();
+          setUpMockDioFailure(ServerException());
 
           final call = dataSource.getDiscoverMovieData;
 

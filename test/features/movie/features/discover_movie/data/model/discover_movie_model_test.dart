@@ -11,14 +11,8 @@ void main() {
       {
         "popularity": 77.328,
         "vote_count": 183,
-        "video": false,
         "poster_path": "/hPkqY2EMqWUnFEoedukilIUieVG.jpg",
         "id": 531876,
-        "adult": false,
-        "backdrop_path": "/n1RohH2VoK1CdVI2fXvcP19dSlm.jpg",
-        "original_language": "en",
-        "original_title": "The Outpost",
-        "genre_ids": [28, 18, 36, 10752],
         "title": "The Outpost",
         "vote_average": 6.9,
         "overview":
@@ -28,14 +22,8 @@ void main() {
       {
         "popularity": 73.2,
         "vote_count": 4,
-        "video": false,
         "poster_path": "/27eA9xGba61LtKr7gJRnhtDDgEP.jpg",
         "id": 651586,
-        "adult": false,
-        "backdrop_path": null,
-        "original_language": "es",
-        "original_title": "Superagente Makey",
-        "genre_ids": [28, 35],
         "title": "Superagente Makey",
         "vote_average": 5,
         "overview":
@@ -45,7 +33,6 @@ void main() {
     ],
     "page": 1,
     "total_results": 597,
-    "dates": {"maximum": "2020-07-20", "minimum": "2020-06-02"},
     "total_pages": 30
   };
 
@@ -74,6 +61,15 @@ void main() {
       final domain = result.toDomain();
 
       expect(domain, tDiscoverMovie);
+    },
+  );
+
+  test(
+    'should return a JSON map containing the proper data',
+    () async {
+      final result = tDiscoverMovieModel.toJson();
+      final expected = jsonData;
+      expect(result, expected);
     },
   );
 }

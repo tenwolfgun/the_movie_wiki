@@ -22,7 +22,7 @@ _$_DiscoverMovieModel _$_$_DiscoverMovieModelFromJson(
 Map<String, dynamic> _$_$_DiscoverMovieModelToJson(
         _$_DiscoverMovieModel instance) =>
     <String, dynamic>{
-      'results': instance.results,
+      'results': instance.results?.map((e) => e?.toJson())?.toList(),
       'page': instance.page,
       'total_results': instance.totalResults,
       'total_pages': instance.totalPages,

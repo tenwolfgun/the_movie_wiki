@@ -136,27 +136,6 @@ void main() {
         );
 
         test(
-          'should return unexpected',
-          () async {
-            when(mockRemoteDataSource.getDiscoverMovieData(
-              type: anyNamed('type'),
-              page: anyNamed('page'),
-            )).thenThrow(UnexpectedException());
-
-            final result = await repositoryImpl.getDiscoverMovieData(
-              type: tType,
-              page: tPage,
-            );
-
-            verify(mockRemoteDataSource.getDiscoverMovieData(
-              type: tType,
-              page: tPage,
-            ));
-            expect(result, equals(left(const Failure.unexpected())));
-          },
-        );
-
-        test(
           'should return unexpected when data is null',
           () async {
             when(mockRemoteDataSource.getDiscoverMovieData(

@@ -1,0 +1,25 @@
+codecov:
+  require_ci_to_pass: yes
+
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+
+comment:
+  layout: "header, diff, changes, tree"
+  behavior: default
+
+ignore:
+  - "lib/core/error"
+#   - "lib/core/extension"
+  - "lib/core/module"
+  - "api_key.dart"
+  - "color_collection.dart"
+  - "injection.dart"
+  - "injection.iconfig.dart"
+#   - "lib/features/movie/features/discover_movie/data/models"
+  - "discover_movie_model.freezed.dart"
+  - "lib/features/movie/features/discover_movie/domain/entities"
+#   - "lib/features/movie/features/discover_movie/presentation"
+  - "discover_movie_bloc.freezed.dart"

@@ -40,8 +40,6 @@ class DiscoverMovieRepositoryImpl implements DiscoverMovieRepository {
         return right(result.toDomain());
       } on ServerException {
         return left(const Failure.serverError());
-      } on UnexpectedException {
-        return left(const Failure.unexpected());
       }
     } else {
       return left(const Failure.noInternetConnection());
