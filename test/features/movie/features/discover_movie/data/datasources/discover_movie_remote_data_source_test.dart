@@ -1,11 +1,8 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:the_movie_wiki/core/api_key.dart';
 import 'package:the_movie_wiki/core/error/exception.dart';
-import 'package:the_movie_wiki/core/error/failure.dart';
 import 'package:the_movie_wiki/features/movie/features/discover_movie/data/datasources/disover_movie_remote_dart_source.dart';
 import 'package:the_movie_wiki/features/movie/features/discover_movie/data/models/discover_movie_model.dart';
 

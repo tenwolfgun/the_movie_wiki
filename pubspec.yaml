@@ -29,6 +29,14 @@ dependencies:
   freezed_annotation: ^0.11.0
   dio: ^3.0.9
   data_connection_checker: ^0.3.4
+  flutter_screenutil: ^2.3.1
+  ff_navigation_bar: ^0.1.5
+  md2_tab_indicator: ^1.0.2
+  smooth_star_rating: ^1.1.1
+  cached_network_image: ^2.2.0+1
+  shimmer: ^1.1.1
+  intl: ^0.16.1
+  overlay_support: ^1.0.5
 
   # built_value: ^6.7.1
   # built_collection: ^4.2.2
@@ -64,7 +72,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^1.10.0
-  lint: ^1.2.0
   freezed: ^0.11.4
   auto_route_generator: ^0.6.0
   injectable_generator: ^0.4.1

@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 import '../error/failure.dart';
 
 extension FailureX on Failure {
@@ -13,5 +15,14 @@ extension FailureX on Failure {
     } else {
       return 'Unexpected Error';
     }
+  }
+}
+
+extension Stringx on String {
+  String toDate() {
+    return this == null
+        ? '-'
+        : DateFormat.yMMMd()
+            .format(DateTime.parse(this.replaceAll('-', '')).toUtc());
   }
 }

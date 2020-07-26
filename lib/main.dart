@@ -2,15 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:the_movie_wiki/app_widget.dart';
 import 'package:the_movie_wiki/features/movie/features/discover_movie/presentation/bloc/discover_movie_bloc.dart';
 import 'package:the_movie_wiki/injection.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   configureInjection(Environment.prod);
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarBrightness: Brightness.dark,
+    statusBarIconBrightness: Brightness.dark,
+  ));
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
-    runApp(MyApp());
+    runApp(const AppWidget());
   });
 }
 
