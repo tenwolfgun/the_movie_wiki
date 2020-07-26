@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
-class LoadingState extends StatefulWidget {
+class LoadingState extends StatelessWidget {
   const LoadingState({Key key}) : super(key: key);
 
   @override
-  _LoadingStateState createState() => _LoadingStateState();
-}
-
-class _LoadingStateState extends State<LoadingState> {
-  @override
   Widget build(BuildContext context) {
     return const Center(
-      child: CircularProgressIndicator(
-        valueColor: AlwaysStoppedAnimation(
-          Color(0XFFEB4B1F),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(8, 16, 16, 0),
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation(
+            Color(0XFFEB4B1F),
+          ),
         ),
       ),
     );

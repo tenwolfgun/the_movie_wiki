@@ -37,6 +37,7 @@ dependencies:
   shimmer: ^1.1.1
   intl: ^0.16.1
   overlay_support: ^1.0.5
+  google_fonts: ^1.1.0
 
   # built_value: ^6.7.1
   # built_collection: ^4.2.2

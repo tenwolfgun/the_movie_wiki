@@ -9,14 +9,14 @@ import '../../../../../../core/widget/initial_state.dart';
 import '../../../../../../core/widget/loading_state.dart';
 import '../bloc/discover_movie_bloc.dart';
 
-class PopularMoviePage extends StatefulWidget {
-  const PopularMoviePage({Key key}) : super(key: key);
+class TopRatedMoviePage extends StatefulWidget {
+  const TopRatedMoviePage({Key key}) : super(key: key);
 
   @override
-  _PopularMoviePageState createState() => _PopularMoviePageState();
+  _TopRatedMoviePageState createState() => _TopRatedMoviePageState();
 }
 
-class _PopularMoviePageState extends State<PopularMoviePage>
+class _TopRatedMoviePageState extends State<TopRatedMoviePage>
     with AutomaticKeepAliveClientMixin {
   final ScrollController _scrollController = ScrollController();
   int page = 1;
@@ -26,11 +26,11 @@ class _PopularMoviePageState extends State<PopularMoviePage>
   bool get wantKeepAlive => true;
 
   void blocInit() {
-    context.bloc<DiscoverMovieBloc>().add(GetMovieData('popular', page));
+    context.bloc<DiscoverMovieBloc>().add(GetMovieData('top_rated', page));
   }
 
   void blocRetry() {
-    context.bloc<DiscoverMovieBloc>().add(GetMovieDataRetry('popular', page));
+    context.bloc<DiscoverMovieBloc>().add(GetMovieDataRetry('top_rated', page));
   }
 
   void _onScroll() {

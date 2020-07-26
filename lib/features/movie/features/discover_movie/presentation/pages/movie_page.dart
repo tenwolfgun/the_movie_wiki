@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:md2_tab_indicator/md2_tab_indicator.dart';
+import 'package:the_movie_wiki/features/movie/features/discover_movie/presentation/pages/top_rated_movie_page.dart';
+import 'package:the_movie_wiki/features/movie/features/discover_movie/presentation/pages/upcoming_movie_page.dart';
 
 import '../../../../../../injection.dart';
 import '../bloc/discover_movie_bloc.dart';
@@ -29,9 +32,11 @@ class _MoviePageState extends State<MoviePage> {
             color: const Color(0XFF0D0C11),
             child: TabBar(
               indicatorSize: TabBarIndicatorSize.label,
-              labelStyle: TextStyle(
-                fontSize: 40.sp,
-                fontWeight: FontWeight.bold,
+              labelStyle: GoogleFonts.montserrat(
+                textStyle: TextStyle(
+                  fontSize: 40.sp,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               isScrollable: true,
               unselectedLabelColor: Colors.white54,
@@ -67,8 +72,20 @@ class _MoviePageState extends State<MoviePage> {
                 ),
               child: const PopularMoviePage(),
             ),
-            const NowPlayingMoviePage(),
-            const NowPlayingMoviePage(),
+            BlocProvider(
+              create: (_) => getIt<DiscoverMovieBloc>()
+                ..add(
+                  DiscoverMovieEvent.getMovieData('top_rated', 1),
+                ),
+              child: const TopRatedMoviePage(),
+            ),
+            BlocProvider(
+              create: (_) => getIt<DiscoverMovieBloc>()
+                ..add(
+                  DiscoverMovieEvent.getMovieData('upcoming', 1),
+                ),
+              child: const UpcomingMoviePage(),
+            ),
           ],
         ),
       ),

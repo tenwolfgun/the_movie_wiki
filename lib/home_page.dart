@@ -63,11 +63,12 @@ class _HomePageState extends State<HomePage> {
           selectedItemTextStyle: TextStyle(
             height: 3,
             fontSize: 35.sp,
+            fontWeight: FontWeight.bold,
           ),
           unselectedItemTextStyle: TextStyle(
             height: 3,
             fontSize: 35.sp,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.normal,
           ),
           showSelectedItemShadow: false,
         ),

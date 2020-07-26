@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:overlay_support/overlay_support.dart';
 
 import 'home_page.dart';
@@ -14,11 +15,14 @@ class AppWidget extends StatelessWidget {
         title: 'The Movie Wiki',
         theme: ThemeData(
           backgroundColor: Colors.black,
-          primaryColor: Color(0XFF232931),
-          primaryColorDark: Color(0XFF232931),
-          canvasColor: Color(0XFF232931),
+          primaryColor: const Color(0XFF232931),
+          primaryColorDark: const Color(0XFF232931),
+          canvasColor: const Color(0XFF232931),
           primarySwatch: Colors.red,
-          highlightColor: Color(0XFFEB4B1F),
+          highlightColor: const Color(0XFFEB4B1F),
+          textTheme: GoogleFonts.montserratTextTheme(
+            Theme.of(context).textTheme,
+          ),
         ),
         home: const HomePage(),
       ),
