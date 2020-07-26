@@ -22,7 +22,6 @@ extension Stringx on String {
   String toDate() {
     return this == null
         ? '-'
-        : DateFormat.yMMMd()
-            .format(DateTime.parse(this.replaceAll('-', '')).toUtc());
+        : DateFormat.yMMMd().format(DateTime.parse(this.replaceAll('-', '')));
   }
 }
