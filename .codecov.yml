@@ -14,6 +14,7 @@ ignore:
   - "lib/core/error"
   - "lib/core/widget"
   - "lib/core/module"
+  - "lib/core/entities"
   - "api_key.dart"
   - "color_collection.dart"
   - "injection.dart"
@@ -23,3 +24,8 @@ ignore:
   - "lib/features/movie/features/discover_movie/presentation/bloc/discover_movie_bloc.freezed.dart"
   - "lib/features/movie/features/discover_movie/presentation/pages"
   - "lib/features/movie/features/discover_movie/presentation/widgets"
+  - "lib/features/movie/features/detail_movie/domain/entities"
+  - "lib/features/movie/features/detail_movie/data/models/detail_movie_model.freezed.dart"
+  - "lib/features/movie/features/detail_movie/presentation/"
+
+
