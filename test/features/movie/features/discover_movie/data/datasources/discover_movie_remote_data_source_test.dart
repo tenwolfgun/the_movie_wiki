@@ -69,8 +69,8 @@ void main() {
     );
   }
 
-  void setUpMockDioFailure(Exception e) {
-    when(mockDio.get(any)).thenThrow(e);
+  void setUpMockDioFailure() {
+    when(mockDio.get(any)).thenThrow(DioError());
   }
 
   group(
@@ -118,7 +118,7 @@ void main() {
       test(
         'ServerException',
         () async {
-          setUpMockDioFailure(ServerException());
+          setUpMockDioFailure();
 
           final call = dataSource.getDiscoverMovieData;
 
