@@ -275,150 +275,220 @@ void main() {
     );
   });
 
-  group('Get Movie Data Retry Event', () {
-    blocTest(
-      'should emit [loaded]',
-      build: () {
-        when(
-          mockGetDiscoverMovieData(
-            type: anyNamed('type'),
-            page: anyNamed('page'),
-          ),
-        ).thenAnswer((_) async => Right(tDiscoverMovie));
-        return DiscoverMovieBloc(mockGetDiscoverMovieData);
-      },
-      act: (DiscoverMovieBloc bloc) {
-        final act = bloc
-          ..emit(
-            DiscoverMovieState.loaded(
-              results: tDiscoverMovie.results,
-              isEndOfResult: false,
-              isError: true,
-              isLoadData: false,
-              isLoading: false,
-              errorMessage: '',
+  group(
+    'Get Movie Data Retry Event',
+    () {
+      blocTest(
+        'should emit [loaded]',
+        build: () {
+          when(
+            mockGetDiscoverMovieData(
+              type: anyNamed('type'),
+              page: anyNamed('page'),
             ),
-          )
-          ..add(DiscoverMovieEvent.getMovieDataRetry('now_playing', 1));
-        return act;
-      },
-      wait: const Duration(milliseconds: 500),
-      skip: 1,
-      expect: [
-        DiscoverMovieState.loaded(
-          results: tDiscoverMovie.results,
-          isEndOfResult: false,
-          isError: false,
-          isLoadData: false,
-          isLoading: true,
-          errorMessage: '',
-        ),
-        DiscoverMovieState.loaded(
-          results: tDiscoverMovie.results + tDiscoverMovie.results,
-          isEndOfResult: false,
-          isError: false,
-          isLoadData: false,
-          isLoading: false,
-          errorMessage: '',
-        ),
-      ],
-    );
+          ).thenAnswer((_) async => Right(tDiscoverMovie));
+          return DiscoverMovieBloc(mockGetDiscoverMovieData);
+        },
+        act: (DiscoverMovieBloc bloc) {
+          final act = bloc
+            ..emit(
+              DiscoverMovieState.loaded(
+                results: tDiscoverMovie.results,
+                isEndOfResult: false,
+                isError: true,
+                isLoadData: false,
+                isLoading: false,
+                errorMessage: '',
+              ),
+            )
+            ..add(DiscoverMovieEvent.getMovieDataRetry('now_playing', 1));
+          return act;
+        },
+        wait: const Duration(milliseconds: 500),
+        skip: 1,
+        expect: [
+          DiscoverMovieState.loaded(
+            results: tDiscoverMovie.results,
+            isEndOfResult: false,
+            isError: false,
+            isLoadData: false,
+            isLoading: true,
+            errorMessage: '',
+          ),
+          DiscoverMovieState.loaded(
+            results: tDiscoverMovie.results + tDiscoverMovie.results,
+            isEndOfResult: false,
+            isError: false,
+            isLoadData: false,
+            isLoading: false,
+            errorMessage: '',
+          ),
+        ],
+      );
 
-    blocTest(
-      'should emit [loaded] with end of result is true',
-      build: () {
-        when(
-          mockGetDiscoverMovieData(
-            type: anyNamed('type'),
-            page: anyNamed('page'),
-          ),
-        ).thenAnswer((_) async => Right(tDiscoverMovieEndOfResult));
-        return DiscoverMovieBloc(mockGetDiscoverMovieData);
-      },
-      act: (DiscoverMovieBloc bloc) {
-        final act = bloc
-          ..emit(
-            DiscoverMovieState.loaded(
-              results: tDiscoverMovie.results,
-              isEndOfResult: false,
-              isError: true,
-              isLoadData: false,
-              isLoading: false,
-              errorMessage: '',
+      blocTest(
+        'should emit [loaded] with end of result is true',
+        build: () {
+          when(
+            mockGetDiscoverMovieData(
+              type: anyNamed('type'),
+              page: anyNamed('page'),
             ),
-          )
-          ..add(DiscoverMovieEvent.getMovieDataRetry('now_playing', 1));
-        return act;
-      },
-      wait: const Duration(milliseconds: 500),
-      skip: 1,
-      expect: [
-        DiscoverMovieState.loaded(
-          results: tDiscoverMovie.results,
-          isEndOfResult: false,
-          isError: false,
-          isLoadData: false,
-          isLoading: true,
-          errorMessage: '',
-        ),
-        DiscoverMovieState.loaded(
-          results: tDiscoverMovie.results + tDiscoverMovieEndOfResult.results,
-          isEndOfResult: true,
-          isError: false,
-          isLoadData: false,
-          isLoading: false,
-          errorMessage: '',
-        ),
-      ],
-    );
+          ).thenAnswer((_) async => Right(tDiscoverMovieEndOfResult));
+          return DiscoverMovieBloc(mockGetDiscoverMovieData);
+        },
+        act: (DiscoverMovieBloc bloc) {
+          final act = bloc
+            ..emit(
+              DiscoverMovieState.loaded(
+                results: tDiscoverMovie.results,
+                isEndOfResult: false,
+                isError: true,
+                isLoadData: false,
+                isLoading: false,
+                errorMessage: '',
+              ),
+            )
+            ..add(DiscoverMovieEvent.getMovieDataRetry('now_playing', 1));
+          return act;
+        },
+        wait: const Duration(milliseconds: 500),
+        skip: 1,
+        expect: [
+          DiscoverMovieState.loaded(
+            results: tDiscoverMovie.results,
+            isEndOfResult: false,
+            isError: false,
+            isLoadData: false,
+            isLoading: true,
+            errorMessage: '',
+          ),
+          DiscoverMovieState.loaded(
+            results: tDiscoverMovie.results + tDiscoverMovieEndOfResult.results,
+            isEndOfResult: true,
+            isError: false,
+            isLoadData: false,
+            isLoading: false,
+            errorMessage: '',
+          ),
+        ],
+      );
 
-    blocTest(
-      'should emit [loaded] with isError == true',
-      build: () {
-        when(
-          mockGetDiscoverMovieData(
-            type: anyNamed('type'),
-            page: anyNamed('page'),
-          ),
-        ).thenAnswer((_) async => left(Failure.noInternetConnection()));
-        return DiscoverMovieBloc(mockGetDiscoverMovieData);
-      },
-      act: (DiscoverMovieBloc bloc) {
-        final act = bloc
-          ..emit(
-            DiscoverMovieState.loaded(
-              results: tDiscoverMovie.results,
-              isEndOfResult: false,
-              isError: true,
-              isLoadData: false,
-              isLoading: false,
-              errorMessage: '',
+      blocTest(
+        'should emit [loaded] with isError == true',
+        build: () {
+          when(
+            mockGetDiscoverMovieData(
+              type: anyNamed('type'),
+              page: anyNamed('page'),
             ),
-          )
-          ..add(DiscoverMovieEvent.getMovieDataRetry('now_playing', 1));
-        return act;
-      },
-      wait: const Duration(milliseconds: 500),
-      skip: 1,
-      expect: [
-        DiscoverMovieState.loaded(
-          results: tDiscoverMovie.results,
-          isEndOfResult: false,
-          isError: false,
-          isLoadData: false,
-          isLoading: true,
-          errorMessage: '',
-        ),
-        DiscoverMovieState.loaded(
-          results: tDiscoverMovie.results,
-          isEndOfResult: false,
-          isError: true,
-          isLoadData: false,
-          isLoading: false,
-          errorMessage:
-              'Unable to process your request, please check your network connection.',
-        ),
-      ],
-    );
-  });
+          ).thenAnswer((_) async => left(Failure.noInternetConnection()));
+          return DiscoverMovieBloc(mockGetDiscoverMovieData);
+        },
+        act: (DiscoverMovieBloc bloc) {
+          final act = bloc
+            ..emit(
+              DiscoverMovieState.loaded(
+                results: tDiscoverMovie.results,
+                isEndOfResult: false,
+                isError: true,
+                isLoadData: false,
+                isLoading: false,
+                errorMessage: '',
+              ),
+            )
+            ..add(DiscoverMovieEvent.getMovieDataRetry('now_playing', 1));
+          return act;
+        },
+        wait: const Duration(milliseconds: 500),
+        skip: 1,
+        expect: [
+          DiscoverMovieState.loaded(
+            results: tDiscoverMovie.results,
+            isEndOfResult: false,
+            isError: false,
+            isLoadData: false,
+            isLoading: true,
+            errorMessage: '',
+          ),
+          DiscoverMovieState.loaded(
+            results: tDiscoverMovie.results,
+            isEndOfResult: false,
+            isError: true,
+            isLoadData: false,
+            isLoading: false,
+            errorMessage:
+                'Unable to process your request, please check your network connection.',
+          ),
+        ],
+      );
+
+      blocTest(
+        'should emit [loading, loaded] when current state is error',
+        build: () {
+          when(
+            mockGetDiscoverMovieData(
+              type: anyNamed('type'),
+              page: anyNamed('page'),
+            ),
+          ).thenAnswer((_) async => Right(tDiscoverMovie));
+          return DiscoverMovieBloc(mockGetDiscoverMovieData);
+        },
+        act: (DiscoverMovieBloc bloc) async {
+          final act = bloc
+            ..emit(
+              DiscoverMovieState.error(
+                'error',
+              ),
+            )
+            ..add(DiscoverMovieEvent.getMovieData('now_playing', 1));
+          return act;
+        },
+        wait: const Duration(milliseconds: 500),
+        skip: 1,
+        expect: [
+          DiscoverMovieState.loading(),
+          DiscoverMovieState.loaded(
+            results: tDiscoverMovie.results,
+            isEndOfResult: false,
+            isError: false,
+            isLoadData: false,
+            isLoading: false,
+            errorMessage: '',
+          ),
+        ],
+      );
+
+      blocTest(
+        'should emit [loading, error] when current state is error',
+        build: () {
+          when(
+            mockGetDiscoverMovieData(
+              type: anyNamed('type'),
+              page: anyNamed('page'),
+            ),
+          ).thenAnswer((_) async => left(Failure.noInternetConnection()));
+          return DiscoverMovieBloc(mockGetDiscoverMovieData);
+        },
+        act: (DiscoverMovieBloc bloc) async {
+          final act = bloc
+            ..emit(
+              DiscoverMovieState.error(
+                'error',
+              ),
+            )
+            ..add(DiscoverMovieEvent.getMovieData('now_playing', 1));
+          return act;
+        },
+        wait: const Duration(milliseconds: 500),
+        skip: 1,
+        expect: [
+          DiscoverMovieState.loading(),
+          DiscoverMovieState.error(
+            'Unable to process your request, please check your network connection.',
+          ),
+        ],
+      );
+    },
+  );
 }

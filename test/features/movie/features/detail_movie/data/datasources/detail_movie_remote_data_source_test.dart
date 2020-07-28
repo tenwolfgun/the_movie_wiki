@@ -30,8 +30,28 @@ void main() {
     );
   }
 
+  void setUpMockDioFailure404() {
+    when(mockDio.get(any)).thenThrow(
+      DioError(
+        response: Response(
+          data: null,
+          statusCode: 404,
+        ),
+        type: DioErrorType.RESPONSE,
+      ),
+    );
+  }
+
   void setUpMockDioFailure() {
-    when(mockDio.get(any)).thenThrow(DioError());
+    when(mockDio.get(any)).thenThrow(
+      DioError(
+        response: Response(
+          data: null,
+          statusCode: 500,
+        ),
+        type: DioErrorType.DEFAULT,
+      ),
+    );
   }
 
   group(
@@ -72,6 +92,20 @@ void main() {
           final call = dataSourceImpl.getDetailMovie;
 
           expect(() => call(id: tId), throwsA(isInstanceOf<ServerException>()));
+        },
+      );
+
+      test(
+        'should throw EmptyResultException',
+        () async {
+          setUpMockDioFailure404();
+
+          final call = dataSourceImpl.getDetailMovie;
+
+          expect(
+            () => call(id: tId),
+            throwsA(isInstanceOf<EmptyResultException>()),
+          );
         },
       );
     },
