@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../core/routes/router.gr.dart';
 import '../../../../../../core/widget/loading_state.dart';
 import '../../../../../../core/widget/retry_button.dart';
 import '../bloc/discover_movie_bloc.dart';
@@ -34,13 +36,28 @@ class MovieLoadedState extends StatelessWidget {
                   : state.isLoading
                       ? const LoadingState()
                       : const LoadingState()
-              : MovieItem(
-                  title: state.results[i].title,
-                  overview: state.results[i].overview,
-                  posterPath: state.results[i].posterPath,
-                  voteCount: state.results[i].voteCount,
-                  voteAverage: state.results[i].voteAverage,
-                  releaseDate: state.results[i].releaseDate,
+              : InkWell(
+                  onTap: () {
+                    ExtendedNavigator.of(context).push(
+                      Routes.detailMoviePage,
+                      arguments: DetailMoviePageArguments(
+                        id: state.results[i].id,
+                        title: state.results[i].title,
+                        posterPath: state.results[i].posterPath,
+                        rating: state.results[i].voteAverage,
+                        overview: state.results[i].overview,
+                        releaseDate: state.results[i].releaseDate,
+                      ),
+                    ); // Navigator.push(
+                  },
+                  child: MovieItem(
+                    title: state.results[i].title,
+                    overview: state.results[i].overview,
+                    posterPath: state.results[i].posterPath,
+                    voteCount: state.results[i].voteCount,
+                    voteAverage: state.results[i].voteAverage,
+                    releaseDate: state.results[i].releaseDate,
+                  ),
                 );
         },
       ),

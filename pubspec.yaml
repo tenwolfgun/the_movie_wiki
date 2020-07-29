@@ -38,6 +38,8 @@ dependencies:
   intl: ^0.16.1
   overlay_support: ^1.0.5
   google_fonts: ^1.1.0
+  auto_route: ^0.6.6
+  expandable: ^3.0.1
 
   # built_value: ^6.7.1
   # built_collection: ^4.2.2

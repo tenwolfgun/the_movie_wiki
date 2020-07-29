@@ -6,16 +6,18 @@ class ImageLoader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Shimmer.fromColors(
-      baseColor: Colors.grey[300],
-      highlightColor: Colors.grey[100],
-      child: Container(
-        margin: const EdgeInsets.all(4),
-        width: 144,
-        height: 203,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-          color: Colors.grey[400],
+    return Center(
+      child: Shimmer.fromColors(
+        baseColor: Colors.grey[300],
+        highlightColor: Colors.grey[100],
+        child: Container(
+          margin: const EdgeInsets.all(4),
+          // width: 144,
+          // height: 203,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            color: Colors.grey[400],
+          ),
         ),
       ),
     );
