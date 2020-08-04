@@ -39,13 +39,13 @@ class MovieLoadedState extends StatelessWidget {
               : InkWell(
                   onTap: () {
                     ExtendedNavigator.of(context).push(
-                      Routes.detailMoviePage,
-                      arguments: DetailMoviePageArguments(
+                      Routes.newDetailMoviePage,
+                      arguments: NewDetailMoviePageArguments(
                         id: state.results[i].id,
                         title: state.results[i].title,
                         posterPath: state.results[i].posterPath,
                         rating: state.results[i].voteAverage,
-                        overview: state.results[i].overview,
+                        overview: state.results[i].overview ?? '',
                         releaseDate: state.results[i].releaseDate,
                       ),
                     ); // Navigator.push(

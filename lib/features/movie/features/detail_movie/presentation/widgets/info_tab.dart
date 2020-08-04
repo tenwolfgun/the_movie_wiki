@@ -69,6 +69,12 @@ class InfoTab extends StatelessWidget {
                     ),
                   ),
                 ),
+                Divider(
+                  indent: 16,
+                  endIndent: 16,
+                  thickness: 1,
+                  color: Colors.white54,
+                ),
                 Column(
                   children: <Widget>[
                     ListTile(
@@ -265,6 +271,25 @@ class InfoTab extends StatelessWidget {
                       ),
                       subtitle: Text(
                         '${state.detailMovie.productionCompanies.map((i) => i.name).join(', ')}',
+                        style: TextStyle(
+                          fontSize: 40.sp,
+                          height: 1.5,
+                          color: Colors.white54,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text(
+                        'Genres',
+                        style: TextStyle(
+                          color: Colors.white,
+                          height: 1.5,
+                          fontSize: 40.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      subtitle: Text(
+                        '${state.detailMovie.genres.map((i) => i.name).join(', ')}',
                         style: TextStyle(
                           fontSize: 40.sp,
                           height: 1.5,

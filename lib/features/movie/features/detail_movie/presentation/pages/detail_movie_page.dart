@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:md2_tab_indicator/md2_tab_indicator.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
+import 'package:the_movie_wiki/features/movie/features/detail_movie/presentation/widgets/media_tab.dart';
 
 import '../../../../../../core/widget/error_image.dart';
 import '../../../../../../core/widget/error_state.dart';
@@ -299,7 +300,10 @@ class _DetailMoviePageState extends State<DetailMoviePage>
                             overview: widget.overview,
                             releaseDate: widget.releaseDate,
                           ),
-                          Container(),
+                          MediaTab(
+                            showTitle: _showTitle,
+                            state: state,
+                          ),
                           Container(),
                           Container(),
                           Container(),
