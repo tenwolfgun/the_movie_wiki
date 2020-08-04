@@ -16,6 +16,7 @@ class SliverWidget extends StatefulWidget {
   final bool showTitle;
   final String title;
   final double rating;
+  final String releaseDate;
 
   const SliverWidget({
     Key key,
@@ -25,6 +26,7 @@ class SliverWidget extends StatefulWidget {
     this.showTitle,
     this.title,
     this.rating,
+    this.releaseDate,
   }) : super(key: key);
 
   @override
@@ -37,9 +39,9 @@ class _SliverWidgetState extends State<SliverWidget> {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: const Color(0XFF232931),
+      backgroundColor: const Color(0XFF0C0B10),
       brightness: Brightness.dark,
-      expandedHeight: 450,
+      expandedHeight: widget.kExpandedHeight,
       pinned: true,
       iconTheme: widget.showTitle
           ? const IconThemeData(
@@ -76,13 +78,13 @@ class _SliverWidgetState extends State<SliverWidget> {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        Colors.black,
+                        const Color(0XFF0C0B10),
                         Colors.transparent,
                       ],
                     ).createShader(
                       Rect.fromLTRB(
                         0,
-                        rect.height - 200,
+                        rect.height - 300,
                         rect.width,
                         rect.height,
                       ),
@@ -128,12 +130,12 @@ class _SliverWidgetState extends State<SliverWidget> {
                                 options: CarouselOptions(
                                     aspectRatio: 6 / 5,
                                     viewportFraction: 1,
-                                    enableInfiniteScroll: true,
+                                    enableInfiniteScroll: false,
                                     enlargeCenterPage: false,
                                     autoPlay: true,
                                     autoPlayInterval: Duration(seconds: 3),
                                     autoPlayAnimationDuration:
-                                        Duration(milliseconds: 800),
+                                        Duration(milliseconds: 1000),
                                     autoPlayCurve: Curves.fastOutSlowIn,
                                     onPageChanged: (i, _) {
                                       setState(() {
@@ -143,9 +145,9 @@ class _SliverWidgetState extends State<SliverWidget> {
                               ),
                       ),
                       Positioned(
-                        // bottom: ScreenUtil.screenHeight * 0.2,
-                        left: ScreenUtil.screenWidth * 0.83,
-                        // right: ScreenUtil.screenWidth * 0.4,
+                        // bottom: ScreenUtil.screenHeight * 0.17,
+                        // left: ScreenUtil.screenWidth * 0.83,
+                        right: ScreenUtil.screenWidth * 0.03,
                         top: ScreenUtil.screenHeight * 0.28,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -207,7 +209,7 @@ class _SliverWidgetState extends State<SliverWidget> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Padding(
                             padding: const EdgeInsets.only(
@@ -219,17 +221,19 @@ class _SliverWidgetState extends State<SliverWidget> {
                               widget.title,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                fontSize: 50.sp,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                height: 1.5,
+                              style: GoogleFonts.montserrat(
+                                textStyle: TextStyle(
+                                  fontSize: 50.sp,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  height: 1.5,
+                                ),
                               ),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(
-                              top: 16,
+                              top: 8,
                               right: 16,
                               left: 8,
                               bottom: 16,
@@ -242,6 +246,22 @@ class _SliverWidgetState extends State<SliverWidget> {
                               color: const Color(0XFFF3CC3E),
                               borderColor: Colors.white54,
                               spacing: 0.0,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 16,
+                              right: 16,
+                              left: 8,
+                              bottom: 16,
+                            ),
+                            child: Text(
+                              widget.releaseDate,
+                              style: TextStyle(
+                                fontSize: 40.sp,
+                                color: Colors.white54,
+                                height: 1.5,
+                              ),
                             ),
                           ),
                         ],

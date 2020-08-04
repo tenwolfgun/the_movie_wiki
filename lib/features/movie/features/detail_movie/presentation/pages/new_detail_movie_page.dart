@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../core/extension/extension_helper.dart';
 import '../../../../../../core/widget/error_state.dart';
 import '../../../../../../core/widget/initial_state.dart';
 import '../../../../../../core/widget/loading_state.dart';
@@ -30,7 +31,7 @@ class NewDetailMoviePage extends StatefulWidget {
   _NewDetailMoviePageState createState() => _NewDetailMoviePageState();
 }
 
-const kExpandedHeight = 450.0;
+const kExpandedHeight = 500.0;
 
 class _NewDetailMoviePageState extends State<NewDetailMoviePage>
     with SingleTickerProviderStateMixin {
@@ -93,6 +94,7 @@ class _NewDetailMoviePageState extends State<NewDetailMoviePage>
                         kExpandedHeight: kExpandedHeight,
                         showTitle: _showTitle,
                         rating: widget.rating,
+                        releaseDate: widget.releaseDate.toDate(),
                       ),
                     ];
                   },
