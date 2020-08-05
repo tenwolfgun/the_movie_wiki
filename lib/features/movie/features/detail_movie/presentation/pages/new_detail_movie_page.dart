@@ -63,11 +63,13 @@ class _NewDetailMoviePageState extends State<NewDetailMoviePage>
     super.initState();
     _scrollController.addListener(_scrollListener);
     _initBloc();
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
   void dispose() {
     _scrollController.dispose();
+    _tabController.dispose();
     super.dispose();
   }
 
@@ -85,9 +87,11 @@ class _NewDetailMoviePageState extends State<NewDetailMoviePage>
               loaded: (state) {
                 return NestedScrollView(
                   controller: _scrollController,
-                  headerSliverBuilder: (_, __) {
+                  headerSliverBuilder: (_, isScroll) {
                     return <Widget>[
                       SliverWidget(
+                        isScroll: isScroll,
+                        tabController: _tabController,
                         state: state,
                         title: widget.title,
                         posterPath: widget.posterPath,
@@ -98,7 +102,14 @@ class _NewDetailMoviePageState extends State<NewDetailMoviePage>
                       ),
                     ];
                   },
-                  body: Container(),
+                  body: TabBarView(
+                    controller: _tabController,
+                    children: <Widget>[
+                      Container(),
+                      Container(),
+                      Container(),
+                    ],
+                  ),
                 );
               },
               error: (state) => ErrorState(

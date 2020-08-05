@@ -28,7 +28,7 @@ class InfoTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: _showTitle ? const Color(0XFF0C0B10) : null,
+      // color: _showTitle ? const Color(0XFF0C0B10) : null,
       child: Stack(
         children: <Widget>[
           Padding(

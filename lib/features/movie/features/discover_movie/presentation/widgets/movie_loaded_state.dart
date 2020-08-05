@@ -39,8 +39,8 @@ class MovieLoadedState extends StatelessWidget {
               : InkWell(
                   onTap: () {
                     ExtendedNavigator.of(context).push(
-                      Routes.newDetailMoviePage,
-                      arguments: NewDetailMoviePageArguments(
+                      Routes.testDetailMovie,
+                      arguments: TestDetailMovieArguments(
                         id: state.results[i].id,
                         title: state.results[i].title,
                         posterPath: state.results[i].posterPath,
