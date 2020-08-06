@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:the_movie_wiki/core/entities/reviews/review_result.dart';
+import 'package:the_movie_wiki/core/routes/router.gr.dart';
 
 class BuildReview extends StatelessWidget {
   final List<ReviewResult> reviews;
@@ -47,15 +49,25 @@ class BuildReview extends StatelessWidget {
                   ),
                   reviews.isNotEmpty
                       ? Expanded(
-                          child: Text(
-                            'See all',
-                            style: TextStyle(
-                              color: const Color(0XFFEB4B1F),
-                              height: 1.5,
-                              fontSize: 40.sp,
-                              fontWeight: FontWeight.normal,
+                          child: InkWell(
+                            onTap: () {
+                              ExtendedNavigator.of(context).push(
+                                Routes.moreReviewPage,
+                                arguments: MoreReviewPageArguments(
+                                  reviews: reviews,
+                                ),
+                              );
+                            },
+                            child: Text(
+                              'See all',
+                              style: TextStyle(
+                                color: const Color(0XFFEB4B1F),
+                                height: 1.5,
+                                fontSize: 40.sp,
+                                fontWeight: FontWeight.normal,
+                              ),
+                              textAlign: TextAlign.end,
                             ),
-                            textAlign: TextAlign.end,
                           ),
                         )
                       : const SizedBox(),
@@ -86,7 +98,7 @@ class BuildReview extends StatelessWidget {
                         reviews[0].content.toString(),
                         style: TextStyle(
                           color: Colors.white54,
-                          height: 1.5,
+                          height: 2,
                           fontSize: 40.sp,
                           fontWeight: FontWeight.normal,
                         ),
@@ -97,7 +109,7 @@ class BuildReview extends StatelessWidget {
                         reviews[0].content.toString(),
                         style: TextStyle(
                           color: Colors.white54,
-                          height: 1.5,
+                          height: 2,
                           fontSize: 40.sp,
                           fontWeight: FontWeight.normal,
                         ),
@@ -111,9 +123,10 @@ class BuildReview extends StatelessWidget {
                         "We don't have any reviews for $title",
                         style: TextStyle(
                           fontSize: 40.sp,
-                          height: 1.5,
+                          height: 2,
                           color: Colors.white54,
                         ),
+                        textAlign: TextAlign.left,
                       ),
                     ),
                   ),

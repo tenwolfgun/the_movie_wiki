@@ -23,7 +23,7 @@ class BuildOverview extends StatelessWidget {
             widget.overview,
             style: TextStyle(
               color: Colors.white54,
-              height: 1.5,
+              height: 2,
               letterSpacing: 0,
               fontSize: 40.sp,
             ),
@@ -36,7 +36,7 @@ class BuildOverview extends StatelessWidget {
             widget.overview,
             style: TextStyle(
               color: Colors.white54,
-              height: 1.5,
+              height: 2,
               letterSpacing: 0,
               fontSize: 40.sp,
             ),

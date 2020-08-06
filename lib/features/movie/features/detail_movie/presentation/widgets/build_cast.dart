@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:the_movie_wiki/core/routes/router.gr.dart';
 
 import '../../../../../../core/entities/credits/cast.dart';
 import '../../../../../../core/widget/error_image.dart';
@@ -44,15 +46,25 @@ class BuildCast extends StatelessWidget {
                   ),
                   cast.isNotEmpty
                       ? Expanded(
-                          child: Text(
-                            'See all',
-                            style: TextStyle(
-                              color: const Color(0XFFEB4B1F),
-                              height: 1.5,
-                              fontSize: 40.sp,
-                              fontWeight: FontWeight.normal,
+                          child: InkWell(
+                            onTap: () {
+                              ExtendedNavigator.of(context).push(
+                                Routes.moreCastPage,
+                                arguments: MoreCastPageArguments(
+                                  cast: cast,
+                                ),
+                              ); // Navigator.push(
+                            },
+                            child: Text(
+                              'See all',
+                              style: TextStyle(
+                                color: const Color(0XFFEB4B1F),
+                                height: 1.5,
+                                fontSize: 40.sp,
+                                fontWeight: FontWeight.normal,
+                              ),
+                              textAlign: TextAlign.end,
                             ),
-                            textAlign: TextAlign.end,
                           ),
                         )
                       : const SizedBox(),

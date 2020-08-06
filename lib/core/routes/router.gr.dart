@@ -10,20 +10,32 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/movie/features/detail_movie/presentation/pages/detail_movie_page.dart';
+import '../../features/movie/features/detail_movie/presentation/pages/more_cast_page.dart';
+import '../../features/movie/features/detail_movie/presentation/pages/more_review_page.dart';
+import '../../features/movie/features/detail_movie/presentation/pages/more_similar_movie_page.dart';
 import '../../features/movie/features/detail_movie/presentation/pages/new_detail_movie_page.dart';
 import '../../features/movie/features/detail_movie/presentation/pages/test_detail_movie.dart';
+import '../../features/movie/features/discover_movie/domain/entities/results.dart';
 import '../../home_page.dart';
+import '../entities/credits/cast.dart';
+import '../entities/reviews/review_result.dart';
 
 class Routes {
   static const String homePage = '/';
   static const String detailMoviePage = '/detail-movie-page';
   static const String newDetailMoviePage = '/new-detail-movie-page';
   static const String testDetailMovie = '/test-detail-movie';
+  static const String moreSimilarMoviePage = '/more-similar-movie-page';
+  static const String moreCastPage = '/more-cast-page';
+  static const String moreReviewPage = '/more-review-page';
   static const all = <String>{
     homePage,
     detailMoviePage,
     newDetailMoviePage,
     testDetailMovie,
+    moreSimilarMoviePage,
+    moreCastPage,
+    moreReviewPage,
   };
 }
 
@@ -35,6 +47,9 @@ class Router extends RouterBase {
     RouteDef(Routes.detailMoviePage, page: DetailMoviePage),
     RouteDef(Routes.newDetailMoviePage, page: NewDetailMoviePage),
     RouteDef(Routes.testDetailMovie, page: TestDetailMovie),
+    RouteDef(Routes.moreSimilarMoviePage, page: MoreSimilarMoviePage),
+    RouteDef(Routes.moreCastPage, page: MoreCastPage),
+    RouteDef(Routes.moreReviewPage, page: MoreReviewPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -106,6 +121,49 @@ class Router extends RouterBase {
         transitionDuration: const Duration(milliseconds: 400),
       );
     },
+    MoreSimilarMoviePage: (data) {
+      var args = data.getArgs<MoreSimilarMoviePageArguments>(
+        orElse: () => MoreSimilarMoviePageArguments(),
+      );
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            MoreSimilarMoviePage(
+          key: args.key,
+          similar: args.similar,
+        ),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+        transitionDuration: const Duration(milliseconds: 400),
+      );
+    },
+    MoreCastPage: (data) {
+      var args = data.getArgs<MoreCastPageArguments>(
+        orElse: () => MoreCastPageArguments(),
+      );
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) => MoreCastPage(
+          key: args.key,
+          cast: args.cast,
+        ),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+        transitionDuration: const Duration(milliseconds: 400),
+      );
+    },
+    MoreReviewPage: (data) {
+      var args = data.getArgs<MoreReviewPageArguments>(
+        orElse: () => MoreReviewPageArguments(),
+      );
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) => MoreReviewPage(
+          key: args.key,
+          reviews: args.reviews,
+        ),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+        transitionDuration: const Duration(milliseconds: 400),
+      );
+    },
   };
 }
 
@@ -170,4 +228,25 @@ class TestDetailMovieArguments {
       this.rating,
       this.overview,
       this.releaseDate});
+}
+
+/// MoreSimilarMoviePage arguments holder class
+class MoreSimilarMoviePageArguments {
+  final Key key;
+  final List<Results> similar;
+  MoreSimilarMoviePageArguments({this.key, this.similar});
+}
+
+/// MoreCastPage arguments holder class
+class MoreCastPageArguments {
+  final Key key;
+  final List<Cast> cast;
+  MoreCastPageArguments({this.key, this.cast});
+}
+
+/// MoreReviewPage arguments holder class
+class MoreReviewPageArguments {
+  final Key key;
+  final List<ReviewResult> reviews;
+  MoreReviewPageArguments({this.key, this.reviews});
 }

@@ -114,7 +114,7 @@ class _ArticleDescription extends StatelessWidget {
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                  height: 1.5,
+                  height: 2,
                   fontSize: 40.sp,
                   color: Colors.white70,
                 ),

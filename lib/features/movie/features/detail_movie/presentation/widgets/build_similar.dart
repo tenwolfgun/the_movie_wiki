@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:the_movie_wiki/core/routes/router.gr.dart';
 
 import '../../../../../../core/widget/error_image.dart';
 import '../../../../../../core/widget/image_loader.dart';
@@ -44,15 +46,25 @@ class BuildSimilar extends StatelessWidget {
                   ),
                   similar.isNotEmpty
                       ? Expanded(
-                          child: Text(
-                            'See all',
-                            style: TextStyle(
-                              color: const Color(0XFFEB4B1F),
-                              height: 1.5,
-                              fontSize: 40.sp,
-                              fontWeight: FontWeight.normal,
+                          child: InkWell(
+                            onTap: () {
+                              ExtendedNavigator.of(context).push(
+                                Routes.moreSimilarMoviePage,
+                                arguments: MoreSimilarMoviePageArguments(
+                                  similar: similar,
+                                ),
+                              );
+                            },
+                            child: Text(
+                              'See all',
+                              style: TextStyle(
+                                color: const Color(0XFFEB4B1F),
+                                height: 1.5,
+                                fontSize: 40.sp,
+                                fontWeight: FontWeight.normal,
+                              ),
+                              textAlign: TextAlign.end,
                             ),
-                            textAlign: TextAlign.end,
                           ),
                         )
                       : const SizedBox(),
@@ -69,13 +81,28 @@ class BuildSimilar extends StatelessWidget {
                 itemCount: similar.take(10).length,
                 itemBuilder: (_, i) {
                   return Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 16),
-                      child: AspectRatio(
-                        aspectRatio: 0.7,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
+                    padding: const EdgeInsets.only(
+                      right: 8,
+                      bottom: 16,
+                    ),
+                    child: AspectRatio(
+                      aspectRatio: 0.7,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: InkWell(
+                          onTap: () {
+                            ExtendedNavigator.of(context).push(
+                              Routes.testDetailMovie,
+                              arguments: TestDetailMovieArguments(
+                                id: similar[i].id,
+                                title: similar[i].title,
+                                posterPath: similar[i].posterPath,
+                                rating: similar[i].voteAverage,
+                                overview: similar[i].overview ?? '',
+                                releaseDate: similar[i].releaseDate,
+                              ),
+                            );
+                          },
                           child: CachedNetworkImage(
                             fit: BoxFit.fill,
                             imageUrl: 'https://image.tmdb.org/t/p/w780/' +

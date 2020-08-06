@@ -40,7 +40,7 @@ class BuildInfo extends StatelessWidget {
                 state.detailMovie.originalTitle,
                 style: TextStyle(
                   fontSize: 40.sp,
-                  height: 1.5,
+                  height: 2,
                   color: Colors.white54,
                 ),
               ),
@@ -62,7 +62,7 @@ class BuildInfo extends StatelessWidget {
                       state.detailMovie.status,
                       style: TextStyle(
                         fontSize: 40.sp,
-                        height: 1.5,
+                        height: 2,
                         color: Colors.white54,
                       ),
                     ),
@@ -85,7 +85,7 @@ class BuildInfo extends StatelessWidget {
                           : '${state.detailMovie.runtime.toInt().toString()} min',
                       style: TextStyle(
                         fontSize: 40.sp,
-                        height: 1.5,
+                        height: 2,
                         color: Colors.white54,
                       ),
                     ),
@@ -110,7 +110,7 @@ class BuildInfo extends StatelessWidget {
                       releaseDate == null ? "-" : releaseDate.toDate(),
                       style: TextStyle(
                         fontSize: 40.sp,
-                        height: 1.5,
+                        height: 2,
                         color: Colors.white54,
                       ),
                     ),
@@ -131,7 +131,7 @@ class BuildInfo extends StatelessWidget {
                       state.detailMovie.originalLanguage,
                       style: TextStyle(
                         fontSize: 40.sp,
-                        height: 1.5,
+                        height: 2,
                         color: Colors.white54,
                       ),
                     ),
@@ -158,7 +158,7 @@ class BuildInfo extends StatelessWidget {
                           : '${_currency.format(state.detailMovie.budget).toString()}',
                       style: TextStyle(
                         fontSize: 40.sp,
-                        height: 1.5,
+                        height: 2,
                         color: Colors.white54,
                       ),
                     ),
@@ -181,7 +181,7 @@ class BuildInfo extends StatelessWidget {
                           : '${_currency.format(state.detailMovie.revenue).toString()}',
                       style: TextStyle(
                         fontSize: 40.sp,
-                        height: 1.5,
+                        height: 2,
                         color: Colors.white54,
                       ),
                     ),
@@ -203,7 +203,7 @@ class BuildInfo extends StatelessWidget {
                 '${state.detailMovie.productionCountries.map((i) => i.name).join(', ')}',
                 style: TextStyle(
                   fontSize: 40.sp,
-                  height: 1.5,
+                  height: 2,
                   color: Colors.white54,
                 ),
               ),
@@ -222,7 +222,7 @@ class BuildInfo extends StatelessWidget {
                 '${state.detailMovie.productionCompanies.map((i) => i.name).join(', ')}',
                 style: TextStyle(
                   fontSize: 40.sp,
-                  height: 1.5,
+                  height: 2,
                   color: Colors.white54,
                 ),
               ),
@@ -241,7 +241,7 @@ class BuildInfo extends StatelessWidget {
                 '${state.detailMovie.genres.map((i) => i.name).join(', ')}',
                 style: TextStyle(
                   fontSize: 40.sp,
-                  height: 1.5,
+                  height: 2,
                   color: Colors.white54,
                 ),
               ),

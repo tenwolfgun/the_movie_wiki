@@ -23,7 +23,7 @@ class MovieLoadedState extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scrollbar(
       child: ListView.builder(
-        padding: const EdgeInsets.only(top: 8, bottom: 32),
+        padding: const EdgeInsets.only(top: 8, bottom: 16),
         shrinkWrap: true,
         controller: scrollController,
         itemCount: state.isEndOfResult
@@ -48,7 +48,7 @@ class MovieLoadedState extends StatelessWidget {
                         overview: state.results[i].overview ?? '',
                         releaseDate: state.results[i].releaseDate,
                       ),
-                    ); // Navigator.push(
+                    );
                   },
                   child: MovieItem(
                     title: state.results[i].title,
