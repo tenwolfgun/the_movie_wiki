@@ -2,14 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../core/entities/credits/cast.dart';
 import '../../../../../../core/widget/error_image.dart';
 import '../../../../../../core/widget/image_loader.dart';
+import '../../../discover_movie/domain/entities/results.dart';
 
-class BuildCast extends StatelessWidget {
-  final List<Cast> cast;
+class BuildSimilar extends StatelessWidget {
+  final List<Results> similar;
 
-  const BuildCast({Key key, this.cast}) : super(key: key);
+  const BuildSimilar({Key key, this.similar}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class BuildCast extends StatelessWidget {
                 children: <Widget>[
                   Expanded(
                     child: Text(
-                      'Cast',
+                      'More like this',
                       style: TextStyle(
                         color: Colors.white,
                         height: 1.5,
@@ -42,7 +42,7 @@ class BuildCast extends StatelessWidget {
                       textAlign: TextAlign.start,
                     ),
                   ),
-                  cast.isNotEmpty
+                  similar.isNotEmpty
                       ? Expanded(
                           child: Text(
                             'See all',
@@ -66,7 +66,7 @@ class BuildCast extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 14),
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                itemCount: cast.take(10).length,
+                itemCount: similar.take(10).length,
                 itemBuilder: (_, i) {
                   return Padding(
                     padding: const EdgeInsets.only(right: 8),
@@ -76,46 +76,16 @@ class BuildCast extends StatelessWidget {
                         aspectRatio: 0.7,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12),
-                          child: Stack(
-                            children: [
-                              Positioned.fill(
-                                child: CachedNetworkImage(
-                                  fit: BoxFit.fill,
-                                  imageUrl: 'https://image.tmdb.org/t/p/w780/' +
-                                      cast[i].profilePath.toString(),
-                                  placeholder: (_, __) {
-                                    return const ImageLoader();
-                                  },
-                                  errorWidget: (_, __, ___) {
-                                    return const ErrorImage();
-                                  },
-                                ),
-                              ),
-                              Positioned(
-                                top: 125,
-                                // left: 10,
-                                right: 0,
-                                left: 0,
-                                bottom: 0,
-                                child: Container(
-                                  color: Colors.black38,
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 8, top: 8),
-                                    child: Text(
-                                      cast[i].name,
-                                      style: TextStyle(
-                                        color: Colors.white54,
-                                        fontSize: 40.sp,
-                                        height: 1.5,
-                                      ),
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          child: CachedNetworkImage(
+                            fit: BoxFit.fill,
+                            imageUrl: 'https://image.tmdb.org/t/p/w780/' +
+                                similar[i].posterPath.toString(),
+                            placeholder: (_, __) {
+                              return const ImageLoader();
+                            },
+                            errorWidget: (_, __, ___) {
+                              return const ErrorImage();
+                            },
                           ),
                         ),
                       ),

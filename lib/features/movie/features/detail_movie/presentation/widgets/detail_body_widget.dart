@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_wiki/features/movie/features/detail_movie/presentation/widgets/build_cast.dart';
 import 'package:the_movie_wiki/features/movie/features/detail_movie/presentation/widgets/build_info.dart';
+import 'package:the_movie_wiki/features/movie/features/detail_movie/presentation/widgets/build_review.dart';
+import 'package:the_movie_wiki/features/movie/features/detail_movie/presentation/widgets/build_similar.dart';
 
 import '../bloc/detail_movie_bloc.dart';
 import '../pages/test_detail_movie.dart';
@@ -29,6 +31,13 @@ class DetailMovieBodyWidget extends StatelessWidget {
         BuildCast(
           cast: state.detailMovie.credits.cast,
         ),
+        BuildReview(
+          reviews: state.detailMovie.reviews.results,
+          title: widget.title,
+        ),
+        BuildSimilar(
+          similar: state.detailMovie.similar.results,
+        )
       ],
     );
   }

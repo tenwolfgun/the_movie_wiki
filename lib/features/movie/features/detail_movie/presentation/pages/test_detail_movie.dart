@@ -316,7 +316,7 @@ class _TestDetailMovieState extends State<TestDetailMovie>
                           );
                         },
                         options: CarouselOptions(
-                            aspectRatio: 6 / 5,
+                            aspectRatio: 7 / 6,
                             viewportFraction: 1,
                             enableInfiniteScroll: false,
                             enlargeCenterPage: false,
