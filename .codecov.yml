@@ -30,5 +30,11 @@ ignore:
   - "lib/features/movie/features/detail_movie/presentation/bloc/detail_movie_bloc.freezed.dart"
   - "lib/features/movie/features/detail_movie/presentation/pages"
   - "lib/features/movie/features/detail_movie/presentation/widgets"
+  - "lib/features/tv_show/features/discover_tv_show/data/models/discover_tv_show_model.freezed.dart"
+  - "lib/features/tv_show/features/discover_tv_show/domain/entities"
+  # - "lib/features/tv_show/features/discover_tv_show/presentation/bloc/discover_tv_show_bloc.freezed.dart"
+  - "lib/features/tv_show/features/discover_tv_show/presentation"
+  # - "lib/features/tv_show/features/discover_tv_show/presentation/pages"
+  # - "lib/features/tv_show/features/discover_tv_show/presentation/widgets"
 
 

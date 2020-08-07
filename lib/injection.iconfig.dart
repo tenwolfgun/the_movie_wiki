@@ -8,12 +8,15 @@ import 'package:the_movie_wiki/core/module/injectable_module.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dio/dio.dart';
 import 'package:the_movie_wiki/features/movie/features/discover_movie/data/datasources/disover_movie_remote_dart_source.dart';
+import 'package:the_movie_wiki/features/tv_show/features/discover_tv_show/data/datasources/discover_tv_show_remote_data_source.dart';
 import 'package:the_movie_wiki/core/network/network_info.dart';
 import 'package:the_movie_wiki/features/movie/features/detail_movie/data/datasources/detail_movie_remote_data_source.dart';
 import 'package:the_movie_wiki/features/movie/features/detail_movie/data/repositories/detail_movie_repository_impl.dart';
 import 'package:the_movie_wiki/features/movie/features/detail_movie/domain/repositories/detail_movie_repository.dart';
 import 'package:the_movie_wiki/features/movie/features/discover_movie/data/repositories/discover_movie_repository_impl.dart';
 import 'package:the_movie_wiki/features/movie/features/discover_movie/domain/repositories/discover_movie_repository.dart';
+import 'package:the_movie_wiki/features/tv_show/features/discover_tv_show/data/repositories/discover_tv_show_repoitory_impl.dart';
+import 'package:the_movie_wiki/features/tv_show/features/discover_tv_show/domain/repositories/discover_tv_show_repository.dart';
 import 'package:the_movie_wiki/features/movie/features/detail_movie/domain/usecases/get_detail_movie.dart';
 import 'package:the_movie_wiki/features/movie/features/discover_movie/domain/usecases/get_discover_movie_data.dart';
 import 'package:the_movie_wiki/features/movie/features/detail_movie/presentation/bloc/detail_movie_bloc.dart';
@@ -27,6 +30,8 @@ void $initGetIt(GetIt g, {String environment}) {
   g.registerLazySingleton<Dio>(() => injectableModule.dio);
   g.registerLazySingleton<DiscoverMovieRemoteDataSource>(
       () => DiscoverMovieRemoteDataSourceImpl(g<Dio>()));
+  g.registerLazySingleton<DiscoverTvShowRemoteDataSource>(
+      () => DiscoverTvShowRemoteDataSourceImpl(g<Dio>()));
   g.registerLazySingleton<NetworkInfo>(
       () => NetworkInfoImpl(connectionChecker: g<DataConnectionChecker>()));
   g.registerLazySingleton<DetailMovieRemoteDataSource>(
@@ -37,6 +42,9 @@ void $initGetIt(GetIt g, {String environment}) {
   g.registerLazySingleton<DiscoverMovieRepository>(() =>
       DiscoverMovieRepositoryImpl(
           g<DiscoverMovieRemoteDataSource>(), g<NetworkInfo>()));
+  g.registerLazySingleton<DiscoverTvShowRepository>(() =>
+      DiscoverTvShowRepositoryImpl(
+          g<DiscoverTvShowRemoteDataSource>(), g<NetworkInfo>()));
   g.registerLazySingleton<GetDetailMovie>(
       () => GetDetailMovie(g<DetailMovieRepository>()));
   g.registerLazySingleton<GetDiscoverMovieData>(
