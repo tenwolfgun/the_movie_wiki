@@ -1,6 +1,4 @@
 part of 'discover_movie_bloc.dart';
-// @immutable
-// abstract class DiscoverMovieEvent {}
 
 @freezed
 abstract class DiscoverMovieEvent with _$DiscoverMovieEvent {

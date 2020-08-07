@@ -1,4 +1,16 @@
 part of 'discover_tv_show_bloc.dart';
-@immutable
-abstract class DiscoverTvShowState {}
-class DiscoverTvShowInitial extends DiscoverTvShowState {}
+
+@freezed
+abstract class DiscoverTvShowState with _$DiscoverTvShowState {
+  factory DiscoverTvShowState.initial() = Initial;
+  factory DiscoverTvShowState.loading() = Loading;
+  factory DiscoverTvShowState.loaded({
+    List<DiscoverTvShowResult> results,
+    bool isEndOfResult,
+    bool isLoading,
+    bool isError,
+    String errorMessage,
+    bool isLoadData,
+  }) = Loaded;
+  factory DiscoverTvShowState.error(String errorMessage) = Error;
+}
