@@ -95,7 +95,7 @@ void main() {
 
           verify(
             mockDio.get(
-              '$tType?api_key=$API_KEY&page=$tPage',
+              'movie/$tType?api_key=$API_KEY&page=$tPage',
             ),
           );
         },

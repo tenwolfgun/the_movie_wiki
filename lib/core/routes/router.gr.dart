@@ -9,7 +9,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../features/movie/features/detail_movie/presentation/pages/detail_movie_page.dart';
 import '../../features/movie/features/detail_movie/presentation/pages/more_cast_page.dart';
 import '../../features/movie/features/detail_movie/presentation/pages/more_review_page.dart';
 import '../../features/movie/features/detail_movie/presentation/pages/more_similar_movie_page.dart';
@@ -22,7 +21,6 @@ import '../entities/reviews/review_result.dart';
 
 class Routes {
   static const String homePage = '/';
-  static const String detailMoviePage = '/detail-movie-page';
   static const String newDetailMoviePage = '/new-detail-movie-page';
   static const String testDetailMovie = '/test-detail-movie';
   static const String moreSimilarMoviePage = '/more-similar-movie-page';
@@ -30,7 +28,6 @@ class Routes {
   static const String moreReviewPage = '/more-review-page';
   static const all = <String>{
     homePage,
-    detailMoviePage,
     newDetailMoviePage,
     testDetailMovie,
     moreSimilarMoviePage,
@@ -44,7 +41,6 @@ class Router extends RouterBase {
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
     RouteDef(Routes.homePage, page: HomePage),
-    RouteDef(Routes.detailMoviePage, page: DetailMoviePage),
     RouteDef(Routes.newDetailMoviePage, page: NewDetailMoviePage),
     RouteDef(Routes.testDetailMovie, page: TestDetailMovie),
     RouteDef(Routes.moreSimilarMoviePage, page: MoreSimilarMoviePage),
@@ -60,29 +56,8 @@ class Router extends RouterBase {
         settings: data,
       );
     },
-    DetailMoviePage: (data) {
-      var args = data.getArgs<DetailMoviePageArguments>(
-        orElse: () => DetailMoviePageArguments(),
-      );
-      return PageRouteBuilder<dynamic>(
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            DetailMoviePage(
-          key: args.key,
-          id: args.id,
-          posterPath: args.posterPath,
-          title: args.title,
-          rating: args.rating,
-          overview: args.overview,
-          releaseDate: args.releaseDate,
-          s: args.s,
-        ),
-        settings: data,
-        transitionsBuilder: TransitionsBuilders.fadeIn,
-        transitionDuration: const Duration(milliseconds: 400),
-      );
-    },
     NewDetailMoviePage: (data) {
-      var args = data.getArgs<NewDetailMoviePageArguments>(
+      final args = data.getArgs<NewDetailMoviePageArguments>(
         orElse: () => NewDetailMoviePageArguments(),
       );
       return PageRouteBuilder<dynamic>(
@@ -102,7 +77,7 @@ class Router extends RouterBase {
       );
     },
     TestDetailMovie: (data) {
-      var args = data.getArgs<TestDetailMovieArguments>(
+      final args = data.getArgs<TestDetailMovieArguments>(
         orElse: () => TestDetailMovieArguments(),
       );
       return PageRouteBuilder<dynamic>(
@@ -122,7 +97,7 @@ class Router extends RouterBase {
       );
     },
     MoreSimilarMoviePage: (data) {
-      var args = data.getArgs<MoreSimilarMoviePageArguments>(
+      final args = data.getArgs<MoreSimilarMoviePageArguments>(
         orElse: () => MoreSimilarMoviePageArguments(),
       );
       return PageRouteBuilder<dynamic>(
@@ -137,7 +112,7 @@ class Router extends RouterBase {
       );
     },
     MoreCastPage: (data) {
-      var args = data.getArgs<MoreCastPageArguments>(
+      final args = data.getArgs<MoreCastPageArguments>(
         orElse: () => MoreCastPageArguments(),
       );
       return PageRouteBuilder<dynamic>(
@@ -151,7 +126,7 @@ class Router extends RouterBase {
       );
     },
     MoreReviewPage: (data) {
-      var args = data.getArgs<MoreReviewPageArguments>(
+      final args = data.getArgs<MoreReviewPageArguments>(
         orElse: () => MoreReviewPageArguments(),
       );
       return PageRouteBuilder<dynamic>(
@@ -170,27 +145,6 @@ class Router extends RouterBase {
 /// ************************************************************************
 /// Arguments holder classes
 /// *************************************************************************
-
-/// DetailMoviePage arguments holder class
-class DetailMoviePageArguments {
-  final Key key;
-  final int id;
-  final String posterPath;
-  final String title;
-  final double rating;
-  final String overview;
-  final String releaseDate;
-  final dynamic s;
-  DetailMoviePageArguments(
-      {this.key,
-      this.id,
-      this.posterPath,
-      this.title,
-      this.rating,
-      this.overview,
-      this.releaseDate,
-      this.s});
-}
 
 /// NewDetailMoviePage arguments holder class
 class NewDetailMoviePageArguments {

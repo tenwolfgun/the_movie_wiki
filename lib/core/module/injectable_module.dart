@@ -12,7 +12,7 @@ abstract class InjectableModule {
 
 Dio dioClient() {
   final _options = BaseOptions(
-    baseUrl: "https://api.themoviedb.org/3/movie/",
+    baseUrl: "https://api.themoviedb.org/3/",
   );
   return Dio(_options);
 }

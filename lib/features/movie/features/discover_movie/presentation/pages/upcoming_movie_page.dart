@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:overlay_support/overlay_support.dart';
-import 'package:the_movie_wiki/core/widget/build_notification.dart';
-import 'package:the_movie_wiki/core/widget/error_state.dart';
-import 'package:the_movie_wiki/features/movie/features/discover_movie/presentation/widgets/movie_loaded_state.dart';
 
+import '../../../../../../core/widget/build_notification.dart';
+import '../../../../../../core/widget/error_state.dart';
 import '../../../../../../core/widget/initial_state.dart';
 import '../../../../../../core/widget/loading_state.dart';
 import '../bloc/discover_movie_bloc.dart';
+import '../widgets/movie_loaded_state.dart';
 
 class UpcomingMoviePage extends StatefulWidget {
   const UpcomingMoviePage({Key key}) : super(key: key);
@@ -90,7 +90,7 @@ class _UpcomingMoviePageState extends State<UpcomingMoviePage>
           loaded: (state) {
             return MovieLoadedState(
               scrollController: _scrollController,
-              onPressed: blocInit,
+              onPressed: blocRetry,
               state: state,
             );
           },

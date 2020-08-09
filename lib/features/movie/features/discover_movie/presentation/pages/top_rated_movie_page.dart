@@ -90,7 +90,7 @@ class _TopRatedMoviePageState extends State<TopRatedMoviePage>
           loaded: (state) {
             return MovieLoadedState(
               scrollController: _scrollController,
-              onPressed: blocInit,
+              onPressed: blocRetry,
               state: state,
             );
           },

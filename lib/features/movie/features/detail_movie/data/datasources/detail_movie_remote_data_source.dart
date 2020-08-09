@@ -22,7 +22,7 @@ class DetailMovieRemoteDataSourceImpl implements DetailMovieRemoteDataSource {
   }) async {
     try {
       final response = await _dio.get(
-        '$id?api_key=$API_KEY&append_to_response=videos,images,similar,credits,reviews',
+        'movie/$id?api_key=$API_KEY&append_to_response=videos,images,similar,credits,reviews',
       );
       return DetailMovieModel.fromJson(response.data);
     } on DioError catch (e) {

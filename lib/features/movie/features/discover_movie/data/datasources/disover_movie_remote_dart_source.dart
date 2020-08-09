@@ -24,7 +24,7 @@ class DiscoverMovieRemoteDataSourceImpl
   }) async {
     try {
       final response = await dio.get(
-        '$type?api_key=$API_KEY&page=$page',
+        'movie/$type?api_key=$API_KEY&page=$page',
       );
       return DiscoverMovieModel.fromJson(response.data);
     } on DioError {

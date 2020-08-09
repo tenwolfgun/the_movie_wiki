@@ -1,9 +1,11 @@
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'features/movie/features/discover_movie/presentation/pages/movie_page.dart';
 import 'features/movie/features/discover_movie/presentation/pages/now_playing_movie_page.dart';
+import 'features/tv_show/features/discover_tv_show/presentation/pages/tv_show_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -17,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   final PageController _pageController = PageController();
   final _page = [
     const MoviePage(),
-    const NowPlayingMoviePage(),
+    const TvShowPage(),
     const NowPlayingMoviePage(),
     const NowPlayingMoviePage(),
     const NowPlayingMoviePage(),
@@ -60,15 +62,19 @@ class _HomePageState extends State<HomePage> {
           unselectedItemIconColor: Colors.grey[600],
           unselectedItemLabelColor: Colors.grey[600],
           barHeight: 60,
-          selectedItemTextStyle: TextStyle(
-            height: 3,
-            fontSize: 35.sp,
-            fontWeight: FontWeight.bold,
+          selectedItemTextStyle: GoogleFonts.montserrat(
+            textStyle: TextStyle(
+              height: 3,
+              fontSize: 35.sp,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-          unselectedItemTextStyle: TextStyle(
-            height: 3,
-            fontSize: 35.sp,
-            fontWeight: FontWeight.normal,
+          unselectedItemTextStyle: GoogleFonts.montserrat(
+            textStyle: TextStyle(
+              height: 3,
+              fontSize: 35.sp,
+              fontWeight: FontWeight.normal,
+            ),
           ),
           showSelectedItemShadow: false,
         ),

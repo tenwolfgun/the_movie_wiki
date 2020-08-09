@@ -1,49 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:overlay_support/overlay_support.dart';
-import 'package:the_movie_wiki/core/widget/build_notification.dart';
-import 'package:the_movie_wiki/core/widget/error_state.dart';
-import 'package:the_movie_wiki/features/movie/features/discover_movie/presentation/widgets/movie_loaded_state.dart';
 
+import '../../../../../../core/widget/build_notification.dart';
+import '../../../../../../core/widget/error_state.dart';
 import '../../../../../../core/widget/initial_state.dart';
 import '../../../../../../core/widget/loading_state.dart';
-import '../bloc/discover_movie_bloc.dart';
+import '../bloc/discover_tv_show_bloc.dart';
+import '../widgets/tv_show_loaded_state.dart';
 
-class PopularMoviePage extends StatefulWidget {
-  const PopularMoviePage({Key key}) : super(key: key);
+class OnAirTvShowPage extends StatefulWidget {
+  const OnAirTvShowPage({Key key}) : super(key: key);
 
   @override
-  _PopularMoviePageState createState() => _PopularMoviePageState();
+  _OnAirTvShowPageState createState() => _OnAirTvShowPageState();
 }
 
-class _PopularMoviePageState extends State<PopularMoviePage>
+class _OnAirTvShowPageState extends State<OnAirTvShowPage>
     with AutomaticKeepAliveClientMixin {
   final ScrollController _scrollController = ScrollController();
-  int page = 1;
+  int _page = 1;
   bool _isFetch = false;
 
   @override
   bool get wantKeepAlive => true;
 
-  void blocInit() {
-    context.bloc<DiscoverMovieBloc>().add(GetMovieData('popular', page));
+  void _blocInit() {
+    context.bloc<DiscoverTvShowBloc>().add(GetTvShowData('on_the_air', _page));
   }
 
-  void blocRetry() {
-    context.bloc<DiscoverMovieBloc>().add(GetMovieDataRetry('popular', page));
+  void _blocRetry() {
+    context
+        .bloc<DiscoverTvShowBloc>()
+        .add(GetTvShowDataRetry('on_the_air', _page));
   }
 
   void _onScroll() {
     final _position = _scrollController.position;
     if (_position.pixels == _position.maxScrollExtent && _isFetch) {
-      blocInit();
+      _blocInit();
     }
   }
 
   @override
   void initState() {
-    _scrollController.addListener(_onScroll);
     super.initState();
+    _scrollController.addListener(_onScroll);
   }
 
   @override
@@ -57,7 +59,7 @@ class _PopularMoviePageState extends State<PopularMoviePage>
     super.build(context);
     return Scaffold(
       backgroundColor: const Color(0XFF0C0B10),
-      body: BlocConsumer<DiscoverMovieBloc, DiscoverMovieState>(
+      body: BlocConsumer<DiscoverTvShowBloc, DiscoverTvShowState>(
         listener: (_, state) {
           if (state is Loaded) {
             if (!state.isError &&
@@ -65,7 +67,7 @@ class _PopularMoviePageState extends State<PopularMoviePage>
                 !state.isEndOfResult &&
                 !state.isLoadData) {
               _isFetch = true;
-              page++;
+              _page++;
             } else if (state.isError) {
               _isFetch = false;
               showOverlayNotification(
@@ -81,22 +83,18 @@ class _PopularMoviePageState extends State<PopularMoviePage>
           }
         },
         builder: (_, state) => state.map(
-          initial: (_) {
-            return const InitialState();
-          },
-          loading: (_) {
-            return const LoadingState();
-          },
+          initial: (_) => const InitialState(),
+          loading: (_) => const LoadingState(),
           loaded: (state) {
-            return MovieLoadedState(
+            return TvShowLoadedState(
               scrollController: _scrollController,
-              onPressed: blocRetry,
+              onPressed: _blocRetry,
               state: state,
             );
           },
           error: (state) {
             return ErrorState(
-              onPressed: blocInit,
+              onPressed: _blocInit,
               errorMessage: state.errorMessage,
             );
           },

@@ -26,7 +26,7 @@ class DiscoverTvShowRemoteDataSourceImpl
   }) async {
     try {
       final response = await dio.get(
-        '$type?api_key=$API_KEY&page=$page',
+        'tv/$type?api_key=$API_KEY&page=$page',
       );
       return DiscoverTvShowModel.fromJson(response.data);
     } on DioError {

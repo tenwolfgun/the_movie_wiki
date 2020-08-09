@@ -68,7 +68,7 @@ void main() {
           dataSourceImpl.getDetailMovie(id: tId);
 
           verify(mockDio.get(
-            '$tId?api_key=$API_KEY&append_to_response=videos,images,similar,credits,reviews',
+            'movie/$tId?api_key=$API_KEY&append_to_response=videos,images,similar,credits,reviews',
           ));
         },
       );

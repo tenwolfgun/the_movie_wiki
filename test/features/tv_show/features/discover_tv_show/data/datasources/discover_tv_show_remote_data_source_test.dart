@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -7,8 +5,6 @@ import 'package:the_movie_wiki/core/api_key.dart';
 import 'package:the_movie_wiki/core/error/exception.dart';
 import 'package:the_movie_wiki/features/tv_show/features/discover_tv_show/data/datasources/discover_tv_show_remote_data_source.dart';
 import 'package:the_movie_wiki/features/tv_show/features/discover_tv_show/data/models/discover_tv_show_model.dart';
-
-import '../../../../../../fixtures/fixture_reader.dart';
 
 class MockDio extends Mock implements Dio {}
 
@@ -80,7 +76,7 @@ void main() {
 
           verify(
             mockDio.get(
-              '$tType?api_key=$API_KEY&page=$tPage',
+              'tv/$tType?api_key=$API_KEY&page=$tPage',
             ),
           );
         },

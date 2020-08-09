@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -13,6 +14,7 @@ part 'discover_tv_show_bloc.freezed.dart';
 part 'discover_tv_show_event.dart';
 part 'discover_tv_show_state.dart';
 
+@injectable
 class DiscoverTvShowBloc
     extends Bloc<DiscoverTvShowEvent, DiscoverTvShowState> {
   final GetDiscoverTvShowData _getDiscoverTvShowData;

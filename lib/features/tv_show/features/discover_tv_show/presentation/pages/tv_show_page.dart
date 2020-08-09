@@ -5,20 +5,20 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:md2_tab_indicator/md2_tab_indicator.dart';
 
 import '../../../../../../injection.dart';
-import '../bloc/discover_movie_bloc.dart';
-import 'now_playing_movie_page.dart';
-import 'popular_movie_page.dart';
-import 'top_rated_movie_page.dart';
-import 'upcoming_movie_page.dart';
+import '../bloc/discover_tv_show_bloc.dart';
+import 'airing_today_tv_show_page.dart';
+import 'on_air_tv_show_page.dart';
+import 'popular_tv_show_page.dart';
+import 'top_rated_tv_show_page.dart';
 
-class MoviePage extends StatefulWidget {
-  const MoviePage({Key key}) : super(key: key);
+class TvShowPage extends StatefulWidget {
+  const TvShowPage({Key key}) : super(key: key);
 
   @override
-  _MoviePageState createState() => _MoviePageState();
+  _TvShowPageState createState() => _TvShowPageState();
 }
 
-class _MoviePageState extends State<MoviePage> {
+class _TvShowPageState extends State<TvShowPage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -47,10 +47,10 @@ class _MoviePageState extends State<MoviePage> {
                 indicatorSize: MD2IndicatorSize.normal,
               ),
               tabs: const <Tab>[
-                Tab(text: "IN THEATERS"),
+                Tab(text: "AIRING TODAY"),
+                Tab(text: "ON TV"),
                 Tab(text: "POPULAR"),
                 Tab(text: "TOP RATED"),
-                Tab(text: "UPCOMING"),
               ],
             ),
           ),
@@ -59,32 +59,32 @@ class _MoviePageState extends State<MoviePage> {
           physics: const ScrollPhysics(),
           children: [
             BlocProvider(
-              create: (_) => getIt<DiscoverMovieBloc>()
+              create: (_) => getIt<DiscoverTvShowBloc>()
                 ..add(
-                  DiscoverMovieEvent.getMovieData('now_playing', 1),
+                  DiscoverTvShowEvent.getTvShowData('airing_today', 1),
                 ),
-              child: const NowPlayingMoviePage(),
+              child: const AiringTodayTvShowPage(),
             ),
             BlocProvider(
-              create: (_) => getIt<DiscoverMovieBloc>()
+              create: (_) => getIt<DiscoverTvShowBloc>()
                 ..add(
-                  DiscoverMovieEvent.getMovieData('popular', 1),
+                  DiscoverTvShowEvent.getTvShowData('on_the_air', 1),
                 ),
-              child: const PopularMoviePage(),
+              child: const OnAirTvShowPage(),
             ),
             BlocProvider(
-              create: (_) => getIt<DiscoverMovieBloc>()
+              create: (_) => getIt<DiscoverTvShowBloc>()
                 ..add(
-                  DiscoverMovieEvent.getMovieData('top_rated', 1),
+                  DiscoverTvShowEvent.getTvShowData('popular', 1),
                 ),
-              child: const TopRatedMoviePage(),
+              child: const PopularTvShowPage(),
             ),
             BlocProvider(
-              create: (_) => getIt<DiscoverMovieBloc>()
+              create: (_) => getIt<DiscoverTvShowBloc>()
                 ..add(
-                  DiscoverMovieEvent.getMovieData('upcoming', 1),
+                  DiscoverTvShowEvent.getTvShowData('top_rated', 1),
                 ),
-              child: const UpcomingMoviePage(),
+              child: const TopRatedTvShowPage(),
             ),
           ],
         ),
