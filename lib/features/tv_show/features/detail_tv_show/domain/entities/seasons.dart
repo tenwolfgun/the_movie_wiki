@@ -8,6 +8,7 @@ abstract class Seasons with _$Seasons {
     @nullable @required String airDate,
     @nullable @required int episodeCount,
     @nullable @required int id,
+    @nullable @required String name,
     @nullable @required String overview,
     @nullable @required String posterPath,
     @nullable @required int sesonNumber,

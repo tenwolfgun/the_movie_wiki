@@ -29,7 +29,7 @@ class _$DetailTvShowModelTearOff {
       @nullable
           List<GenreModel> genres,
       @required
-      @JsonKey(name: 'home_page')
+      @JsonKey(name: 'homepage')
       @nullable
           String homePage,
       @required
@@ -143,7 +143,7 @@ mixin _$DetailTvShowModel {
   String get firstAirDate;
   @nullable
   List<GenreModel> get genres;
-  @JsonKey(name: 'home_page')
+  @JsonKey(name: 'homepage')
   @nullable
   String get homePage;
   @JsonKey(name: 'in_production')
@@ -214,7 +214,7 @@ abstract class $DetailTvShowModelCopyWith<$Res> {
           String firstAirDate,
       @nullable
           List<GenreModel> genres,
-      @JsonKey(name: 'home_page')
+      @JsonKey(name: 'homepage')
       @nullable
           String homePage,
       @JsonKey(name: 'in_production')
@@ -453,7 +453,7 @@ abstract class _$DetailTvShowModelCopyWith<$Res>
           String firstAirDate,
       @nullable
           List<GenreModel> genres,
-      @JsonKey(name: 'home_page')
+      @JsonKey(name: 'homepage')
       @nullable
           String homePage,
       @JsonKey(name: 'in_production')
@@ -631,7 +631,7 @@ class _$_DetailTvShowModel implements _DetailTvShowModel {
       @nullable
           this.genres,
       @required
-      @JsonKey(name: 'home_page')
+      @JsonKey(name: 'homepage')
       @nullable
           this.homePage,
       @required
@@ -720,7 +720,7 @@ class _$_DetailTvShowModel implements _DetailTvShowModel {
   @nullable
   final List<GenreModel> genres;
   @override
-  @JsonKey(name: 'home_page')
+  @JsonKey(name: 'homepage')
   @nullable
   final String homePage;
   @override
@@ -923,7 +923,7 @@ abstract class _DetailTvShowModel implements DetailTvShowModel {
       @nullable
           List<GenreModel> genres,
       @required
-      @JsonKey(name: 'home_page')
+      @JsonKey(name: 'homepage')
       @nullable
           String homePage,
       @required
@@ -1012,7 +1012,7 @@ abstract class _DetailTvShowModel implements DetailTvShowModel {
   @nullable
   List<GenreModel> get genres;
   @override
-  @JsonKey(name: 'home_page')
+  @JsonKey(name: 'homepage')
   @nullable
   String get homePage;
   @override
@@ -1098,16 +1098,18 @@ class _$SeasonsModelTearOff {
 
 // ignore: unused_element
   _SeasonsModel call(
-      {@required @nullable String airDate,
-      @required @nullable int episodeCount,
+      {@required @JsonKey(name: 'air_date') @nullable String airDate,
+      @required @JsonKey(name: 'episode_count') @nullable int episodeCount,
       @required @nullable int id,
+      @required @nullable String name,
       @required @nullable String overview,
-      @required @nullable String posterPath,
-      @required @nullable int sesonNumber}) {
+      @required @JsonKey(name: 'poster_path') @nullable String posterPath,
+      @required @JsonKey(name: 'season_number') @nullable int sesonNumber}) {
     return _SeasonsModel(
       airDate: airDate,
       episodeCount: episodeCount,
       id: id,
+      name: name,
       overview: overview,
       posterPath: posterPath,
       sesonNumber: sesonNumber,
@@ -1119,16 +1121,22 @@ class _$SeasonsModelTearOff {
 const $SeasonsModel = _$SeasonsModelTearOff();
 
 mixin _$SeasonsModel {
+  @JsonKey(name: 'air_date')
   @nullable
   String get airDate;
+  @JsonKey(name: 'episode_count')
   @nullable
   int get episodeCount;
   @nullable
   int get id;
   @nullable
+  String get name;
+  @nullable
   String get overview;
+  @JsonKey(name: 'poster_path')
   @nullable
   String get posterPath;
+  @JsonKey(name: 'season_number')
   @nullable
   int get sesonNumber;
 
@@ -1141,12 +1149,13 @@ abstract class $SeasonsModelCopyWith<$Res> {
           SeasonsModel value, $Res Function(SeasonsModel) then) =
       _$SeasonsModelCopyWithImpl<$Res>;
   $Res call(
-      {@nullable String airDate,
-      @nullable int episodeCount,
+      {@JsonKey(name: 'air_date') @nullable String airDate,
+      @JsonKey(name: 'episode_count') @nullable int episodeCount,
       @nullable int id,
+      @nullable String name,
       @nullable String overview,
-      @nullable String posterPath,
-      @nullable int sesonNumber});
+      @JsonKey(name: 'poster_path') @nullable String posterPath,
+      @JsonKey(name: 'season_number') @nullable int sesonNumber});
 }
 
 class _$SeasonsModelCopyWithImpl<$Res> implements $SeasonsModelCopyWith<$Res> {
@@ -1161,6 +1170,7 @@ class _$SeasonsModelCopyWithImpl<$Res> implements $SeasonsModelCopyWith<$Res> {
     Object airDate = freezed,
     Object episodeCount = freezed,
     Object id = freezed,
+    Object name = freezed,
     Object overview = freezed,
     Object posterPath = freezed,
     Object sesonNumber = freezed,
@@ -1170,6 +1180,7 @@ class _$SeasonsModelCopyWithImpl<$Res> implements $SeasonsModelCopyWith<$Res> {
       episodeCount:
           episodeCount == freezed ? _value.episodeCount : episodeCount as int,
       id: id == freezed ? _value.id : id as int,
+      name: name == freezed ? _value.name : name as String,
       overview: overview == freezed ? _value.overview : overview as String,
       posterPath:
           posterPath == freezed ? _value.posterPath : posterPath as String,
@@ -1186,12 +1197,13 @@ abstract class _$SeasonsModelCopyWith<$Res>
       __$SeasonsModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@nullable String airDate,
-      @nullable int episodeCount,
+      {@JsonKey(name: 'air_date') @nullable String airDate,
+      @JsonKey(name: 'episode_count') @nullable int episodeCount,
       @nullable int id,
+      @nullable String name,
       @nullable String overview,
-      @nullable String posterPath,
-      @nullable int sesonNumber});
+      @JsonKey(name: 'poster_path') @nullable String posterPath,
+      @JsonKey(name: 'season_number') @nullable int sesonNumber});
 }
 
 class __$SeasonsModelCopyWithImpl<$Res> extends _$SeasonsModelCopyWithImpl<$Res>
@@ -1208,6 +1220,7 @@ class __$SeasonsModelCopyWithImpl<$Res> extends _$SeasonsModelCopyWithImpl<$Res>
     Object airDate = freezed,
     Object episodeCount = freezed,
     Object id = freezed,
+    Object name = freezed,
     Object overview = freezed,
     Object posterPath = freezed,
     Object sesonNumber = freezed,
@@ -1217,6 +1230,7 @@ class __$SeasonsModelCopyWithImpl<$Res> extends _$SeasonsModelCopyWithImpl<$Res>
       episodeCount:
           episodeCount == freezed ? _value.episodeCount : episodeCount as int,
       id: id == freezed ? _value.id : id as int,
+      name: name == freezed ? _value.name : name as String,
       overview: overview == freezed ? _value.overview : overview as String,
       posterPath:
           posterPath == freezed ? _value.posterPath : posterPath as String,
@@ -1229,20 +1243,23 @@ class __$SeasonsModelCopyWithImpl<$Res> extends _$SeasonsModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SeasonsModel implements _SeasonsModel {
   const _$_SeasonsModel(
-      {@required @nullable this.airDate,
-      @required @nullable this.episodeCount,
+      {@required @JsonKey(name: 'air_date') @nullable this.airDate,
+      @required @JsonKey(name: 'episode_count') @nullable this.episodeCount,
       @required @nullable this.id,
+      @required @nullable this.name,
       @required @nullable this.overview,
-      @required @nullable this.posterPath,
-      @required @nullable this.sesonNumber});
+      @required @JsonKey(name: 'poster_path') @nullable this.posterPath,
+      @required @JsonKey(name: 'season_number') @nullable this.sesonNumber});
 
   factory _$_SeasonsModel.fromJson(Map<String, dynamic> json) =>
       _$_$_SeasonsModelFromJson(json);
 
   @override
+  @JsonKey(name: 'air_date')
   @nullable
   final String airDate;
   @override
+  @JsonKey(name: 'episode_count')
   @nullable
   final int episodeCount;
   @override
@@ -1250,17 +1267,22 @@ class _$_SeasonsModel implements _SeasonsModel {
   final int id;
   @override
   @nullable
+  final String name;
+  @override
+  @nullable
   final String overview;
   @override
+  @JsonKey(name: 'poster_path')
   @nullable
   final String posterPath;
   @override
+  @JsonKey(name: 'season_number')
   @nullable
   final int sesonNumber;
 
   @override
   String toString() {
-    return 'SeasonsModel(airDate: $airDate, episodeCount: $episodeCount, id: $id, overview: $overview, posterPath: $posterPath, sesonNumber: $sesonNumber)';
+    return 'SeasonsModel(airDate: $airDate, episodeCount: $episodeCount, id: $id, name: $name, overview: $overview, posterPath: $posterPath, sesonNumber: $sesonNumber)';
   }
 
   @override
@@ -1275,6 +1297,8 @@ class _$_SeasonsModel implements _SeasonsModel {
                     .equals(other.episodeCount, episodeCount)) &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.overview, overview) ||
                 const DeepCollectionEquality()
                     .equals(other.overview, overview)) &&
@@ -1292,6 +1316,7 @@ class _$_SeasonsModel implements _SeasonsModel {
       const DeepCollectionEquality().hash(airDate) ^
       const DeepCollectionEquality().hash(episodeCount) ^
       const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(overview) ^
       const DeepCollectionEquality().hash(posterPath) ^
       const DeepCollectionEquality().hash(sesonNumber);
@@ -1308,20 +1333,41 @@ class _$_SeasonsModel implements _SeasonsModel {
 
 abstract class _SeasonsModel implements SeasonsModel {
   const factory _SeasonsModel(
-      {@required @nullable String airDate,
-      @required @nullable int episodeCount,
-      @required @nullable int id,
-      @required @nullable String overview,
-      @required @nullable String posterPath,
-      @required @nullable int sesonNumber}) = _$_SeasonsModel;
+      {@required
+      @JsonKey(name: 'air_date')
+      @nullable
+          String airDate,
+      @required
+      @JsonKey(name: 'episode_count')
+      @nullable
+          int episodeCount,
+      @required
+      @nullable
+          int id,
+      @required
+      @nullable
+          String name,
+      @required
+      @nullable
+          String overview,
+      @required
+      @JsonKey(name: 'poster_path')
+      @nullable
+          String posterPath,
+      @required
+      @JsonKey(name: 'season_number')
+      @nullable
+          int sesonNumber}) = _$_SeasonsModel;
 
   factory _SeasonsModel.fromJson(Map<String, dynamic> json) =
       _$_SeasonsModel.fromJson;
 
   @override
+  @JsonKey(name: 'air_date')
   @nullable
   String get airDate;
   @override
+  @JsonKey(name: 'episode_count')
   @nullable
   int get episodeCount;
   @override
@@ -1329,11 +1375,16 @@ abstract class _SeasonsModel implements SeasonsModel {
   int get id;
   @override
   @nullable
+  String get name;
+  @override
+  @nullable
   String get overview;
   @override
+  @JsonKey(name: 'poster_path')
   @nullable
   String get posterPath;
   @override
+  @JsonKey(name: 'season_number')
   @nullable
   int get sesonNumber;
   @override

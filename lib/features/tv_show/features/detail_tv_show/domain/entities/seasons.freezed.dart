@@ -17,6 +17,7 @@ class _$SeasonsTearOff {
       {@required @nullable String airDate,
       @required @nullable int episodeCount,
       @required @nullable int id,
+      @required @nullable String name,
       @required @nullable String overview,
       @required @nullable String posterPath,
       @required @nullable int sesonNumber}) {
@@ -24,6 +25,7 @@ class _$SeasonsTearOff {
       airDate: airDate,
       episodeCount: episodeCount,
       id: id,
+      name: name,
       overview: overview,
       posterPath: posterPath,
       sesonNumber: sesonNumber,
@@ -42,6 +44,8 @@ mixin _$Seasons {
   @nullable
   int get id;
   @nullable
+  String get name;
+  @nullable
   String get overview;
   @nullable
   String get posterPath;
@@ -58,6 +62,7 @@ abstract class $SeasonsCopyWith<$Res> {
       {@nullable String airDate,
       @nullable int episodeCount,
       @nullable int id,
+      @nullable String name,
       @nullable String overview,
       @nullable String posterPath,
       @nullable int sesonNumber});
@@ -75,6 +80,7 @@ class _$SeasonsCopyWithImpl<$Res> implements $SeasonsCopyWith<$Res> {
     Object airDate = freezed,
     Object episodeCount = freezed,
     Object id = freezed,
+    Object name = freezed,
     Object overview = freezed,
     Object posterPath = freezed,
     Object sesonNumber = freezed,
@@ -84,6 +90,7 @@ class _$SeasonsCopyWithImpl<$Res> implements $SeasonsCopyWith<$Res> {
       episodeCount:
           episodeCount == freezed ? _value.episodeCount : episodeCount as int,
       id: id == freezed ? _value.id : id as int,
+      name: name == freezed ? _value.name : name as String,
       overview: overview == freezed ? _value.overview : overview as String,
       posterPath:
           posterPath == freezed ? _value.posterPath : posterPath as String,
@@ -101,6 +108,7 @@ abstract class _$SeasonsCopyWith<$Res> implements $SeasonsCopyWith<$Res> {
       {@nullable String airDate,
       @nullable int episodeCount,
       @nullable int id,
+      @nullable String name,
       @nullable String overview,
       @nullable String posterPath,
       @nullable int sesonNumber});
@@ -119,6 +127,7 @@ class __$SeasonsCopyWithImpl<$Res> extends _$SeasonsCopyWithImpl<$Res>
     Object airDate = freezed,
     Object episodeCount = freezed,
     Object id = freezed,
+    Object name = freezed,
     Object overview = freezed,
     Object posterPath = freezed,
     Object sesonNumber = freezed,
@@ -128,6 +137,7 @@ class __$SeasonsCopyWithImpl<$Res> extends _$SeasonsCopyWithImpl<$Res>
       episodeCount:
           episodeCount == freezed ? _value.episodeCount : episodeCount as int,
       id: id == freezed ? _value.id : id as int,
+      name: name == freezed ? _value.name : name as String,
       overview: overview == freezed ? _value.overview : overview as String,
       posterPath:
           posterPath == freezed ? _value.posterPath : posterPath as String,
@@ -142,6 +152,7 @@ class _$_Seasons implements _Seasons {
       {@required @nullable this.airDate,
       @required @nullable this.episodeCount,
       @required @nullable this.id,
+      @required @nullable this.name,
       @required @nullable this.overview,
       @required @nullable this.posterPath,
       @required @nullable this.sesonNumber});
@@ -157,6 +168,9 @@ class _$_Seasons implements _Seasons {
   final int id;
   @override
   @nullable
+  final String name;
+  @override
+  @nullable
   final String overview;
   @override
   @nullable
@@ -167,7 +181,7 @@ class _$_Seasons implements _Seasons {
 
   @override
   String toString() {
-    return 'Seasons(airDate: $airDate, episodeCount: $episodeCount, id: $id, overview: $overview, posterPath: $posterPath, sesonNumber: $sesonNumber)';
+    return 'Seasons(airDate: $airDate, episodeCount: $episodeCount, id: $id, name: $name, overview: $overview, posterPath: $posterPath, sesonNumber: $sesonNumber)';
   }
 
   @override
@@ -182,6 +196,8 @@ class _$_Seasons implements _Seasons {
                     .equals(other.episodeCount, episodeCount)) &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.overview, overview) ||
                 const DeepCollectionEquality()
                     .equals(other.overview, overview)) &&
@@ -199,6 +215,7 @@ class _$_Seasons implements _Seasons {
       const DeepCollectionEquality().hash(airDate) ^
       const DeepCollectionEquality().hash(episodeCount) ^
       const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(overview) ^
       const DeepCollectionEquality().hash(posterPath) ^
       const DeepCollectionEquality().hash(sesonNumber);
@@ -213,6 +230,7 @@ abstract class _Seasons implements Seasons {
       {@required @nullable String airDate,
       @required @nullable int episodeCount,
       @required @nullable int id,
+      @required @nullable String name,
       @required @nullable String overview,
       @required @nullable String posterPath,
       @required @nullable int sesonNumber}) = _$_Seasons;
@@ -226,6 +244,9 @@ abstract class _Seasons implements Seasons {
   @override
   @nullable
   int get id;
+  @override
+  @nullable
+  String get name;
   @override
   @nullable
   String get overview;

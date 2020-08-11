@@ -1,12 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:the_movie_wiki/features/tv_show/features/detail_tv_show/domain/entities/detail_tv_show.dart';
 
-import '../../../../../../core/entities/credits/credits.dart';
-import '../../../../../../core/entities/genre/genre.dart';
-import '../../../../../../core/entities/images/images.dart';
-import '../../../../../../core/entities/production_companies/production_companies.dart';
-import '../../../../../../core/entities/reviews/reviews.dart';
-import '../../../../../../core/entities/videos/videos.dart';
 import '../../../../../../core/models/credits/credits_model.dart';
 import '../../../../../../core/models/genres/genre_model.dart';
 import '../../../../../../core/models/images/images_model.dart';
@@ -14,6 +7,7 @@ import '../../../../../../core/models/production_companies/production_companies_
 import '../../../../../../core/models/results/tv_show_result_model.dart';
 import '../../../../../../core/models/reviews/reviews_model.dart';
 import '../../../../../../core/models/videos/videos_model.dart';
+import '../../domain/entities/detail_tv_show.dart';
 import '../../domain/entities/episode_to_air.dart';
 import '../../domain/entities/networks.dart';
 import '../../domain/entities/seasons.dart';
@@ -31,7 +25,7 @@ abstract class DetailTvShowModel with _$DetailTvShowModel {
         List<int> episodeRunTime,
     @JsonKey(name: 'first_air_date') @nullable @required String firstAirDate,
     @nullable @required List<GenreModel> genres,
-    @JsonKey(name: 'home_page') @nullable @required String homePage,
+    @JsonKey(name: 'homepage') @nullable @required String homePage,
     @JsonKey(name: 'in_production') @nullable @required bool inProduction,
     @nullable @required List<String> languages,
     @JsonKey(name: 'last_air_date') @nullable @required String lastAirDate,
@@ -109,12 +103,13 @@ extension DetailTvShowModelX on DetailTvShowModel {
 @freezed
 abstract class SeasonsModel with _$SeasonsModel {
   const factory SeasonsModel({
-    @nullable @required String airDate,
-    @nullable @required int episodeCount,
+    @JsonKey(name: 'air_date') @nullable @required String airDate,
+    @JsonKey(name: 'episode_count') @nullable @required int episodeCount,
     @nullable @required int id,
+    @nullable @required String name,
     @nullable @required String overview,
-    @nullable @required String posterPath,
-    @nullable @required int sesonNumber,
+    @JsonKey(name: 'poster_path') @nullable @required String posterPath,
+    @JsonKey(name: 'season_number') @nullable @required int sesonNumber,
   }) = _SeasonsModel;
 
   factory SeasonsModel.fromJson(Map<String, dynamic> json) =>
@@ -126,6 +121,7 @@ extension SeasonsModelX on SeasonsModel {
         airDate: airDate,
         episodeCount: episodeCount,
         id: id,
+        name: name,
         overview: overview,
         posterPath: posterPath,
         sesonNumber: sesonNumber,
@@ -171,9 +167,11 @@ abstract class SimilarTvShowModel with _$SimilarTvShowModel {
 extension SimilarTvShowModelX on SimilarTvShowModel {
   SimilarTvShow toDomain() {
     return SimilarTvShow(
-      results: results.map(
-        (e) => e.toDomain(),
-      ),
+      results: results
+          .map(
+            (e) => e.toDomain(),
+          )
+          .toList(),
     );
   }
 }

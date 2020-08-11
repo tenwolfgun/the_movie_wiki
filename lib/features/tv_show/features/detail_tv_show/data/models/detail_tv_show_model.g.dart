@@ -15,7 +15,7 @@ _$_DetailTvShowModel _$_$_DetailTvShowModelFromJson(Map<String, dynamic> json) {
         ?.map((e) =>
             e == null ? null : GenreModel.fromJson(e as Map<String, dynamic>))
         ?.toList(),
-    homePage: json['home_page'] as String,
+    homePage: json['homepage'] as String,
     inProduction: json['in_production'] as bool,
     languages: (json['languages'] as List)?.map((e) => e as String)?.toList(),
     lastAirDate: json['last_air_date'] as String,
@@ -73,7 +73,7 @@ Map<String, dynamic> _$_$_DetailTvShowModelToJson(
       'episode_run_time': instance.episodeRunTime,
       'first_air_date': instance.firstAirDate,
       'genres': instance.genres?.map((e) => e?.toJson())?.toList(),
-      'home_page': instance.homePage,
+      'homepage': instance.homePage,
       'in_production': instance.inProduction,
       'languages': instance.languages,
       'last_air_date': instance.lastAirDate,
@@ -99,23 +99,25 @@ Map<String, dynamic> _$_$_DetailTvShowModelToJson(
 
 _$_SeasonsModel _$_$_SeasonsModelFromJson(Map<String, dynamic> json) {
   return _$_SeasonsModel(
-    airDate: json['airDate'] as String,
-    episodeCount: json['episodeCount'] as int,
+    airDate: json['air_date'] as String,
+    episodeCount: json['episode_count'] as int,
     id: json['id'] as int,
+    name: json['name'] as String,
     overview: json['overview'] as String,
-    posterPath: json['posterPath'] as String,
-    sesonNumber: json['sesonNumber'] as int,
+    posterPath: json['poster_path'] as String,
+    sesonNumber: json['season_number'] as int,
   );
 }
 
 Map<String, dynamic> _$_$_SeasonsModelToJson(_$_SeasonsModel instance) =>
     <String, dynamic>{
-      'airDate': instance.airDate,
-      'episodeCount': instance.episodeCount,
+      'air_date': instance.airDate,
+      'episode_count': instance.episodeCount,
       'id': instance.id,
+      'name': instance.name,
       'overview': instance.overview,
-      'posterPath': instance.posterPath,
-      'sesonNumber': instance.sesonNumber,
+      'poster_path': instance.posterPath,
+      'season_number': instance.sesonNumber,
     };
 
 _$_EpisodeToAirModel _$_$_EpisodeToAirModelFromJson(Map<String, dynamic> json) {
