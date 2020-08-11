@@ -2,14 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:the_movie_wiki/core/entities/results/movie_result.dart';
 import 'package:the_movie_wiki/core/routes/router.gr.dart';
 
 import '../../../../../../core/widget/error_image.dart';
 import '../../../../../../core/widget/image_loader.dart';
-import '../../../discover_movie/domain/entities/results.dart';
 
 class BuildSimilar extends StatelessWidget {
-  final List<Results> similar;
+  final List<MovieResult> similar;
 
   const BuildSimilar({Key key, this.similar}) : super(key: key);
 

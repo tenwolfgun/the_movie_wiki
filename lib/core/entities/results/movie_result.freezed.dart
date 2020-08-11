@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'results.dart';
+part of 'movie_result.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -9,11 +9,11 @@ part of 'results.dart';
 
 T _$identity<T>(T value) => value;
 
-class _$ResultsTearOff {
-  const _$ResultsTearOff();
+class _$MovieResultTearOff {
+  const _$MovieResultTearOff();
 
 // ignore: unused_element
-  _Results call(
+  _MovieResult call(
       {@required @nullable double popularity,
       @required @nullable int voteCount,
       @required @nullable String posterPath,
@@ -22,7 +22,7 @@ class _$ResultsTearOff {
       @required @nullable double voteAverage,
       @required @nullable String overview,
       @required @nullable String releaseDate}) {
-    return _Results(
+    return _MovieResult(
       popularity: popularity,
       voteCount: voteCount,
       posterPath: posterPath,
@@ -36,9 +36,9 @@ class _$ResultsTearOff {
 }
 
 // ignore: unused_element
-const $Results = _$ResultsTearOff();
+const $MovieResult = _$MovieResultTearOff();
 
-mixin _$Results {
+mixin _$MovieResult {
   @nullable
   double get popularity;
   @nullable
@@ -56,12 +56,13 @@ mixin _$Results {
   @nullable
   String get releaseDate;
 
-  $ResultsCopyWith<Results> get copyWith;
+  $MovieResultCopyWith<MovieResult> get copyWith;
 }
 
-abstract class $ResultsCopyWith<$Res> {
-  factory $ResultsCopyWith(Results value, $Res Function(Results) then) =
-      _$ResultsCopyWithImpl<$Res>;
+abstract class $MovieResultCopyWith<$Res> {
+  factory $MovieResultCopyWith(
+          MovieResult value, $Res Function(MovieResult) then) =
+      _$MovieResultCopyWithImpl<$Res>;
   $Res call(
       {@nullable double popularity,
       @nullable int voteCount,
@@ -73,12 +74,12 @@ abstract class $ResultsCopyWith<$Res> {
       @nullable String releaseDate});
 }
 
-class _$ResultsCopyWithImpl<$Res> implements $ResultsCopyWith<$Res> {
-  _$ResultsCopyWithImpl(this._value, this._then);
+class _$MovieResultCopyWithImpl<$Res> implements $MovieResultCopyWith<$Res> {
+  _$MovieResultCopyWithImpl(this._value, this._then);
 
-  final Results _value;
+  final MovieResult _value;
   // ignore: unused_field
-  final $Res Function(Results) _then;
+  final $Res Function(MovieResult) _then;
 
   @override
   $Res call({
@@ -108,9 +109,11 @@ class _$ResultsCopyWithImpl<$Res> implements $ResultsCopyWith<$Res> {
   }
 }
 
-abstract class _$ResultsCopyWith<$Res> implements $ResultsCopyWith<$Res> {
-  factory _$ResultsCopyWith(_Results value, $Res Function(_Results) then) =
-      __$ResultsCopyWithImpl<$Res>;
+abstract class _$MovieResultCopyWith<$Res>
+    implements $MovieResultCopyWith<$Res> {
+  factory _$MovieResultCopyWith(
+          _MovieResult value, $Res Function(_MovieResult) then) =
+      __$MovieResultCopyWithImpl<$Res>;
   @override
   $Res call(
       {@nullable double popularity,
@@ -123,13 +126,14 @@ abstract class _$ResultsCopyWith<$Res> implements $ResultsCopyWith<$Res> {
       @nullable String releaseDate});
 }
 
-class __$ResultsCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
-    implements _$ResultsCopyWith<$Res> {
-  __$ResultsCopyWithImpl(_Results _value, $Res Function(_Results) _then)
-      : super(_value, (v) => _then(v as _Results));
+class __$MovieResultCopyWithImpl<$Res> extends _$MovieResultCopyWithImpl<$Res>
+    implements _$MovieResultCopyWith<$Res> {
+  __$MovieResultCopyWithImpl(
+      _MovieResult _value, $Res Function(_MovieResult) _then)
+      : super(_value, (v) => _then(v as _MovieResult));
 
   @override
-  _Results get _value => super._value as _Results;
+  _MovieResult get _value => super._value as _MovieResult;
 
   @override
   $Res call({
@@ -142,7 +146,7 @@ class __$ResultsCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
     Object overview = freezed,
     Object releaseDate = freezed,
   }) {
-    return _then(_Results(
+    return _then(_MovieResult(
       popularity:
           popularity == freezed ? _value.popularity : popularity as double,
       voteCount: voteCount == freezed ? _value.voteCount : voteCount as int,
@@ -159,8 +163,8 @@ class __$ResultsCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
   }
 }
 
-class _$_Results implements _Results {
-  const _$_Results(
+class _$_MovieResult implements _MovieResult {
+  const _$_MovieResult(
       {@required @nullable this.popularity,
       @required @nullable this.voteCount,
       @required @nullable this.posterPath,
@@ -197,13 +201,13 @@ class _$_Results implements _Results {
 
   @override
   String toString() {
-    return 'Results(popularity: $popularity, voteCount: $voteCount, posterPath: $posterPath, id: $id, title: $title, voteAverage: $voteAverage, overview: $overview, releaseDate: $releaseDate)';
+    return 'MovieResult(popularity: $popularity, voteCount: $voteCount, posterPath: $posterPath, id: $id, title: $title, voteAverage: $voteAverage, overview: $overview, releaseDate: $releaseDate)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Results &&
+        (other is _MovieResult &&
             (identical(other.popularity, popularity) ||
                 const DeepCollectionEquality()
                     .equals(other.popularity, popularity)) &&
@@ -241,12 +245,12 @@ class _$_Results implements _Results {
       const DeepCollectionEquality().hash(releaseDate);
 
   @override
-  _$ResultsCopyWith<_Results> get copyWith =>
-      __$ResultsCopyWithImpl<_Results>(this, _$identity);
+  _$MovieResultCopyWith<_MovieResult> get copyWith =>
+      __$MovieResultCopyWithImpl<_MovieResult>(this, _$identity);
 }
 
-abstract class _Results implements Results {
-  const factory _Results(
+abstract class _MovieResult implements MovieResult {
+  const factory _MovieResult(
       {@required @nullable double popularity,
       @required @nullable int voteCount,
       @required @nullable String posterPath,
@@ -254,7 +258,7 @@ abstract class _Results implements Results {
       @required @nullable String title,
       @required @nullable double voteAverage,
       @required @nullable String overview,
-      @required @nullable String releaseDate}) = _$_Results;
+      @required @nullable String releaseDate}) = _$_MovieResult;
 
   @override
   @nullable
@@ -281,5 +285,5 @@ abstract class _Results implements Results {
   @nullable
   String get releaseDate;
   @override
-  _$ResultsCopyWith<_Results> get copyWith;
+  _$MovieResultCopyWith<_MovieResult> get copyWith;
 }

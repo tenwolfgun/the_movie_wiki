@@ -4,9 +4,9 @@ import '../../../../../../core/entities/credits/credits.dart';
 import '../../../../../../core/entities/genre/genre.dart';
 import '../../../../../../core/entities/images/images.dart';
 import '../../../../../../core/entities/production_companies/production_companies.dart';
-import '../../../../../../core/entities/production_countries/production_countries.dart';
+import 'production_countries.dart';
 import '../../../../../../core/entities/reviews/reviews.dart';
-import '../../../../../../core/entities/similar_movies/similar_movies.dart';
+import 'similar_movies.dart';
 import '../../../../../../core/entities/videos/videos.dart';
 
 part 'detail_movie.freezed.dart';

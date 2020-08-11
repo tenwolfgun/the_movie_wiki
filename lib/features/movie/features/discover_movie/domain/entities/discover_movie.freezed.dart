@@ -14,7 +14,7 @@ class _$DiscoverMovieTearOff {
 
 // ignore: unused_element
   _DiscoverMovie call(
-      {@required @nullable List<Results> results,
+      {@required @nullable List<MovieResult> results,
       @required @nullable int page,
       @required @nullable int totalResults,
       @required @nullable int totalPages}) {
@@ -32,7 +32,7 @@ const $DiscoverMovie = _$DiscoverMovieTearOff();
 
 mixin _$DiscoverMovie {
   @nullable
-  List<Results> get results;
+  List<MovieResult> get results;
   @nullable
   int get page;
   @nullable
@@ -48,7 +48,7 @@ abstract class $DiscoverMovieCopyWith<$Res> {
           DiscoverMovie value, $Res Function(DiscoverMovie) then) =
       _$DiscoverMovieCopyWithImpl<$Res>;
   $Res call(
-      {@nullable List<Results> results,
+      {@nullable List<MovieResult> results,
       @nullable int page,
       @nullable int totalResults,
       @nullable int totalPages});
@@ -70,7 +70,8 @@ class _$DiscoverMovieCopyWithImpl<$Res>
     Object totalPages = freezed,
   }) {
     return _then(_value.copyWith(
-      results: results == freezed ? _value.results : results as List<Results>,
+      results:
+          results == freezed ? _value.results : results as List<MovieResult>,
       page: page == freezed ? _value.page : page as int,
       totalResults:
           totalResults == freezed ? _value.totalResults : totalResults as int,
@@ -86,7 +87,7 @@ abstract class _$DiscoverMovieCopyWith<$Res>
       __$DiscoverMovieCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@nullable List<Results> results,
+      {@nullable List<MovieResult> results,
       @nullable int page,
       @nullable int totalResults,
       @nullable int totalPages});
@@ -110,7 +111,8 @@ class __$DiscoverMovieCopyWithImpl<$Res>
     Object totalPages = freezed,
   }) {
     return _then(_DiscoverMovie(
-      results: results == freezed ? _value.results : results as List<Results>,
+      results:
+          results == freezed ? _value.results : results as List<MovieResult>,
       page: page == freezed ? _value.page : page as int,
       totalResults:
           totalResults == freezed ? _value.totalResults : totalResults as int,
@@ -128,7 +130,7 @@ class _$_DiscoverMovie implements _DiscoverMovie {
 
   @override
   @nullable
-  final List<Results> results;
+  final List<MovieResult> results;
   @override
   @nullable
   final int page;
@@ -176,14 +178,14 @@ class _$_DiscoverMovie implements _DiscoverMovie {
 
 abstract class _DiscoverMovie implements DiscoverMovie {
   const factory _DiscoverMovie(
-      {@required @nullable List<Results> results,
+      {@required @nullable List<MovieResult> results,
       @required @nullable int page,
       @required @nullable int totalResults,
       @required @nullable int totalPages}) = _$_DiscoverMovie;
 
   @override
   @nullable
-  List<Results> get results;
+  List<MovieResult> get results;
   @override
   @nullable
   int get page;

@@ -360,7 +360,7 @@ class _$DiscoverMovieStateTearOff {
 
 // ignore: unused_element
   Loaded loaded(
-      {List<Results> results,
+      {List<MovieResult> results,
       bool isEndOfResult,
       bool isLoading,
       bool isError,
@@ -393,15 +393,15 @@ mixin _$DiscoverMovieState {
     @required Result initial(),
     @required Result loading(),
     @required
-        Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
-            bool isError, String errorMessage, bool isLoadData),
+        Result loaded(List<MovieResult> results, bool isEndOfResult,
+            bool isLoading, bool isError, String errorMessage, bool isLoadData),
     @required Result error(String errorMessage),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+    Result loaded(List<MovieResult> results, bool isEndOfResult, bool isLoading,
         bool isError, String errorMessage, bool isLoadData),
     Result error(String errorMessage),
     @required Result orElse(),
@@ -474,8 +474,8 @@ class _$Initial implements Initial {
     @required Result initial(),
     @required Result loading(),
     @required
-        Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
-            bool isError, String errorMessage, bool isLoadData),
+        Result loaded(List<MovieResult> results, bool isEndOfResult,
+            bool isLoading, bool isError, String errorMessage, bool isLoadData),
     @required Result error(String errorMessage),
   }) {
     assert(initial != null);
@@ -490,7 +490,7 @@ class _$Initial implements Initial {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+    Result loaded(List<MovieResult> results, bool isEndOfResult, bool isLoading,
         bool isError, String errorMessage, bool isLoadData),
     Result error(String errorMessage),
     @required Result orElse(),
@@ -574,8 +574,8 @@ class _$Loading implements Loading {
     @required Result initial(),
     @required Result loading(),
     @required
-        Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
-            bool isError, String errorMessage, bool isLoadData),
+        Result loaded(List<MovieResult> results, bool isEndOfResult,
+            bool isLoading, bool isError, String errorMessage, bool isLoadData),
     @required Result error(String errorMessage),
   }) {
     assert(initial != null);
@@ -590,7 +590,7 @@ class _$Loading implements Loading {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+    Result loaded(List<MovieResult> results, bool isEndOfResult, bool isLoading,
         bool isError, String errorMessage, bool isLoadData),
     Result error(String errorMessage),
     @required Result orElse(),
@@ -642,7 +642,7 @@ abstract class $LoadedCopyWith<$Res> {
   factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) then) =
       _$LoadedCopyWithImpl<$Res>;
   $Res call(
-      {List<Results> results,
+      {List<MovieResult> results,
       bool isEndOfResult,
       bool isLoading,
       bool isError,
@@ -668,7 +668,8 @@ class _$LoadedCopyWithImpl<$Res> extends _$DiscoverMovieStateCopyWithImpl<$Res>
     Object isLoadData = freezed,
   }) {
     return _then(Loaded(
-      results: results == freezed ? _value.results : results as List<Results>,
+      results:
+          results == freezed ? _value.results : results as List<MovieResult>,
       isEndOfResult: isEndOfResult == freezed
           ? _value.isEndOfResult
           : isEndOfResult as bool,
@@ -693,7 +694,7 @@ class _$Loaded implements Loaded {
       this.isLoadData});
 
   @override
-  final List<Results> results;
+  final List<MovieResult> results;
   @override
   final bool isEndOfResult;
   @override
@@ -754,8 +755,8 @@ class _$Loaded implements Loaded {
     @required Result initial(),
     @required Result loading(),
     @required
-        Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
-            bool isError, String errorMessage, bool isLoadData),
+        Result loaded(List<MovieResult> results, bool isEndOfResult,
+            bool isLoading, bool isError, String errorMessage, bool isLoadData),
     @required Result error(String errorMessage),
   }) {
     assert(initial != null);
@@ -771,7 +772,7 @@ class _$Loaded implements Loaded {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+    Result loaded(List<MovieResult> results, bool isEndOfResult, bool isLoading,
         bool isError, String errorMessage, bool isLoadData),
     Result error(String errorMessage),
     @required Result orElse(),
@@ -818,14 +819,14 @@ class _$Loaded implements Loaded {
 
 abstract class Loaded implements DiscoverMovieState {
   factory Loaded(
-      {List<Results> results,
+      {List<MovieResult> results,
       bool isEndOfResult,
       bool isLoading,
       bool isError,
       String errorMessage,
       bool isLoadData}) = _$Loaded;
 
-  List<Results> get results;
+  List<MovieResult> get results;
   bool get isEndOfResult;
   bool get isLoading;
   bool get isError;
@@ -892,8 +893,8 @@ class _$Error implements Error {
     @required Result initial(),
     @required Result loading(),
     @required
-        Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
-            bool isError, String errorMessage, bool isLoadData),
+        Result loaded(List<MovieResult> results, bool isEndOfResult,
+            bool isLoading, bool isError, String errorMessage, bool isLoadData),
     @required Result error(String errorMessage),
   }) {
     assert(initial != null);
@@ -908,7 +909,7 @@ class _$Error implements Error {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loaded(List<Results> results, bool isEndOfResult, bool isLoading,
+    Result loaded(List<MovieResult> results, bool isEndOfResult, bool isLoading,
         bool isError, String errorMessage, bool isLoadData),
     Result error(String errorMessage),
     @required Result orElse(),

@@ -14,9 +14,9 @@ import '../../features/movie/features/detail_movie/presentation/pages/more_revie
 import '../../features/movie/features/detail_movie/presentation/pages/more_similar_movie_page.dart';
 import '../../features/movie/features/detail_movie/presentation/pages/new_detail_movie_page.dart';
 import '../../features/movie/features/detail_movie/presentation/pages/test_detail_movie.dart';
-import '../../features/movie/features/discover_movie/domain/entities/results.dart';
 import '../../home_page.dart';
 import '../entities/credits/cast.dart';
+import '../entities/results/movie_result.dart';
 import '../entities/reviews/review_result.dart';
 
 class Routes {
@@ -187,7 +187,7 @@ class TestDetailMovieArguments {
 /// MoreSimilarMoviePage arguments holder class
 class MoreSimilarMoviePageArguments {
   final Key key;
-  final List<Results> similar;
+  final List<MovieResult> similar;
   MoreSimilarMoviePageArguments({this.key, this.similar});
 }
 

@@ -15,6 +15,7 @@ ignore:
   - "lib/core/widget"
   - "lib/core/module"
   - "lib/core/entities"
+  - "lib/core/models"
   - "lib/core/routes"
   - "api_key.dart"
   - "color_collection.dart"
@@ -35,5 +36,11 @@ ignore:
   - "lib/features/tv_show/features/discover_tv_show/presentation/bloc/discover_tv_show_bloc.freezed.dart"
   - "lib/features/tv_show/features/discover_tv_show/presentation/pages"
   - "lib/features/tv_show/features/discover_tv_show/presentation/widgets"
+  - "lib/features/tv_show/features/detail_tv_show"
+  # - "lib/features/tv_show/features/detail_tv_show/domain/entities"
+  # - "lib/features/tv_show/features/detail_tv_show/data/models/detail_tv_show_model.freezed.dart"
+  # - "lib/features/tv_show/features/detail_tv_show/presentation/bloc/detail_movie_bloc.freezed.dart"
+  # - "lib/features/tv_show/features/detail_tv_show/presentation/pages"
+  # - "lib/features/tv_show/features/detail_tv_show/presentation/widgets"
 
 

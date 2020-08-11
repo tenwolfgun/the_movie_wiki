@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../core/models/results/movie_result_model.dart';
 import '../../domain/entities/discover_movie.dart';
-import '../../domain/entities/results.dart';
 
 part 'discover_movie_model.freezed.dart';
 part 'discover_movie_model.g.dart';
@@ -9,7 +9,7 @@ part 'discover_movie_model.g.dart';
 @freezed
 abstract class DiscoverMovieModel with _$DiscoverMovieModel {
   const factory DiscoverMovieModel({
-    @nullable @required List<ResultModel> results,
+    @nullable @required List<MovieResultModel> results,
     @nullable @required int page,
     @JsonKey(name: 'total_results') @nullable @required int totalResults,
     @JsonKey(name: 'total_pages') @nullable @required int totalPages,
@@ -26,38 +26,6 @@ extension DiscoverMovieModelX on DiscoverMovieModel {
       page: page,
       totalResults: totalResults,
       totalPages: totalPages,
-    );
-  }
-}
-
-@freezed
-abstract class ResultModel with _$ResultModel {
-  const factory ResultModel({
-    @nullable @required double popularity,
-    @JsonKey(name: 'vote_count') @nullable @required int voteCount,
-    @JsonKey(name: 'poster_path') @nullable @required String posterPath,
-    @nullable @required int id,
-    @nullable @required String title,
-    @JsonKey(name: 'vote_average') @nullable @required double voteAverage,
-    @nullable @required String overview,
-    @JsonKey(name: 'release_date') @nullable @required String releaseDate,
-  }) = _ResultModel;
-
-  factory ResultModel.fromJson(Map<String, dynamic> json) =>
-      _$ResultModelFromJson(json);
-}
-
-extension ResultModelX on ResultModel {
-  Results toDomain() {
-    return Results(
-      popularity: popularity,
-      voteCount: voteCount,
-      posterPath: posterPath,
-      id: id,
-      title: title,
-      voteAverage: voteAverage,
-      overview: overview,
-      releaseDate: releaseDate,
     );
   }
 }

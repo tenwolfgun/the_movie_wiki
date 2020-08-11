@@ -75,38 +75,6 @@ Map<String, dynamic> _$_$_DetailMovieModelToJson(
       'reviews': instance.reviews?.toJson(),
     };
 
-_$_GenreModel _$_$_GenreModelFromJson(Map<String, dynamic> json) {
-  return _$_GenreModel(
-    id: json['id'] as int,
-    name: json['name'] as String,
-  );
-}
-
-Map<String, dynamic> _$_$_GenreModelToJson(_$_GenreModel instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-    };
-
-_$_ProductionCompaniesModel _$_$_ProductionCompaniesModelFromJson(
-    Map<String, dynamic> json) {
-  return _$_ProductionCompaniesModel(
-    id: json['id'] as int,
-    logoPath: json['logo_path'] as String,
-    name: json['name'] as String,
-    originCountry: json['origin_country'] as String,
-  );
-}
-
-Map<String, dynamic> _$_$_ProductionCompaniesModelToJson(
-        _$_ProductionCompaniesModel instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'logo_path': instance.logoPath,
-      'name': instance.name,
-      'origin_country': instance.originCountry,
-    };
-
 _$_ProductionCountriesModel _$_$_ProductionCountriesModelFromJson(
     Map<String, dynamic> json) {
   return _$_ProductionCountriesModel(
@@ -122,49 +90,13 @@ Map<String, dynamic> _$_$_ProductionCountriesModelToJson(
       'name': instance.name,
     };
 
-_$_VideosModel _$_$_VideosModelFromJson(Map<String, dynamic> json) {
-  return _$_VideosModel(
-    results: (json['results'] as List)
-        ?.map((e) => e == null
-            ? null
-            : VideoResultModel.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-  );
-}
-
-Map<String, dynamic> _$_$_VideosModelToJson(_$_VideosModel instance) =>
-    <String, dynamic>{
-      'results': instance.results?.map((e) => e?.toJson())?.toList(),
-    };
-
-_$_VideoResultModel _$_$_VideoResultModelFromJson(Map<String, dynamic> json) {
-  return _$_VideoResultModel(
-    id: json['id'] as String,
-    key: json['key'] as String,
-    name: json['name'] as String,
-    site: json['site'] as String,
-    size: (json['size'] as num)?.toDouble(),
-    type: json['type'] as String,
-  );
-}
-
-Map<String, dynamic> _$_$_VideoResultModelToJson(
-        _$_VideoResultModel instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'key': instance.key,
-      'name': instance.name,
-      'site': instance.site,
-      'size': instance.size,
-      'type': instance.type,
-    };
-
 _$_SimilarMoviesModel _$_$_SimilarMoviesModelFromJson(
     Map<String, dynamic> json) {
   return _$_SimilarMoviesModel(
     results: (json['results'] as List)
-        ?.map((e) =>
-            e == null ? null : ResultModel.fromJson(e as Map<String, dynamic>))
+        ?.map((e) => e == null
+            ? null
+            : MovieResultModel.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   );
 }
@@ -173,116 +105,4 @@ Map<String, dynamic> _$_$_SimilarMoviesModelToJson(
         _$_SimilarMoviesModel instance) =>
     <String, dynamic>{
       'results': instance.results?.map((e) => e?.toJson())?.toList(),
-    };
-
-_$_CreditsModel _$_$_CreditsModelFromJson(Map<String, dynamic> json) {
-  return _$_CreditsModel(
-    cast: (json['cast'] as List)
-        ?.map((e) =>
-            e == null ? null : CastModel.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-  );
-}
-
-Map<String, dynamic> _$_$_CreditsModelToJson(_$_CreditsModel instance) =>
-    <String, dynamic>{
-      'cast': instance.cast?.map((e) => e?.toJson())?.toList(),
-    };
-
-_$_CastModel _$_$_CastModelFromJson(Map<String, dynamic> json) {
-  return _$_CastModel(
-    id: json['id'] as int,
-    character: json['character'] as String,
-    name: json['name'] as String,
-    profilePath: json['profile_path'] as String,
-  );
-}
-
-Map<String, dynamic> _$_$_CastModelToJson(_$_CastModel instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'character': instance.character,
-      'name': instance.name,
-      'profile_path': instance.profilePath,
-    };
-
-_$_ImagesModel _$_$_ImagesModelFromJson(Map<String, dynamic> json) {
-  return _$_ImagesModel(
-    backdrops: (json['backdrops'] as List)
-        ?.map((e) => e == null
-            ? null
-            : BackdropsModel.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    posters: (json['posters'] as List)
-        ?.map((e) =>
-            e == null ? null : PostersModel.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-  );
-}
-
-Map<String, dynamic> _$_$_ImagesModelToJson(_$_ImagesModel instance) =>
-    <String, dynamic>{
-      'backdrops': instance.backdrops?.map((e) => e?.toJson())?.toList(),
-      'posters': instance.posters?.map((e) => e?.toJson())?.toList(),
-    };
-
-_$_BackdropsModel _$_$_BackdropsModelFromJson(Map<String, dynamic> json) {
-  return _$_BackdropsModel(
-    filePath: json['file_path'] as String,
-    height: (json['height'] as num)?.toDouble(),
-    width: (json['width'] as num)?.toDouble(),
-  );
-}
-
-Map<String, dynamic> _$_$_BackdropsModelToJson(_$_BackdropsModel instance) =>
-    <String, dynamic>{
-      'file_path': instance.filePath,
-      'height': instance.height,
-      'width': instance.width,
-    };
-
-_$_PostersModel _$_$_PostersModelFromJson(Map<String, dynamic> json) {
-  return _$_PostersModel(
-    filePath: json['file_path'] as String,
-    height: (json['height'] as num)?.toDouble(),
-    width: (json['width'] as num)?.toDouble(),
-  );
-}
-
-Map<String, dynamic> _$_$_PostersModelToJson(_$_PostersModel instance) =>
-    <String, dynamic>{
-      'file_path': instance.filePath,
-      'height': instance.height,
-      'width': instance.width,
-    };
-
-_$_ReviewsModel _$_$_ReviewsModelFromJson(Map<String, dynamic> json) {
-  return _$_ReviewsModel(
-    results: (json['results'] as List)
-        ?.map((e) => e == null
-            ? null
-            : ReviewResultModel.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-  );
-}
-
-Map<String, dynamic> _$_$_ReviewsModelToJson(_$_ReviewsModel instance) =>
-    <String, dynamic>{
-      'results': instance.results?.map((e) => e?.toJson())?.toList(),
-    };
-
-_$_ReviewResultModel _$_$_ReviewResultModelFromJson(Map<String, dynamic> json) {
-  return _$_ReviewResultModel(
-    author: json['author'] as String,
-    content: json['content'] as String,
-    url: json['url'] as String,
-  );
-}
-
-Map<String, dynamic> _$_$_ReviewResultModelToJson(
-        _$_ReviewResultModel instance) =>
-    <String, dynamic>{
-      'author': instance.author,
-      'content': instance.content,
-      'url': instance.url,
     };

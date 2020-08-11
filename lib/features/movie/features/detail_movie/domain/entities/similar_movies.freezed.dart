@@ -13,7 +13,7 @@ class _$SimilarMoviesTearOff {
   const _$SimilarMoviesTearOff();
 
 // ignore: unused_element
-  _SimilarMovies call({@required @nullable List<Results> results}) {
+  _SimilarMovies call({@required @nullable List<MovieResult> results}) {
     return _SimilarMovies(
       results: results,
     );
@@ -25,7 +25,7 @@ const $SimilarMovies = _$SimilarMoviesTearOff();
 
 mixin _$SimilarMovies {
   @nullable
-  List<Results> get results;
+  List<MovieResult> get results;
 
   $SimilarMoviesCopyWith<SimilarMovies> get copyWith;
 }
@@ -34,7 +34,7 @@ abstract class $SimilarMoviesCopyWith<$Res> {
   factory $SimilarMoviesCopyWith(
           SimilarMovies value, $Res Function(SimilarMovies) then) =
       _$SimilarMoviesCopyWithImpl<$Res>;
-  $Res call({@nullable List<Results> results});
+  $Res call({@nullable List<MovieResult> results});
 }
 
 class _$SimilarMoviesCopyWithImpl<$Res>
@@ -50,7 +50,8 @@ class _$SimilarMoviesCopyWithImpl<$Res>
     Object results = freezed,
   }) {
     return _then(_value.copyWith(
-      results: results == freezed ? _value.results : results as List<Results>,
+      results:
+          results == freezed ? _value.results : results as List<MovieResult>,
     ));
   }
 }
@@ -61,7 +62,7 @@ abstract class _$SimilarMoviesCopyWith<$Res>
           _SimilarMovies value, $Res Function(_SimilarMovies) then) =
       __$SimilarMoviesCopyWithImpl<$Res>;
   @override
-  $Res call({@nullable List<Results> results});
+  $Res call({@nullable List<MovieResult> results});
 }
 
 class __$SimilarMoviesCopyWithImpl<$Res>
@@ -79,7 +80,8 @@ class __$SimilarMoviesCopyWithImpl<$Res>
     Object results = freezed,
   }) {
     return _then(_SimilarMovies(
-      results: results == freezed ? _value.results : results as List<Results>,
+      results:
+          results == freezed ? _value.results : results as List<MovieResult>,
     ));
   }
 }
@@ -89,7 +91,7 @@ class _$_SimilarMovies implements _SimilarMovies {
 
   @override
   @nullable
-  final List<Results> results;
+  final List<MovieResult> results;
 
   @override
   String toString() {
@@ -114,12 +116,12 @@ class _$_SimilarMovies implements _SimilarMovies {
 }
 
 abstract class _SimilarMovies implements SimilarMovies {
-  const factory _SimilarMovies({@required @nullable List<Results> results}) =
-      _$_SimilarMovies;
+  const factory _SimilarMovies(
+      {@required @nullable List<MovieResult> results}) = _$_SimilarMovies;
 
   @override
   @nullable
-  List<Results> get results;
+  List<MovieResult> get results;
   @override
   _$SimilarMoviesCopyWith<_SimilarMovies> get copyWith;
 }

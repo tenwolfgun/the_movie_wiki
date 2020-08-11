@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'discover_tv_show_result.dart';
+part of 'tv_show_result.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -9,11 +9,11 @@ part of 'discover_tv_show_result.dart';
 
 T _$identity<T>(T value) => value;
 
-class _$DiscoverTvShowResultTearOff {
-  const _$DiscoverTvShowResultTearOff();
+class _$TvShowResultTearOff {
+  const _$TvShowResultTearOff();
 
 // ignore: unused_element
-  _DiscoverTvShowResult call(
+  _TvShowResult call(
       {@required @nullable double popularity,
       @required @nullable int voteCount,
       @required @nullable String posterPath,
@@ -22,7 +22,7 @@ class _$DiscoverTvShowResultTearOff {
       @required @nullable double voteAverage,
       @required @nullable String overview,
       @required @nullable String firstAirDate}) {
-    return _DiscoverTvShowResult(
+    return _TvShowResult(
       popularity: popularity,
       voteCount: voteCount,
       posterPath: posterPath,
@@ -36,9 +36,9 @@ class _$DiscoverTvShowResultTearOff {
 }
 
 // ignore: unused_element
-const $DiscoverTvShowResult = _$DiscoverTvShowResultTearOff();
+const $TvShowResult = _$TvShowResultTearOff();
 
-mixin _$DiscoverTvShowResult {
+mixin _$TvShowResult {
   @nullable
   double get popularity;
   @nullable
@@ -56,13 +56,13 @@ mixin _$DiscoverTvShowResult {
   @nullable
   String get firstAirDate;
 
-  $DiscoverTvShowResultCopyWith<DiscoverTvShowResult> get copyWith;
+  $TvShowResultCopyWith<TvShowResult> get copyWith;
 }
 
-abstract class $DiscoverTvShowResultCopyWith<$Res> {
-  factory $DiscoverTvShowResultCopyWith(DiscoverTvShowResult value,
-          $Res Function(DiscoverTvShowResult) then) =
-      _$DiscoverTvShowResultCopyWithImpl<$Res>;
+abstract class $TvShowResultCopyWith<$Res> {
+  factory $TvShowResultCopyWith(
+          TvShowResult value, $Res Function(TvShowResult) then) =
+      _$TvShowResultCopyWithImpl<$Res>;
   $Res call(
       {@nullable double popularity,
       @nullable int voteCount,
@@ -74,13 +74,12 @@ abstract class $DiscoverTvShowResultCopyWith<$Res> {
       @nullable String firstAirDate});
 }
 
-class _$DiscoverTvShowResultCopyWithImpl<$Res>
-    implements $DiscoverTvShowResultCopyWith<$Res> {
-  _$DiscoverTvShowResultCopyWithImpl(this._value, this._then);
+class _$TvShowResultCopyWithImpl<$Res> implements $TvShowResultCopyWith<$Res> {
+  _$TvShowResultCopyWithImpl(this._value, this._then);
 
-  final DiscoverTvShowResult _value;
+  final TvShowResult _value;
   // ignore: unused_field
-  final $Res Function(DiscoverTvShowResult) _then;
+  final $Res Function(TvShowResult) _then;
 
   @override
   $Res call({
@@ -111,11 +110,11 @@ class _$DiscoverTvShowResultCopyWithImpl<$Res>
   }
 }
 
-abstract class _$DiscoverTvShowResultCopyWith<$Res>
-    implements $DiscoverTvShowResultCopyWith<$Res> {
-  factory _$DiscoverTvShowResultCopyWith(_DiscoverTvShowResult value,
-          $Res Function(_DiscoverTvShowResult) then) =
-      __$DiscoverTvShowResultCopyWithImpl<$Res>;
+abstract class _$TvShowResultCopyWith<$Res>
+    implements $TvShowResultCopyWith<$Res> {
+  factory _$TvShowResultCopyWith(
+          _TvShowResult value, $Res Function(_TvShowResult) then) =
+      __$TvShowResultCopyWithImpl<$Res>;
   @override
   $Res call(
       {@nullable double popularity,
@@ -128,15 +127,14 @@ abstract class _$DiscoverTvShowResultCopyWith<$Res>
       @nullable String firstAirDate});
 }
 
-class __$DiscoverTvShowResultCopyWithImpl<$Res>
-    extends _$DiscoverTvShowResultCopyWithImpl<$Res>
-    implements _$DiscoverTvShowResultCopyWith<$Res> {
-  __$DiscoverTvShowResultCopyWithImpl(
-      _DiscoverTvShowResult _value, $Res Function(_DiscoverTvShowResult) _then)
-      : super(_value, (v) => _then(v as _DiscoverTvShowResult));
+class __$TvShowResultCopyWithImpl<$Res> extends _$TvShowResultCopyWithImpl<$Res>
+    implements _$TvShowResultCopyWith<$Res> {
+  __$TvShowResultCopyWithImpl(
+      _TvShowResult _value, $Res Function(_TvShowResult) _then)
+      : super(_value, (v) => _then(v as _TvShowResult));
 
   @override
-  _DiscoverTvShowResult get _value => super._value as _DiscoverTvShowResult;
+  _TvShowResult get _value => super._value as _TvShowResult;
 
   @override
   $Res call({
@@ -149,7 +147,7 @@ class __$DiscoverTvShowResultCopyWithImpl<$Res>
     Object overview = freezed,
     Object firstAirDate = freezed,
   }) {
-    return _then(_DiscoverTvShowResult(
+    return _then(_TvShowResult(
       popularity:
           popularity == freezed ? _value.popularity : popularity as double,
       voteCount: voteCount == freezed ? _value.voteCount : voteCount as int,
@@ -167,8 +165,8 @@ class __$DiscoverTvShowResultCopyWithImpl<$Res>
   }
 }
 
-class _$_DiscoverTvShowResult implements _DiscoverTvShowResult {
-  const _$_DiscoverTvShowResult(
+class _$_TvShowResult implements _TvShowResult {
+  const _$_TvShowResult(
       {@required @nullable this.popularity,
       @required @nullable this.voteCount,
       @required @nullable this.posterPath,
@@ -205,13 +203,13 @@ class _$_DiscoverTvShowResult implements _DiscoverTvShowResult {
 
   @override
   String toString() {
-    return 'DiscoverTvShowResult(popularity: $popularity, voteCount: $voteCount, posterPath: $posterPath, id: $id, name: $name, voteAverage: $voteAverage, overview: $overview, firstAirDate: $firstAirDate)';
+    return 'TvShowResult(popularity: $popularity, voteCount: $voteCount, posterPath: $posterPath, id: $id, name: $name, voteAverage: $voteAverage, overview: $overview, firstAirDate: $firstAirDate)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _DiscoverTvShowResult &&
+        (other is _TvShowResult &&
             (identical(other.popularity, popularity) ||
                 const DeepCollectionEquality()
                     .equals(other.popularity, popularity)) &&
@@ -249,13 +247,12 @@ class _$_DiscoverTvShowResult implements _DiscoverTvShowResult {
       const DeepCollectionEquality().hash(firstAirDate);
 
   @override
-  _$DiscoverTvShowResultCopyWith<_DiscoverTvShowResult> get copyWith =>
-      __$DiscoverTvShowResultCopyWithImpl<_DiscoverTvShowResult>(
-          this, _$identity);
+  _$TvShowResultCopyWith<_TvShowResult> get copyWith =>
+      __$TvShowResultCopyWithImpl<_TvShowResult>(this, _$identity);
 }
 
-abstract class _DiscoverTvShowResult implements DiscoverTvShowResult {
-  const factory _DiscoverTvShowResult(
+abstract class _TvShowResult implements TvShowResult {
+  const factory _TvShowResult(
       {@required @nullable double popularity,
       @required @nullable int voteCount,
       @required @nullable String posterPath,
@@ -263,7 +260,7 @@ abstract class _DiscoverTvShowResult implements DiscoverTvShowResult {
       @required @nullable String name,
       @required @nullable double voteAverage,
       @required @nullable String overview,
-      @required @nullable String firstAirDate}) = _$_DiscoverTvShowResult;
+      @required @nullable String firstAirDate}) = _$_TvShowResult;
 
   @override
   @nullable
@@ -290,5 +287,5 @@ abstract class _DiscoverTvShowResult implements DiscoverTvShowResult {
   @nullable
   String get firstAirDate;
   @override
-  _$DiscoverTvShowResultCopyWith<_DiscoverTvShowResult> get copyWith;
+  _$TvShowResultCopyWith<_TvShowResult> get copyWith;
 }

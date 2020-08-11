@@ -14,7 +14,7 @@ class _$DiscoverTvShowTearOff {
 
 // ignore: unused_element
   _DiscoverTvShow call(
-      {@required @nullable List<DiscoverTvShowResult> results,
+      {@required @nullable List<TvShowResult> results,
       @required @nullable int page,
       @required @nullable int totalResults,
       @required @nullable int totalPages}) {
@@ -32,7 +32,7 @@ const $DiscoverTvShow = _$DiscoverTvShowTearOff();
 
 mixin _$DiscoverTvShow {
   @nullable
-  List<DiscoverTvShowResult> get results;
+  List<TvShowResult> get results;
   @nullable
   int get page;
   @nullable
@@ -48,7 +48,7 @@ abstract class $DiscoverTvShowCopyWith<$Res> {
           DiscoverTvShow value, $Res Function(DiscoverTvShow) then) =
       _$DiscoverTvShowCopyWithImpl<$Res>;
   $Res call(
-      {@nullable List<DiscoverTvShowResult> results,
+      {@nullable List<TvShowResult> results,
       @nullable int page,
       @nullable int totalResults,
       @nullable int totalPages});
@@ -70,9 +70,8 @@ class _$DiscoverTvShowCopyWithImpl<$Res>
     Object totalPages = freezed,
   }) {
     return _then(_value.copyWith(
-      results: results == freezed
-          ? _value.results
-          : results as List<DiscoverTvShowResult>,
+      results:
+          results == freezed ? _value.results : results as List<TvShowResult>,
       page: page == freezed ? _value.page : page as int,
       totalResults:
           totalResults == freezed ? _value.totalResults : totalResults as int,
@@ -88,7 +87,7 @@ abstract class _$DiscoverTvShowCopyWith<$Res>
       __$DiscoverTvShowCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@nullable List<DiscoverTvShowResult> results,
+      {@nullable List<TvShowResult> results,
       @nullable int page,
       @nullable int totalResults,
       @nullable int totalPages});
@@ -112,9 +111,8 @@ class __$DiscoverTvShowCopyWithImpl<$Res>
     Object totalPages = freezed,
   }) {
     return _then(_DiscoverTvShow(
-      results: results == freezed
-          ? _value.results
-          : results as List<DiscoverTvShowResult>,
+      results:
+          results == freezed ? _value.results : results as List<TvShowResult>,
       page: page == freezed ? _value.page : page as int,
       totalResults:
           totalResults == freezed ? _value.totalResults : totalResults as int,
@@ -132,7 +130,7 @@ class _$_DiscoverTvShow implements _DiscoverTvShow {
 
   @override
   @nullable
-  final List<DiscoverTvShowResult> results;
+  final List<TvShowResult> results;
   @override
   @nullable
   final int page;
@@ -180,14 +178,14 @@ class _$_DiscoverTvShow implements _DiscoverTvShow {
 
 abstract class _DiscoverTvShow implements DiscoverTvShow {
   const factory _DiscoverTvShow(
-      {@required @nullable List<DiscoverTvShowResult> results,
+      {@required @nullable List<TvShowResult> results,
       @required @nullable int page,
       @required @nullable int totalResults,
       @required @nullable int totalPages}) = _$_DiscoverTvShow;
 
   @override
   @nullable
-  List<DiscoverTvShowResult> get results;
+  List<TvShowResult> get results;
   @override
   @nullable
   int get page;

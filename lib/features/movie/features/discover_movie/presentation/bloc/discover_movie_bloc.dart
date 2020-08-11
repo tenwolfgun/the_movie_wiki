@@ -4,9 +4,9 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:the_movie_wiki/core/entities/results/movie_result.dart';
 
 import '../../../../../../core/extension/extension_helper.dart';
-import '../../domain/entities/results.dart';
 import '../../domain/usecases/get_discover_movie_data.dart';
 
 part 'discover_movie_bloc.freezed.dart';

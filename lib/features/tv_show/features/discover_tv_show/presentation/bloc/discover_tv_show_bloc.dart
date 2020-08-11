@@ -5,9 +5,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:the_movie_wiki/core/entities/results/tv_show_result.dart';
 
 import '../../../../../../core/extension/extension_helper.dart';
-import '../../domain/entities/discover_tv_show_result.dart';
 import '../../domain/usecases/get_discover_tv_show_data.dart';
 
 part 'discover_tv_show_bloc.freezed.dart';

@@ -361,7 +361,7 @@ class _$DiscoverTvShowStateTearOff {
 
 // ignore: unused_element
   Loaded loaded(
-      {List<DiscoverTvShowResult> results,
+      {List<TvShowResult> results,
       bool isEndOfResult,
       bool isLoading,
       bool isError,
@@ -394,7 +394,7 @@ mixin _$DiscoverTvShowState {
     @required Result initial(),
     @required Result loading(),
     @required
-        Result loaded(List<DiscoverTvShowResult> results, bool isEndOfResult,
+        Result loaded(List<TvShowResult> results, bool isEndOfResult,
             bool isLoading, bool isError, String errorMessage, bool isLoadData),
     @required Result error(String errorMessage),
   });
@@ -402,7 +402,7 @@ mixin _$DiscoverTvShowState {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loaded(List<DiscoverTvShowResult> results, bool isEndOfResult,
+    Result loaded(List<TvShowResult> results, bool isEndOfResult,
         bool isLoading, bool isError, String errorMessage, bool isLoadData),
     Result error(String errorMessage),
     @required Result orElse(),
@@ -476,7 +476,7 @@ class _$Initial implements Initial {
     @required Result initial(),
     @required Result loading(),
     @required
-        Result loaded(List<DiscoverTvShowResult> results, bool isEndOfResult,
+        Result loaded(List<TvShowResult> results, bool isEndOfResult,
             bool isLoading, bool isError, String errorMessage, bool isLoadData),
     @required Result error(String errorMessage),
   }) {
@@ -492,7 +492,7 @@ class _$Initial implements Initial {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loaded(List<DiscoverTvShowResult> results, bool isEndOfResult,
+    Result loaded(List<TvShowResult> results, bool isEndOfResult,
         bool isLoading, bool isError, String errorMessage, bool isLoadData),
     Result error(String errorMessage),
     @required Result orElse(),
@@ -577,7 +577,7 @@ class _$Loading implements Loading {
     @required Result initial(),
     @required Result loading(),
     @required
-        Result loaded(List<DiscoverTvShowResult> results, bool isEndOfResult,
+        Result loaded(List<TvShowResult> results, bool isEndOfResult,
             bool isLoading, bool isError, String errorMessage, bool isLoadData),
     @required Result error(String errorMessage),
   }) {
@@ -593,7 +593,7 @@ class _$Loading implements Loading {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loaded(List<DiscoverTvShowResult> results, bool isEndOfResult,
+    Result loaded(List<TvShowResult> results, bool isEndOfResult,
         bool isLoading, bool isError, String errorMessage, bool isLoadData),
     Result error(String errorMessage),
     @required Result orElse(),
@@ -645,7 +645,7 @@ abstract class $LoadedCopyWith<$Res> {
   factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) then) =
       _$LoadedCopyWithImpl<$Res>;
   $Res call(
-      {List<DiscoverTvShowResult> results,
+      {List<TvShowResult> results,
       bool isEndOfResult,
       bool isLoading,
       bool isError,
@@ -671,9 +671,8 @@ class _$LoadedCopyWithImpl<$Res> extends _$DiscoverTvShowStateCopyWithImpl<$Res>
     Object isLoadData = freezed,
   }) {
     return _then(Loaded(
-      results: results == freezed
-          ? _value.results
-          : results as List<DiscoverTvShowResult>,
+      results:
+          results == freezed ? _value.results : results as List<TvShowResult>,
       isEndOfResult: isEndOfResult == freezed
           ? _value.isEndOfResult
           : isEndOfResult as bool,
@@ -698,7 +697,7 @@ class _$Loaded implements Loaded {
       this.isLoadData});
 
   @override
-  final List<DiscoverTvShowResult> results;
+  final List<TvShowResult> results;
   @override
   final bool isEndOfResult;
   @override
@@ -759,7 +758,7 @@ class _$Loaded implements Loaded {
     @required Result initial(),
     @required Result loading(),
     @required
-        Result loaded(List<DiscoverTvShowResult> results, bool isEndOfResult,
+        Result loaded(List<TvShowResult> results, bool isEndOfResult,
             bool isLoading, bool isError, String errorMessage, bool isLoadData),
     @required Result error(String errorMessage),
   }) {
@@ -776,7 +775,7 @@ class _$Loaded implements Loaded {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loaded(List<DiscoverTvShowResult> results, bool isEndOfResult,
+    Result loaded(List<TvShowResult> results, bool isEndOfResult,
         bool isLoading, bool isError, String errorMessage, bool isLoadData),
     Result error(String errorMessage),
     @required Result orElse(),
@@ -823,14 +822,14 @@ class _$Loaded implements Loaded {
 
 abstract class Loaded implements DiscoverTvShowState {
   factory Loaded(
-      {List<DiscoverTvShowResult> results,
+      {List<TvShowResult> results,
       bool isEndOfResult,
       bool isLoading,
       bool isError,
       String errorMessage,
       bool isLoadData}) = _$Loaded;
 
-  List<DiscoverTvShowResult> get results;
+  List<TvShowResult> get results;
   bool get isEndOfResult;
   bool get isLoading;
   bool get isError;
@@ -897,7 +896,7 @@ class _$Error implements Error {
     @required Result initial(),
     @required Result loading(),
     @required
-        Result loaded(List<DiscoverTvShowResult> results, bool isEndOfResult,
+        Result loaded(List<TvShowResult> results, bool isEndOfResult,
             bool isLoading, bool isError, String errorMessage, bool isLoadData),
     @required Result error(String errorMessage),
   }) {
@@ -913,7 +912,7 @@ class _$Error implements Error {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loaded(List<DiscoverTvShowResult> results, bool isEndOfResult,
+    Result loaded(List<TvShowResult> results, bool isEndOfResult,
         bool isLoading, bool isError, String errorMessage, bool isLoadData),
     Result error(String errorMessage),
     @required Result orElse(),

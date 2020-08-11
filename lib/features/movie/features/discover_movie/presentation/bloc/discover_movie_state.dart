@@ -8,7 +8,7 @@ abstract class DiscoverMovieState with _$DiscoverMovieState {
   factory DiscoverMovieState.initial() = Initial;
   factory DiscoverMovieState.loading() = Loading;
   factory DiscoverMovieState.loaded({
-    List<Results> results,
+    List<MovieResult> results,
     bool isEndOfResult,
     bool isLoading,
     bool isError,
