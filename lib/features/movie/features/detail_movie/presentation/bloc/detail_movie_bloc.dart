@@ -4,10 +4,10 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
-import 'package:the_movie_wiki/features/movie/features/detail_movie/domain/usecases/get_detail_movie.dart';
 
 import '../../../../../../core/extension/extension_helper.dart';
 import '../../domain/entities/detail_movie.dart';
+import '../../domain/usecases/get_detail_movie.dart';
 
 part 'detail_movie_bloc.freezed.dart';
 part 'detail_movie_event.dart';

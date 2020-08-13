@@ -10,7 +10,7 @@ abstract class DetailTvShowRemotelDataSource {
   Future<DetailTvShowModel> getDetailTvShowData({@required int id});
 }
 
-@LazySingleton(as: DetailTvShowRemotelDataSourceImpl)
+@LazySingleton(as: DetailTvShowRemotelDataSource)
 class DetailTvShowRemotelDataSourceImpl
     implements DetailTvShowRemotelDataSource {
   final Dio _dio;

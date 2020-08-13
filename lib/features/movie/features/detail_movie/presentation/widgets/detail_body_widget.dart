@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:the_movie_wiki/features/movie/features/detail_movie/presentation/widgets/build_cast.dart';
-import 'package:the_movie_wiki/features/movie/features/detail_movie/presentation/widgets/build_info.dart';
-import 'package:the_movie_wiki/features/movie/features/detail_movie/presentation/widgets/build_review.dart';
-import 'package:the_movie_wiki/features/movie/features/detail_movie/presentation/widgets/build_similar.dart';
-import 'package:the_movie_wiki/features/movie/features/detail_movie/presentation/widgets/build_trailer.dart';
 
+import '../../../../../../core/widget/build_overview.dart';
 import '../bloc/detail_movie_bloc.dart';
 import '../pages/test_detail_movie.dart';
-import 'build_overview.dart';
+import 'build_cast.dart';
+import 'build_info.dart';
+import 'build_review.dart';
+import 'build_similar.dart';
+import 'build_trailer.dart';
 
 class DetailMovieBodyWidget extends StatelessWidget {
   const DetailMovieBodyWidget({
@@ -16,15 +16,17 @@ class DetailMovieBodyWidget extends StatelessWidget {
     this.state,
   }) : super(key: key);
 
-  final TestDetailMovie widget;
   final Loaded state;
+  final TestDetailMovie widget;
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.only(top: 0, bottom: 16),
       children: <Widget>[
-        BuildOverview(widget: widget),
+        BuildOverview(
+          overview: widget.overview,
+        ),
         BuildInfo(
           state: state,
           releaseDate: widget.releaseDate,

@@ -1,7 +1,4 @@
 part of 'detail_movie_bloc.dart';
-// @immutable
-// abstract class DetailMovieState {}
-// class DetailMovieInitial extends DetailMovieState {}
 
 @freezed
 abstract class DetailMovieState with _$DetailMovieState {

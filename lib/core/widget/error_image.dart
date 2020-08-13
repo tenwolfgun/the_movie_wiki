@@ -8,6 +8,7 @@ class ErrorImage extends StatelessWidget {
     return const Center(
       child: Icon(
         Icons.error,
+        color: const Color(0XFFEB4B1F),
       ),
     );
   }

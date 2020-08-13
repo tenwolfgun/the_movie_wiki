@@ -79,8 +79,10 @@ extension DetailTvShowModelX on DetailTvShowModel {
         inProduction: inProduction,
         languages: languages,
         lastAirDate: lastAirDate,
-        lastEpisodeToAir: lastEpisodeToAir.toDomain(),
-        nextEpisodeToAir: nextEpisodeToAir.toDomain(),
+        lastEpisodeToAir:
+            lastEpisodeToAir != null ? lastEpisodeToAir.toDomain() : null,
+        nextEpisodeToAir:
+            nextEpisodeToAir != null ? nextEpisodeToAir.toDomain() : null,
         networks: networks.map((e) => e.toDomain()).toList(),
         numberOfEpisodes: numberOfEpisodes,
         numberOfSeasons: numberOfSeasons,

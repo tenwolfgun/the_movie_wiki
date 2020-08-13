@@ -13,37 +13,37 @@ import '../../../../../../core/widget/image_loader.dart';
 import '../../../../../../core/widget/initial_state.dart';
 import '../../../../../../core/widget/loading_state.dart';
 import '../../../../../../injection.dart';
-import '../bloc/detail_movie_bloc.dart';
-import '../widgets/detail_body_widget.dart';
+import '../bloc/detail_tv_show_bloc.dart';
+import '../widgets/detail_tv_show_body_widget.dart';
 
-class TestDetailMovie extends StatefulWidget {
-  const TestDetailMovie({
+class DetailTvShowPage extends StatefulWidget {
+  const DetailTvShowPage({
     Key key,
     this.id,
     this.posterPath,
-    this.title,
+    this.name,
     this.rating,
     this.overview,
-    this.releaseDate,
+    this.firstAirDate,
   }) : super(key: key);
 
+  final String firstAirDate;
   final int id;
+  final String name;
   final String overview;
   final String posterPath;
   final double rating;
-  final String releaseDate;
-  final String title;
 
   @override
-  _TestDetailMovieState createState() => _TestDetailMovieState();
+  _DetailTvShowPageState createState() => _DetailTvShowPageState();
 }
 
 const kExpandedHeight = 500.0;
 
-class _TestDetailMovieState extends State<TestDetailMovie> {
+class _DetailTvShowPageState extends State<DetailTvShowPage> {
   int carouselIndex = 0;
 
-  final _bloc = getIt<DetailMovieBloc>();
+  final _bloc = getIt<DetailTvShowBloc>();
   final ScrollController _scrollController = ScrollController();
   bool _showTitle = false;
 
@@ -55,9 +55,13 @@ class _TestDetailMovieState extends State<TestDetailMovie> {
 
   @override
   void initState() {
-    super.initState();
     _scrollController.addListener(_scrollListener);
     _initBloc();
+    super.initState();
+  }
+
+  _initBloc() {
+    _bloc.add(DetailTvShowEvent.getData(id: widget.id));
   }
 
   bool get _lastStatus {
@@ -73,19 +77,13 @@ class _TestDetailMovieState extends State<TestDetailMovie> {
     }
   }
 
-  _initBloc() {
-    _bloc.add(DetailMovieEvent.getData(id: widget.id));
-  }
-
   NestedScrollView buildNestedScrollView(Loaded state) {
     return NestedScrollView(
       controller: _scrollController,
       headerSliverBuilder: (_, isScroll) {
-        return <Widget>[
-          buildSliverAppBar(isScroll, state),
-        ];
+        return <Widget>[buildSliverAppBar(isScroll, state)];
       },
-      body: DetailMovieBodyWidget(
+      body: DetailTvShowBodyWidget(
         widget: widget,
         state: state,
       ),
@@ -103,7 +101,7 @@ class _TestDetailMovieState extends State<TestDetailMovie> {
       expandedHeight: kExpandedHeight,
       title: _showTitle
           ? Text(
-              widget.title,
+              widget.name,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: GoogleFonts.montserrat(
@@ -176,7 +174,7 @@ class _TestDetailMovieState extends State<TestDetailMovie> {
                       left: 8,
                     ),
                     child: Text(
-                      widget.title,
+                      widget.name,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.montserrat(
@@ -214,8 +212,8 @@ class _TestDetailMovieState extends State<TestDetailMovie> {
                       bottom: 16,
                     ),
                     child: Text(
-                      widget.releaseDate != null
-                          ? widget.releaseDate.toDate()
+                      widget.firstAirDate != null
+                          ? widget.firstAirDate.toDate()
                           : '',
                       style: TextStyle(
                         fontSize: 40.sp,
@@ -260,7 +258,7 @@ class _TestDetailMovieState extends State<TestDetailMovie> {
           child: Stack(
             children: [
               Positioned.fill(
-                child: state.detailMovie.images.backdrops.isEmpty
+                child: state.detailTvShow.images.backdrops.isEmpty
                     ? CachedNetworkImage(
                         fit: BoxFit.fill,
                         imageUrl: 'https://image.tmdb.org/t/p/w780/' +
@@ -274,12 +272,12 @@ class _TestDetailMovieState extends State<TestDetailMovie> {
                       )
                     : CarouselSlider.builder(
                         itemCount:
-                            state.detailMovie.images.backdrops.take(5).length,
+                            state.detailTvShow.images.backdrops.take(5).length,
                         itemBuilder: (_, i) {
                           return CachedNetworkImage(
                             fit: BoxFit.fill,
                             imageUrl: 'https://image.tmdb.org/t/p/w780/' +
-                                state.detailMovie.images.backdrops[i].filePath
+                                state.detailTvShow.images.backdrops[i].filePath
                                     .toString(),
                             placeholder: (_, __) {
                               return const ImageLoader();
@@ -296,8 +294,9 @@ class _TestDetailMovieState extends State<TestDetailMovie> {
                             enlargeCenterPage: false,
                             autoPlay: true,
                             autoPlayInterval: Duration(seconds: 3),
-                            autoPlayAnimationDuration:
-                                Duration(milliseconds: 1000),
+                            autoPlayAnimationDuration: Duration(
+                              milliseconds: 1000,
+                            ),
                             autoPlayCurve: Curves.fastOutSlowIn,
                             onPageChanged: (i, _) {
                               setState(() {
@@ -312,9 +311,10 @@ class _TestDetailMovieState extends State<TestDetailMovie> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.end,
-                  children: state.detailMovie.images.backdrops.take(5).map(
+                  children: state.detailTvShow.images.backdrops.take(5).map(
                     (e) {
-                      int index = state.detailMovie.images.backdrops.indexOf(e);
+                      int index =
+                          state.detailTvShow.images.backdrops.indexOf(e);
                       return Container(
                         width: 8.0,
                         height: 8.0,
@@ -344,21 +344,22 @@ class _TestDetailMovieState extends State<TestDetailMovie> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white10,
-      body: BlocBuilder<DetailMovieBloc, DetailMovieState>(
-          cubit: _bloc,
-          builder: (_, state) {
-            return state.map(
-              initial: (_) => const InitialState(),
-              loading: (_) => const LoadingState(),
-              loaded: (state) {
-                return buildNestedScrollView(state);
-              },
-              error: (state) => ErrorState(
-                errorMessage: state.errorMessage,
-                onPressed: _initBloc,
-              ),
-            );
-          }),
+      body: BlocBuilder<DetailTvShowBloc, DetailTvShowState>(
+        cubit: _bloc,
+        builder: (_, state) {
+          return state.map(
+            initial: (_) => const InitialState(),
+            loading: (_) => const LoadingState(),
+            loaded: (state) {
+              return buildNestedScrollView(state);
+            },
+            error: (state) => ErrorState(
+              errorMessage: state.errorMessage,
+              onPressed: _initBloc,
+            ),
+          );
+        },
+      ),
     );
   }
 }

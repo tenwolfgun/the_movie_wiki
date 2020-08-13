@@ -13,6 +13,10 @@ import 'features/movie/features/detail_movie/presentation/bloc/detail_movie_bloc
 import 'features/movie/features/detail_movie/data/datasources/detail_movie_remote_data_source.dart';
 import 'features/movie/features/detail_movie/domain/repositories/detail_movie_repository.dart';
 import 'features/movie/features/detail_movie/data/repositories/detail_movie_repository_impl.dart';
+import 'features/tv_show/features/detail_tv_show/presentation/bloc/detail_tv_show_bloc.dart';
+import 'features/tv_show/features/detail_tv_show/data/datasources/detail_tv_show_remote_data_source.dart';
+import 'features/tv_show/features/detail_tv_show/domain/repositories/detail_tv_show_repository.dart';
+import 'features/tv_show/features/detail_tv_show/data/repositories/detail_tv_show_repository_impl.dart';
 import 'features/movie/features/discover_movie/presentation/bloc/discover_movie_bloc.dart';
 import 'features/movie/features/discover_movie/data/datasources/disover_movie_remote_dart_source.dart';
 import 'features/movie/features/discover_movie/domain/repositories/discover_movie_repository.dart';
@@ -22,6 +26,7 @@ import 'features/tv_show/features/discover_tv_show/data/datasources/discover_tv_
 import 'features/tv_show/features/discover_tv_show/domain/repositories/discover_tv_show_repository.dart';
 import 'features/tv_show/features/discover_tv_show/data/repositories/discover_tv_show_repoitory_impl.dart';
 import 'features/movie/features/detail_movie/domain/usecases/get_detail_movie.dart';
+import 'features/tv_show/features/detail_tv_show/domain/usecases/get_detail_tv_show.dart';
 import 'features/movie/features/discover_movie/domain/usecases/get_discover_movie_data.dart';
 import 'features/tv_show/features/discover_tv_show/domain/usecases/get_discover_tv_show_data.dart';
 import 'core/module/injectable_module.dart';
@@ -50,17 +55,24 @@ GetIt $initGetIt(
       () => DetailMovieRemoteDataSourceImpl(get<Dio>()));
   gh.lazySingleton<DetailMovieRepository>(() => DetailMovieRepositoryImpl(
       get<DetailMovieRemoteDataSource>(), get<NetworkInfo>()));
+  gh.lazySingleton<DetailTvShowRemotelDataSource>(
+      () => DetailTvShowRemotelDataSourceImpl(get<Dio>()));
+  gh.lazySingleton<DetailTvShowRepository>(() => DetailTvShowRepositoryImpl(
+      get<DetailTvShowRemotelDataSource>(), get<NetworkInfo>()));
   gh.lazySingleton<DiscoverMovieRepository>(() => DiscoverMovieRepositoryImpl(
       get<DiscoverMovieRemoteDataSource>(), get<NetworkInfo>()));
   gh.lazySingleton<DiscoverTvShowRepository>(() => DiscoverTvShowRepositoryImpl(
       get<DiscoverTvShowRemoteDataSource>(), get<NetworkInfo>()));
   gh.lazySingleton<GetDetailMovie>(
       () => GetDetailMovie(get<DetailMovieRepository>()));
+  gh.lazySingleton<GetDetailTvShow>(
+      () => GetDetailTvShow(get<DetailTvShowRepository>()));
   gh.lazySingleton<GetDiscoverMovieData>(
       () => GetDiscoverMovieData(get<DiscoverMovieRepository>()));
   gh.lazySingleton<GetDiscoverTvShowData>(
       () => GetDiscoverTvShowData(get<DiscoverTvShowRepository>()));
   gh.factory<DetailMovieBloc>(() => DetailMovieBloc(get<GetDetailMovie>()));
+  gh.factory<DetailTvShowBloc>(() => DetailTvShowBloc(get<GetDetailTvShow>()));
   gh.factory<DiscoverMovieBloc>(
       () => DiscoverMovieBloc(get<GetDiscoverMovieData>()));
   gh.factory<DiscoverTvShowBloc>(

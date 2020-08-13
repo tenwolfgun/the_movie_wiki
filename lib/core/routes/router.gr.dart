@@ -14,6 +14,7 @@ import '../../features/movie/features/detail_movie/presentation/pages/more_revie
 import '../../features/movie/features/detail_movie/presentation/pages/more_similar_movie_page.dart';
 import '../../features/movie/features/detail_movie/presentation/pages/new_detail_movie_page.dart';
 import '../../features/movie/features/detail_movie/presentation/pages/test_detail_movie.dart';
+import '../../features/tv_show/features/detail_tv_show/presentation/pages/detail_tv_show_page.dart';
 import '../../home_page.dart';
 import '../entities/credits/cast.dart';
 import '../entities/results/movie_result.dart';
@@ -26,6 +27,7 @@ class Routes {
   static const String moreSimilarMoviePage = '/more-similar-movie-page';
   static const String moreCastPage = '/more-cast-page';
   static const String moreReviewPage = '/more-review-page';
+  static const String detailTvShowPage = '/detail-tv-show-page';
   static const all = <String>{
     homePage,
     newDetailMoviePage,
@@ -33,6 +35,7 @@ class Routes {
     moreSimilarMoviePage,
     moreCastPage,
     moreReviewPage,
+    detailTvShowPage,
   };
 }
 
@@ -46,6 +49,7 @@ class Router extends RouterBase {
     RouteDef(Routes.moreSimilarMoviePage, page: MoreSimilarMoviePage),
     RouteDef(Routes.moreCastPage, page: MoreCastPage),
     RouteDef(Routes.moreReviewPage, page: MoreReviewPage),
+    RouteDef(Routes.detailTvShowPage, page: DetailTvShowPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -107,7 +111,7 @@ class Router extends RouterBase {
           similar: args.similar,
         ),
         settings: data,
-        transitionsBuilder: TransitionsBuilders.fadeIn,
+        transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
         transitionDuration: const Duration(milliseconds: 400),
       );
     },
@@ -121,7 +125,7 @@ class Router extends RouterBase {
           cast: args.cast,
         ),
         settings: data,
-        transitionsBuilder: TransitionsBuilders.fadeIn,
+        transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
         transitionDuration: const Duration(milliseconds: 400),
       );
     },
@@ -133,6 +137,26 @@ class Router extends RouterBase {
         pageBuilder: (context, animation, secondaryAnimation) => MoreReviewPage(
           key: args.key,
           reviews: args.reviews,
+        ),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
+        transitionDuration: const Duration(milliseconds: 400),
+      );
+    },
+    DetailTvShowPage: (data) {
+      final args = data.getArgs<DetailTvShowPageArguments>(
+        orElse: () => DetailTvShowPageArguments(),
+      );
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            DetailTvShowPage(
+          key: args.key,
+          id: args.id,
+          posterPath: args.posterPath,
+          name: args.name,
+          rating: args.rating,
+          overview: args.overview,
+          firstAirDate: args.firstAirDate,
         ),
         settings: data,
         transitionsBuilder: TransitionsBuilders.fadeIn,
@@ -203,4 +227,23 @@ class MoreReviewPageArguments {
   final Key key;
   final List<ReviewResult> reviews;
   MoreReviewPageArguments({this.key, this.reviews});
+}
+
+/// DetailTvShowPage arguments holder class
+class DetailTvShowPageArguments {
+  final Key key;
+  final int id;
+  final String posterPath;
+  final String name;
+  final double rating;
+  final String overview;
+  final String firstAirDate;
+  DetailTvShowPageArguments(
+      {this.key,
+      this.id,
+      this.posterPath,
+      this.name,
+      this.rating,
+      this.overview,
+      this.firstAirDate});
 }

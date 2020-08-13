@@ -1,14 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:the_movie_wiki/core/widget/loading_state.dart';
-import 'package:the_movie_wiki/core/widget/retry_button.dart';
-import 'package:the_movie_wiki/features/tv_show/features/discover_tv_show/presentation/bloc/discover_tv_show_bloc.dart';
-import 'package:the_movie_wiki/features/tv_show/features/discover_tv_show/presentation/widgets/tv_show_item.dart';
+
+import '../../../../../../core/routes/router.gr.dart';
+import '../../../../../../core/widget/loading_state.dart';
+import '../../../../../../core/widget/retry_button.dart';
+import '../bloc/discover_tv_show_bloc.dart';
+import 'tv_show_item.dart';
 
 class TvShowLoadedState extends StatelessWidget {
-  final ScrollController scrollController;
-  final Loaded state;
-  final VoidCallback _onPressed;
-
   const TvShowLoadedState({
     Key key,
     this.scrollController,
@@ -16,6 +15,11 @@ class TvShowLoadedState extends StatelessWidget {
     VoidCallback onPressed,
   })  : _onPressed = onPressed,
         super(key: key);
+
+  final ScrollController scrollController;
+  final Loaded state;
+
+  final VoidCallback _onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +41,19 @@ class TvShowLoadedState extends StatelessWidget {
                       ? const LoadingState()
                       : const LoadingState()
               : InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    ExtendedNavigator.of(context).push(
+                      Routes.detailTvShowPage,
+                      arguments: DetailTvShowPageArguments(
+                        id: state.results[i].id,
+                        name: state.results[i].name,
+                        posterPath: state.results[i].posterPath,
+                        rating: state.results[i].voteAverage,
+                        overview: state.results[i].overview ?? '',
+                        firstAirDate: state.results[i].firstAirDate,
+                      ),
+                    );
+                  },
                   child: TVShowItem(
                     name: state.results[i].name,
                     overview: state.results[i].overview,

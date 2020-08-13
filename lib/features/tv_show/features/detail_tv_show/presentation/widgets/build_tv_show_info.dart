@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../../../core/extension/extension_helper.dart';
-import '../bloc/detail_movie_bloc.dart';
+import '../bloc/detail_tv_show_bloc.dart';
 
-class BuildInfo extends StatelessWidget {
-  final Loaded state;
-  final String releaseDate;
-  final NumberFormat _currency = NumberFormat.currency(
-    locale: 'en_US',
-    symbol: '\$',
-  );
-
-  BuildInfo({
+class BuildTvShowInfo extends StatelessWidget {
+  const BuildTvShowInfo({
     Key key,
     this.state,
-    this.releaseDate,
+    this.firstAirDate,
   }) : super(key: key);
+
+  final String firstAirDate;
+  final Loaded state;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +24,7 @@ class BuildInfo extends StatelessWidget {
           children: <Widget>[
             ListTile(
               title: Text(
-                'Original Title',
+                'Original Name',
                 style: TextStyle(
                   color: Colors.white,
                   height: 1.5,
@@ -38,7 +33,7 @@ class BuildInfo extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                state.detailMovie.originalTitle,
+                state.detailTvShow.originalName,
                 style: TextStyle(
                   fontSize: 40.sp,
                   height: 2,
@@ -60,7 +55,7 @@ class BuildInfo extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(
-                      state.detailMovie.status,
+                      state.detailTvShow.status,
                       style: TextStyle(
                         fontSize: 40.sp,
                         height: 2,
@@ -81,9 +76,9 @@ class BuildInfo extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(
-                      state.detailMovie.runtime == null
+                      state.detailTvShow.episodeRunTime.isEmpty
                           ? '-'
-                          : '${state.detailMovie.runtime.toInt().toString()} min',
+                          : '${state.detailTvShow.episodeRunTime.join(" min, ").toString()}',
                       style: TextStyle(
                         fontSize: 40.sp,
                         height: 2,
@@ -99,7 +94,7 @@ class BuildInfo extends StatelessWidget {
                 Expanded(
                   child: ListTile(
                     title: Text(
-                      'Release Date',
+                      'First Air Date',
                       style: TextStyle(
                         color: Colors.white,
                         height: 1.5,
@@ -108,7 +103,9 @@ class BuildInfo extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(
-                      releaseDate == null ? "-" : releaseDate.toDate(),
+                      firstAirDate == null || firstAirDate == ""
+                          ? "-"
+                          : firstAirDate.toDate(),
                       style: TextStyle(
                         fontSize: 40.sp,
                         height: 2,
@@ -120,7 +117,7 @@ class BuildInfo extends StatelessWidget {
                 Expanded(
                   child: ListTile(
                     title: Text(
-                      'Original Language',
+                      'Last Air Date',
                       style: TextStyle(
                         color: Colors.white,
                         height: 1.5,
@@ -129,7 +126,10 @@ class BuildInfo extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(
-                      state.detailMovie.originalLanguage,
+                      state.detailTvShow.lastAirDate == null ||
+                              firstAirDate == ""
+                          ? "-"
+                          : state.detailTvShow.lastAirDate.toDate(),
                       style: TextStyle(
                         fontSize: 40.sp,
                         height: 2,
@@ -145,7 +145,7 @@ class BuildInfo extends StatelessWidget {
                 Expanded(
                   child: ListTile(
                     title: Text(
-                      'Budget',
+                      'Number Of Episodes',
                       style: TextStyle(
                         color: Colors.white,
                         height: 1.5,
@@ -154,9 +154,9 @@ class BuildInfo extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(
-                      state.detailMovie.budget == null
+                      state.detailTvShow.inProduction == null
                           ? '-'
-                          : '${_currency.format(state.detailMovie.budget).toString()}',
+                          : '${state.detailTvShow.numberOfEpisodes.toString()}',
                       style: TextStyle(
                         fontSize: 40.sp,
                         height: 2,
@@ -168,7 +168,7 @@ class BuildInfo extends StatelessWidget {
                 Expanded(
                   child: ListTile(
                     title: Text(
-                      'Revenue',
+                      'Number Of Seasons',
                       style: TextStyle(
                         color: Colors.white,
                         height: 1.5,
@@ -177,9 +177,9 @@ class BuildInfo extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(
-                      state.detailMovie.revenue == null
+                      state.detailTvShow.seasons == null
                           ? '-'
-                          : '${_currency.format(state.detailMovie.revenue).toString()}',
+                          : '${state.detailTvShow.numberOfSeasons.toString()}',
                       style: TextStyle(
                         fontSize: 40.sp,
                         height: 2,
@@ -192,7 +192,7 @@ class BuildInfo extends StatelessWidget {
             ),
             ListTile(
               title: Text(
-                'Production Countries',
+                'Networks',
                 style: TextStyle(
                   color: Colors.white,
                   height: 1.5,
@@ -201,7 +201,7 @@ class BuildInfo extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                '${state.detailMovie.productionCountries.map((i) => i.name).join(', ')}',
+                '${state.detailTvShow.networks.map((i) => i.name).join(', ')}',
                 style: TextStyle(
                   fontSize: 40.sp,
                   height: 2,
@@ -220,7 +220,7 @@ class BuildInfo extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                '${state.detailMovie.productionCompanies.map((i) => i.name).join(', ')}',
+                '${state.detailTvShow.productionCompanies.map((i) => i.name).join(', ')}',
                 style: TextStyle(
                   fontSize: 40.sp,
                   height: 2,
@@ -239,7 +239,7 @@ class BuildInfo extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                '${state.detailMovie.genres.map((i) => i.name).join(', ')}',
+                '${state.detailTvShow.genres.map((i) => i.name).join(', ')}',
                 style: TextStyle(
                   fontSize: 40.sp,
                   height: 2,

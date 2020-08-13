@@ -3,10 +3,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../core/entities/credits/cast.dart';
-import '../../../../../../core/routes/router.gr.dart';
-import '../../../../../../core/widget/error_image.dart';
-import '../../../../../../core/widget/image_loader.dart';
+import '../entities/credits/cast.dart';
+import '../routes/router.gr.dart';
+import 'error_image.dart';
+import 'image_loader.dart';
 
 class BuildCast extends StatelessWidget {
   final List<Cast> cast;
