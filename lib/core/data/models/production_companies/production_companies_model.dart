@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../entities/production_companies/production_companies.dart';
+import '../../../domain/entities/production_companies/production_companies.dart';
 
 part 'production_companies_model.freezed.dart';
 part 'production_companies_model.g.dart';
