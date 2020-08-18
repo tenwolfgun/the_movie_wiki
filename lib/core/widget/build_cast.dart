@@ -104,7 +104,7 @@ class BuildCast extends StatelessWidget {
                                 ),
                               ),
                               Positioned(
-                                top: 125,
+                                top: 140,
                                 // left: 10,
                                 right: 0,
                                 left: 0,
@@ -117,7 +117,7 @@ class BuildCast extends StatelessWidget {
                                     child: Text(
                                       cast[i].name,
                                       style: TextStyle(
-                                        color: Colors.white54,
+                                        color: Colors.white,
                                         fontSize: 40.sp,
                                         height: 1.5,
                                       ),

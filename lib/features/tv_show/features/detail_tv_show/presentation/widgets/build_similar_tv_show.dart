@@ -2,16 +2,19 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:the_movie_wiki/core/entities/results/movie_result.dart';
-import 'package:the_movie_wiki/core/routes/router.gr.dart';
 
+import '../../../../../../core/entities/results/tv_show_result.dart';
+import '../../../../../../core/routes/router.gr.dart';
 import '../../../../../../core/widget/error_image.dart';
 import '../../../../../../core/widget/image_loader.dart';
 
-class BuildSimilar extends StatelessWidget {
-  final List<MovieResult> similar;
+class BuildSimilarTvShow extends StatelessWidget {
+  const BuildSimilarTvShow({
+    Key key,
+    this.similar,
+  }) : super(key: key);
 
-  const BuildSimilar({Key key, this.similar}) : super(key: key);
+  final List<TvShowResult> similar;
 
   @override
   Widget build(BuildContext context) {
@@ -48,12 +51,12 @@ class BuildSimilar extends StatelessWidget {
                       ? Expanded(
                           child: InkWell(
                             onTap: () {
-                              ExtendedNavigator.of(context).push(
-                                Routes.moreSimilarMoviePage,
-                                arguments: MoreSimilarMoviePageArguments(
-                                  similar: similar,
-                                ),
-                              );
+                              // ExtendedNavigator.of(context).push(
+                              //   Routes.moreSimilarMoviePage,
+                              //   arguments: MoreSimilarMoviePageArguments(
+                              //     similar: similar,
+                              //   ),
+                              // );
                             },
                             child: Text(
                               'See all',
@@ -92,14 +95,14 @@ class BuildSimilar extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             ExtendedNavigator.of(context).push(
-                              Routes.testDetailMovie,
-                              arguments: TestDetailMovieArguments(
+                              Routes.detailTvShowPage,
+                              arguments: DetailTvShowPageArguments(
                                 id: similar[i].id,
-                                title: similar[i].title,
+                                name: similar[i].name,
                                 posterPath: similar[i].posterPath,
                                 rating: similar[i].voteAverage,
                                 overview: similar[i].overview ?? '',
-                                releaseDate: similar[i].releaseDate,
+                                firstAirDate: similar[i].firstAirDate,
                               ),
                             );
                           },

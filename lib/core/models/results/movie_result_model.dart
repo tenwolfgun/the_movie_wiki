@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:the_movie_wiki/core/entities/results/movie_result.dart';
+
+import '../../entities/results/movie_result.dart';
 
 part 'movie_result_model.freezed.dart';
 part 'movie_result_model.g.dart';

@@ -16,8 +16,8 @@ abstract class CreditsModel with _$CreditsModel {
 }
 
 extension CreditsModelX on CreditsModel {
-  Credits toCredits() {
-    return Credits(cast: cast.map((e) => e.toCast()).toList());
+  Credits toDomain() {
+    return Credits(cast: cast.map((e) => e.toDomain()).toList());
   }
 }
 
@@ -35,7 +35,7 @@ abstract class CastModel with _$CastModel {
 }
 
 extension CastModelX on CastModel {
-  Cast toCast() {
+  Cast toDomain() {
     return Cast(
       id: id,
       character: character,

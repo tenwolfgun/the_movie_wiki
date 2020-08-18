@@ -74,7 +74,8 @@ extension DetailTvShowModelX on DetailTvShowModel {
   DetailTvShow toDomain() => DetailTvShow(
         episodeRunTime: episodeRunTime,
         firstAirDate: firstAirDate,
-        genres: genres.map((e) => e.toGenre()).toList(),
+        genres:
+            genres != null ? genres.map((e) => e.toDomain()).toList() : null,
         homePage: homePage,
         inProduction: inProduction,
         languages: languages,
@@ -83,22 +84,26 @@ extension DetailTvShowModelX on DetailTvShowModel {
             lastEpisodeToAir != null ? lastEpisodeToAir.toDomain() : null,
         nextEpisodeToAir:
             nextEpisodeToAir != null ? nextEpisodeToAir.toDomain() : null,
-        networks: networks.map((e) => e.toDomain()).toList(),
+        networks: networks != null
+            ? networks.map((e) => e.toDomain()).toList()
+            : null,
         numberOfEpisodes: numberOfEpisodes,
         numberOfSeasons: numberOfSeasons,
         originCountry: originCountry,
         originalLanguage: originalLanguage,
         originalName: originalName,
-        productionCompanies:
-            productionCompanies.map((e) => e.toProductionCompanies()).toList(),
-        seasons: seasons.map((e) => e.toDomain()).toList(),
+        productionCompanies: productionCompanies != null
+            ? productionCompanies.map((e) => e.toDomain()).toList()
+            : null,
+        seasons:
+            seasons != null ? seasons.map((e) => e.toDomain()).toList() : null,
         status: status,
         type: type,
-        videos: videos.toVideos(),
-        images: images.toImages(),
-        similar: similar.toDomain(),
-        credits: credits.toCredits(),
-        reviews: reviews.toReviews(),
+        videos: videos != null ? videos.toDomain() : null,
+        images: images != null ? images.toDomain() : null,
+        similar: similar != null ? similar.toDomain() : null,
+        credits: credits != null ? credits.toDomain() : null,
+        reviews: reviews != null ? reviews.toDomain() : null,
       );
 }
 

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:the_movie_wiki/core/widget/build_review.dart';
 
+import '../../../../../../core/widget/build_cast.dart';
 import '../../../../../../core/widget/build_overview.dart';
+import '../../../../../../core/widget/build_trailer.dart';
 import '../bloc/detail_movie_bloc.dart';
 import '../pages/test_detail_movie.dart';
-import 'build_cast.dart';
 import 'build_info.dart';
-import 'build_review.dart';
-import 'build_similar.dart';
-import 'build_trailer.dart';
+import 'build_similar_movie.dart';
 
 class DetailMovieBodyWidget extends StatelessWidget {
   const DetailMovieBodyWidget({
@@ -41,7 +41,7 @@ class DetailMovieBodyWidget extends StatelessWidget {
         BuildTrailer(
           videos: state.detailMovie.videos.results,
         ),
-        BuildSimilar(
+        BuildSimilarMovie(
           similar: state.detailMovie.similar.results,
         )
       ],

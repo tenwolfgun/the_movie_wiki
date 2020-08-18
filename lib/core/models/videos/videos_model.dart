@@ -17,8 +17,11 @@ abstract class VideosModel with _$VideosModel {
 }
 
 extension VideosModelX on VideosModel {
-  Videos toVideos() {
-    return Videos(results: results.map((e) => e.toVideoResult()).toList());
+  Videos toDomain() {
+    return Videos(
+      results:
+          results != null ? results.map((e) => e.toDomain()).toList() : null,
+    );
   }
 }
 
@@ -38,7 +41,7 @@ abstract class VideoResultModel with _$VideoResultModel {
 }
 
 extension VideoResultModelX on VideoResultModel {
-  VideoResult toVideoResult() {
+  VideoResult toDomain() {
     return VideoResult(
       id: id,
       key: key,

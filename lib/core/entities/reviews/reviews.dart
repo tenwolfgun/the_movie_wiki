@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:the_movie_wiki/core/entities/reviews/review_result.dart';
+
+import 'review_result.dart';
 
 part 'reviews.freezed.dart';
 

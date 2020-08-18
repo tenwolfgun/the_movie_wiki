@@ -16,7 +16,7 @@ abstract class GenreModel with _$GenreModel {
 }
 
 extension GenreModelX on GenreModel {
-  Genre toGenre() {
+  Genre toDomain() {
     return Genre(
       id: id,
       name: name,

@@ -19,7 +19,7 @@ abstract class ProductionCompaniesModel with _$ProductionCompaniesModel {
 }
 
 extension ProductionCompaniesModelX on ProductionCompaniesModel {
-  ProductionCompanies toProductionCompanies() {
+  ProductionCompanies toDomain() {
     return ProductionCompanies(
       id: id,
       logoPath: logoPath,

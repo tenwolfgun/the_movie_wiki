@@ -54,25 +54,26 @@ extension DetailMovieModelX on DetailMovieModel {
   DetailMovie toDetailMovie() {
     return DetailMovie(
       budget: budget,
-      genres: genres.map((e) => e.toGenre()).toList(),
+      genres: genres != null ? genres.map((e) => e.toDomain()).toList() : null,
       homepage: homepage,
       imdbId: imdbId,
       originalLanguage: originalLanguage,
       originalTitle: originalTitle,
       popularity: popularity,
-      productionCompanies:
-          productionCompanies.map((e) => e.toProductionCompanies()).toList(),
+      productionCompanies: productionCompanies != null
+          ? productionCompanies.map((e) => e.toDomain()).toList()
+          : null,
       productionCountries:
-          productionCountries.map((e) => e.toProductionCountries()).toList(),
+          productionCountries.map((e) => e.toDomain()).toList(),
       revenue: revenue,
       runtime: runtime,
       status: status,
       tagline: tagline,
-      videos: videos.toVideos(),
-      similar: similar.toSimilarMovies(),
-      credits: credits.toCredits(),
-      images: images.toImages(),
-      reviews: reviews.toReviews(),
+      videos: videos != null ? videos.toDomain() : null,
+      similar: similar != null ? similar.toDomain() : null,
+      credits: credits != null ? credits.toDomain() : null,
+      images: images != null ? images.toDomain() : null,
+      reviews: reviews != null ? reviews.toDomain() : null,
     );
   }
 }
@@ -89,7 +90,7 @@ abstract class ProductionCountriesModel with _$ProductionCountriesModel {
 }
 
 extension ProductionCountriesModelX on ProductionCountriesModel {
-  ProductionCountries toProductionCountries() {
+  ProductionCountries toDomain() {
     return ProductionCountries(
       isoCountry: isoCountry,
       name: name,
@@ -108,7 +109,9 @@ abstract class SimilarMoviesModel with _$SimilarMoviesModel {
 }
 
 extension SimilarMoviesModelX on SimilarMoviesModel {
-  SimilarMovies toSimilarMovies() {
-    return SimilarMovies(results: results.map((e) => e.toDomain()).toList());
+  SimilarMovies toDomain() {
+    return SimilarMovies(
+        results:
+            results != null ? results.map((e) => e.toDomain()).toList() : null);
   }
 }

@@ -76,9 +76,9 @@ class BuildTrailer extends StatelessWidget {
                                   },
                                   child: Center(
                                     child: Icon(
-                                      Icons.play_circle_filled,
-                                      color: Colors.white70,
-                                      size: 50.sp,
+                                      Icons.play_circle_outline,
+                                      color: const Color(0XFFEB4B1F),
+                                      size: 100.sp,
                                     ),
                                   ),
                                 ),

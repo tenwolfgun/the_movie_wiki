@@ -19,10 +19,10 @@ abstract class ImagesModel with _$ImagesModel {
 }
 
 extension ImagesModelX on ImagesModel {
-  Images toImages() {
+  Images toDomain() {
     return Images(
-      backdrops: backdrops.map((e) => e.toBackdrops()).toList(),
-      posters: posters.map((e) => e.toPosters()).toList(),
+      backdrops: backdrops.map((e) => e.toDomain()).toList(),
+      posters: posters.map((e) => e.toDomain()).toList(),
     );
   }
 }
@@ -40,7 +40,7 @@ abstract class BackdropsModel with _$BackdropsModel {
 }
 
 extension BackdropsModelX on BackdropsModel {
-  Backdrops toBackdrops() {
+  Backdrops toDomain() {
     return Backdrops(
       filePath: filePath,
       height: height,
@@ -62,7 +62,7 @@ abstract class PostersModel with _$PostersModel {
 }
 
 extension PostersModelX on PostersModel {
-  Posters toPosters() {
+  Posters toDomain() {
     return Posters(
       filePath: filePath,
       height: height,

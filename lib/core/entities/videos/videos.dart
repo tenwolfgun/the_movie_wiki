@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:the_movie_wiki/core/entities/videos/video_result.dart';
+
+import 'video_result.dart';
 
 part 'videos.freezed.dart';
 

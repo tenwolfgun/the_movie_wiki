@@ -17,8 +17,11 @@ abstract class ReviewsModel with _$ReviewsModel {
 }
 
 extension ReviewsModelX on ReviewsModel {
-  Reviews toReviews() {
-    return Reviews(results: results.map((e) => e.toReviewResult()).toList());
+  Reviews toDomain() {
+    return Reviews(
+      results:
+          results != null ? results.map((e) => e.toDomain()).toList() : null,
+    );
   }
 }
 
@@ -35,7 +38,7 @@ abstract class ReviewResultModel with _$ReviewResultModel {
 }
 
 extension ReviewResultModelX on ReviewResultModel {
-  ReviewResult toReviewResult() {
+  ReviewResult toDomain() {
     return ReviewResult(
       author: author,
       content: content,

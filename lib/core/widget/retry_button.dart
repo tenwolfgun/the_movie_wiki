@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class RetryButton extends StatelessWidget {
-  final VoidCallback _onPressed;
-
-  const RetryButton({Key key, VoidCallback onPressed})
-      : _onPressed = onPressed,
+  const RetryButton({
+    Key key,
+    VoidCallback onPressed,
+  })  : _onPressed = onPressed,
         super(key: key);
+
+  final VoidCallback _onPressed;
 
   @override
   Widget build(BuildContext context) {
