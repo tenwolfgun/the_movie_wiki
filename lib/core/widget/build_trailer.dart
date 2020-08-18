@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../entities/videos/video_result.dart';
+import '../domain/entities/videos/video_result.dart';
 import 'error_image.dart';
 import 'image_loader.dart';
 

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:the_movie_wiki/core/entities/credits/cast.dart';
-import 'package:the_movie_wiki/core/entities/credits/credits.dart';
+
+import '../../../domain/entities/credits/cast.dart';
+import '../../../domain/entities/credits/credits.dart';
 
 part 'credits_model.freezed.dart';
 part 'credits_model.g.dart';

@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../entities/images/backdrops.dart';
-import '../../entities/images/images.dart';
-import '../../entities/images/posters.dart';
+import '../../../domain/entities/images/backdrops.dart';
+import '../../../domain/entities/images/images.dart';
+import '../../../domain/entities/images/posters.dart';
 
 part 'images_model.freezed.dart';
 part 'images_model.g.dart';

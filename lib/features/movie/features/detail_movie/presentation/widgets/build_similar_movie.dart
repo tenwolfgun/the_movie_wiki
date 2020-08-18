@@ -2,16 +2,19 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:the_movie_wiki/core/entities/results/movie_result.dart';
-import 'package:the_movie_wiki/core/routes/router.gr.dart';
 
+import '../../../../../../core/domain/entities/results/movie_result.dart';
+import '../../../../../../core/routes/router.gr.dart';
 import '../../../../../../core/widget/error_image.dart';
 import '../../../../../../core/widget/image_loader.dart';
 
 class BuildSimilarMovie extends StatelessWidget {
-  final List<MovieResult> similar;
+  const BuildSimilarMovie({
+    Key key,
+    this.similar,
+  }) : super(key: key);
 
-  const BuildSimilarMovie({Key key, this.similar}) : super(key: key);
+  final List<MovieResult> similar;
 
   @override
   Widget build(BuildContext context) {

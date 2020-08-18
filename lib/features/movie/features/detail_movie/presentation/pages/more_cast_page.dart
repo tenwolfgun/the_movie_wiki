@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:the_movie_wiki/core/entities/credits/cast.dart';
-import 'package:the_movie_wiki/core/widget/cast_item.dart';
+
+import '../../../../../../core/domain/entities/credits/cast.dart';
+import '../../../../../../core/widget/cast_item.dart';
 
 class MoreCastPage extends StatelessWidget {
-  final List<Cast> cast;
+  const MoreCastPage({
+    Key key,
+    this.cast,
+  }) : super(key: key);
 
-  const MoreCastPage({Key key, this.cast}) : super(key: key);
+  final List<Cast> cast;
 
   @override
   Widget build(BuildContext context) {

@@ -1,15 +1,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:the_movie_wiki/core/entities/credits/credits.dart';
-import 'package:the_movie_wiki/core/entities/genre/genre.dart';
-import 'package:the_movie_wiki/core/entities/images/images.dart';
-import 'package:the_movie_wiki/core/entities/production_companies/production_companies.dart';
-import 'package:the_movie_wiki/core/entities/reviews/reviews.dart';
-import 'package:the_movie_wiki/core/entities/videos/videos.dart';
-import 'package:the_movie_wiki/features/tv_show/features/detail_tv_show/domain/entities/seasons.dart';
-import 'package:the_movie_wiki/features/tv_show/features/detail_tv_show/domain/entities/similar_tv_show.dart';
 
+import '../../../../../../core/domain/entities/credits/credits.dart';
+import '../../../../../../core/domain/entities/genre/genre.dart';
+import '../../../../../../core/domain/entities/images/images.dart';
+import '../../../../../../core/domain/entities/production_companies/production_companies.dart';
+import '../../../../../../core/domain/entities/reviews/reviews.dart';
+import '../../../../../../core/domain/entities/videos/videos.dart';
 import 'episode_to_air.dart';
 import 'networks.dart';
+import 'seasons.dart';
+import 'similar_tv_show.dart';
 
 part 'detail_tv_show.freezed.dart';
 

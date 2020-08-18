@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:the_movie_wiki/core/data/models/results/tv_show_result_model.dart';
 
-import '../../../../../../core/models/credits/credits_model.dart';
-import '../../../../../../core/models/genres/genre_model.dart';
-import '../../../../../../core/models/images/images_model.dart';
-import '../../../../../../core/models/production_companies/production_companies_model.dart';
-import '../../../../../../core/models/results/tv_show_result_model.dart';
-import '../../../../../../core/models/reviews/reviews_model.dart';
-import '../../../../../../core/models/videos/videos_model.dart';
+import '../../../../../../core/data/models/credits/credits_model.dart';
+import '../../../../../../core/data/models/genres/genre_model.dart';
+import '../../../../../../core/data/models/images/images_model.dart';
+import '../../../../../../core/data/models/production_companies/production_companies_model.dart';
+import '../../../../../../core/data/models/reviews/reviews_model.dart';
+import '../../../../../../core/data/models/videos/videos_model.dart';
 import '../../domain/entities/detail_tv_show.dart';
 import '../../domain/entities/episode_to_air.dart';
 import '../../domain/entities/networks.dart';

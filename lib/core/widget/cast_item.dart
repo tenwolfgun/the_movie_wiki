@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../entities/credits/cast.dart';
+import '../domain/entities/credits/cast.dart';
 import 'error_image.dart';
 import 'image_loader.dart';
 

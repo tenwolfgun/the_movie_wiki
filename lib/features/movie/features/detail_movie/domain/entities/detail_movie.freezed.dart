@@ -123,11 +123,7 @@ abstract class $DetailMovieCopyWith<$Res> {
       @nullable Images images,
       @nullable Reviews reviews});
 
-  $VideosCopyWith<$Res> get videos;
   $SimilarMoviesCopyWith<$Res> get similar;
-  $CreditsCopyWith<$Res> get credits;
-  $ImagesCopyWith<$Res> get images;
-  $ReviewsCopyWith<$Res> get reviews;
 }
 
 class _$DetailMovieCopyWithImpl<$Res> implements $DetailMovieCopyWith<$Res> {
@@ -190,52 +186,12 @@ class _$DetailMovieCopyWithImpl<$Res> implements $DetailMovieCopyWith<$Res> {
   }
 
   @override
-  $VideosCopyWith<$Res> get videos {
-    if (_value.videos == null) {
-      return null;
-    }
-    return $VideosCopyWith<$Res>(_value.videos, (value) {
-      return _then(_value.copyWith(videos: value));
-    });
-  }
-
-  @override
   $SimilarMoviesCopyWith<$Res> get similar {
     if (_value.similar == null) {
       return null;
     }
     return $SimilarMoviesCopyWith<$Res>(_value.similar, (value) {
       return _then(_value.copyWith(similar: value));
-    });
-  }
-
-  @override
-  $CreditsCopyWith<$Res> get credits {
-    if (_value.credits == null) {
-      return null;
-    }
-    return $CreditsCopyWith<$Res>(_value.credits, (value) {
-      return _then(_value.copyWith(credits: value));
-    });
-  }
-
-  @override
-  $ImagesCopyWith<$Res> get images {
-    if (_value.images == null) {
-      return null;
-    }
-    return $ImagesCopyWith<$Res>(_value.images, (value) {
-      return _then(_value.copyWith(images: value));
-    });
-  }
-
-  @override
-  $ReviewsCopyWith<$Res> get reviews {
-    if (_value.reviews == null) {
-      return null;
-    }
-    return $ReviewsCopyWith<$Res>(_value.reviews, (value) {
-      return _then(_value.copyWith(reviews: value));
     });
   }
 }
@@ -267,15 +223,7 @@ abstract class _$DetailMovieCopyWith<$Res>
       @nullable Reviews reviews});
 
   @override
-  $VideosCopyWith<$Res> get videos;
-  @override
   $SimilarMoviesCopyWith<$Res> get similar;
-  @override
-  $CreditsCopyWith<$Res> get credits;
-  @override
-  $ImagesCopyWith<$Res> get images;
-  @override
-  $ReviewsCopyWith<$Res> get reviews;
 }
 
 class __$DetailMovieCopyWithImpl<$Res> extends _$DetailMovieCopyWithImpl<$Res>

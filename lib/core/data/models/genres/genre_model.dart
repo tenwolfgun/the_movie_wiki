@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:the_movie_wiki/core/entities/genre/genre.dart';
+
+import '../../../domain/entities/genre/genre.dart';
 
 part 'genre_model.freezed.dart';
 part 'genre_model.g.dart';

@@ -3,15 +3,18 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../entities/credits/cast.dart';
+import '../domain/entities/credits/cast.dart';
 import '../routes/router.gr.dart';
 import 'error_image.dart';
 import 'image_loader.dart';
 
 class BuildCast extends StatelessWidget {
-  final List<Cast> cast;
+  const BuildCast({
+    Key key,
+    this.cast,
+  }) : super(key: key);
 
-  const BuildCast({Key key, this.cast}) : super(key: key);
+  final List<Cast> cast;
 
   @override
   Widget build(BuildContext context) {

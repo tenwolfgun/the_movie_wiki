@@ -3,7 +3,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../entities/reviews/review_result.dart';
+import '../domain/entities/reviews/review_result.dart';
 import '../routes/router.gr.dart';
 
 class BuildReview extends StatelessWidget {

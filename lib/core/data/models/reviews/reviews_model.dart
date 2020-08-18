@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../entities/reviews/review_result.dart';
-import '../../entities/reviews/reviews.dart';
+import '../../../domain/entities/reviews/review_result.dart';
+import '../../../domain/entities/reviews/reviews.dart';
 
 part 'reviews_model.freezed.dart';
 part 'reviews_model.g.dart';

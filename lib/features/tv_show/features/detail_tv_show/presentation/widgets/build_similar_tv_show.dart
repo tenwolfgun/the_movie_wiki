@@ -3,7 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../core/entities/results/tv_show_result.dart';
+import '../../../../../../core/domain/entities/results/tv_show_result.dart';
 import '../../../../../../core/routes/router.gr.dart';
 import '../../../../../../core/widget/error_image.dart';
 import '../../../../../../core/widget/image_loader.dart';

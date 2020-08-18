@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../../../core/models/credits/credits_model.dart';
-import '../../../../../../core/models/genres/genre_model.dart';
-import '../../../../../../core/models/images/images_model.dart';
-import '../../../../../../core/models/production_companies/production_companies_model.dart';
-import '../../../../../../core/models/results/movie_result_model.dart';
-import '../../../../../../core/models/reviews/reviews_model.dart';
-import '../../../../../../core/models/videos/videos_model.dart';
+import '../../../../../../core/data/models/credits/credits_model.dart';
+import '../../../../../../core/data/models/genres/genre_model.dart';
+import '../../../../../../core/data/models/images/images_model.dart';
+import '../../../../../../core/data/models/production_companies/production_companies_model.dart';
+import '../../../../../../core/data/models/results/movie_result_model.dart';
+import '../../../../../../core/data/models/reviews/reviews_model.dart';
+import '../../../../../../core/data/models/videos/videos_model.dart';
 import '../../domain/entities/detail_movie.dart';
 import '../../domain/entities/production_countries.dart';
 import '../../domain/entities/similar_movies.dart';

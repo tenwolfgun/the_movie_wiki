@@ -16,9 +16,9 @@ import '../../features/movie/features/detail_movie/presentation/pages/new_detail
 import '../../features/movie/features/detail_movie/presentation/pages/test_detail_movie.dart';
 import '../../features/tv_show/features/detail_tv_show/presentation/pages/detail_tv_show_page.dart';
 import '../../home_page.dart';
-import '../entities/credits/cast.dart';
-import '../entities/results/movie_result.dart';
-import '../entities/reviews/review_result.dart';
+import '../domain/entities/credits/cast.dart';
+import '../domain/entities/results/movie_result.dart';
+import '../domain/entities/reviews/review_result.dart';
 
 class Routes {
   static const String homePage = '/';

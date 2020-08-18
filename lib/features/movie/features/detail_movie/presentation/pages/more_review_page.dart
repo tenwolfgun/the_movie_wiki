@@ -1,12 +1,16 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:the_movie_wiki/core/entities/reviews/review_result.dart';
+
+import '../../../../../../core/domain/entities/reviews/review_result.dart';
 
 class MoreReviewPage extends StatelessWidget {
-  final List<ReviewResult> reviews;
+  const MoreReviewPage({
+    Key key,
+    this.reviews,
+  }) : super(key: key);
 
-  const MoreReviewPage({Key key, this.reviews}) : super(key: key);
+  final List<ReviewResult> reviews;
 
   @override
   Widget build(BuildContext context) {

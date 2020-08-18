@@ -1,14 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:the_movie_wiki/core/entities/results/movie_result.dart';
-import 'package:the_movie_wiki/core/routes/router.gr.dart';
 
+import '../../../../../../core/domain/entities/results/movie_result.dart';
+import '../../../../../../core/routes/router.gr.dart';
 import '../../../discover_movie/presentation/widgets/movie_item.dart';
 
 class MoreSimilarMoviePage extends StatelessWidget {
-  final List<MovieResult> similar;
+  const MoreSimilarMoviePage({
+    Key key,
+    this.similar,
+  }) : super(key: key);
 
-  const MoreSimilarMoviePage({Key key, this.similar}) : super(key: key);
+  final List<MovieResult> similar;
 
   @override
   Widget build(BuildContext context) {
